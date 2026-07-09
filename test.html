@@ -4,15 +4,18 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Course Home Page</title>
+<title>AI Technologies</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
 <style>
 
-/* ====================================
-   GLOBAL STYLES
-==================================== */
+:root{
+    --primary:#003366;
+    --secondary:#D6A800;
+    --light:#f5f7fa;
+    --text:#444;
+}
 
 *{
     margin:0;
@@ -22,396 +25,363 @@
 
 body{
     font-family:'Roboto',sans-serif;
-    background:#f4f6f9;
-    color:#333;
-    line-height:1.6;
+    background:#eef2f6;
+    padding:60px;
 }
 
+/* CARD */
 
-/* ====================================
-   WELCOME SECTION
-==================================== */
-
-.welcome{
+.experience-module{
     max-width:1200px;
-    margin:40px auto;
+    margin:auto;
     background:white;
-    padding:30px;
-    border-radius:12px;
-    box-shadow:0 4px 12px rgba(0,0,0,.08);
+    border-radius:20px;
+    box-shadow:0 18px 40px rgba(0,0,0,.12);
+    overflow:hidden;
 }
 
-.welcome h2{
-    color:#4f3674;
-    margin-bottom:15px;
-}
+/* HEADER */
 
-/* =====================
-   HEADER
-===================== */
-
-header{
+.header{
     display:flex;
-    justify-content:space-between;
     align-items:center;
-    padding:20px 8%;
-    background:#fff;
-    box-shadow:0 2px 15px rgba(0,0,0,.05);
-    position:sticky;
-    top:0;
-    z-index:1000;
-}
-
-.logo img{
-    height:200px;
-    width:auto;
-    display:block;
-}
-
-nav{
-    display:flex;
     gap:30px;
-}
-
-nav a{
-    text-decoration:none;
-    color:#444;
-    font-weight:500;
-    transition:.3s;
-}
-
-nav a:hover{
-    color:#0F4C81;
-}
-
-/* =====================
-   HERO BANNER
-===================== */
-
-.hero{
-    height:300px;
-
-    background:
-    linear-gradient(
-        rgba(79,54,116,.75),
-        rgba(15,76,129,.75)
-    ),
-    url('images/course-banner.jpg');
-
-    background-size:cover;
-    background-position:center;
-}
-
-/* =====================
-   WELCOME SECTION
-===================== */
-
-.welcome{
-    max-width:1200px;
-    margin:40px auto;
-    background:white;
     padding:40px;
-    border-radius:12px;
-    box-shadow:0 4px 12px rgba(0,0,0,.08);
-}
-
-.welcome h1{
-    color:#000080;
-    margin-bottom:20px;
-    font-size:2.2rem;
-}
-
-.welcome p{
-    font-size:1.05rem;
-    color:#555;
-}
-   
-/* ====================================
-   TILE GRID
-==================================== */
-
-.tile-grid{
-    max-width:1200px;
-    margin:40px auto;
-    padding:0 20px;
-
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-    gap:25px;
-}
-
-.tile{
-    background:white;
-    border-radius:12px;
-    text-decoration:none;
-    color:inherit;
-
-    padding:25px;
-
-    box-shadow:0 4px 12px rgba(0,0,0,.08);
-
-    transition:.3s ease;
-}
-
-.tile:hover,
-.tile:focus{
-    transform:translateY(-5px);
-    box-shadow:0 10px 20px rgba(0,0,0,.15);
-}
-
-.tile-icon {
-    font-size: 42px;
-    margin-bottom: 15px;
-    color: #0F4C81;
-}
-
-
-.tile h3{
-    color:#4f3674;
-    margin-bottom:10px;
-}
-
-.tile p{
-    font-size:.95rem;
-}
-
-/* ====================================
-   COLOR ACCENTS
-==================================== */
-
-.modules{
-    border-top:6px solid #4f3674;
-}
-
-.syllabus{
-    border-top:6px solid #D6A800;
-}
-
-.announcements{
-    border-top:6px solid #2E8B57;
-}
-
-.grades{
-    border-top:6px solid #1E88E5;
-}
-
-.support{
-    border-top:6px solid #F57C00;
-}
-
-.contact{
-    border-top:6px solid #C62828;
-}
-
-.resources{
-    border-top:6px solid #00838F;
-}
-
-.accessibility{
-    border-top:6px solid #6A1B9A;
-}
-
-/* ====================================
-   FOOTER
-==================================== */
-
-footer{
-    text-align:center;
-    padding:30px;
-    margin-top:40px;
-    background:#2795F5;
+    background:linear-gradient(135deg,var(--primary),#004b87);
     color:white;
 }
 
-footer p{
-    margin:5px 0;
+.icon{
+    font-size:50px;
+    width:80px;
+    height:80px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:rgba(255,255,255,.15);
+    border-radius:50%;
 }
 
-/* ====================================
-   MOBILE
-==================================== */
+/* TABS */
 
-@media(max-width:768px){
+.tabs{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:15px;
+    padding:25px;
+    background:#fff;
+}
 
-    header{
-        flex-direction:column;
-        text-align:center;
-    }
+.tab{
+    border:none;
+    padding:12px 22px;
+    border-radius:40px;
+    cursor:pointer;
+    background:#e9ecef;
+    font-weight:600;
+    transition:.3s;
+}
 
-    nav{
-        flex-wrap:wrap;
-        justify-content:center;
-        margin-top:20px;
-    }
+.tab:hover{
+    background:var(--secondary);
+    transform:translateY(-2px);
+}
 
-    .logo img{
-        height:90px;
-    }
+.tab.active{
+    background:var(--primary);
+    color:white;
+}
 
-    .hero{
-        height:200px;
-    }
+/* CONTENT */
 
-    .welcome{
-        margin:20px;
-        padding:25px;
-    }
+.content{
+    padding:45px;
+}
 
-    .welcome h1{
-        font-size:1.8rem;
-    }
+.panel{
+    display:none;
+    animation:fade .4s ease;
+}
 
+.panel.active{
+    display:block;
+}
+
+h3{
+    color:var(--primary);
+    margin-bottom:18px;
+}
+
+.institution{
+    margin-bottom:30px;
+    padding:25px;
+    background:#f8f9fb;
+    border-radius:14px;
+    border-left:5px solid var(--secondary);
+}
+
+.course{
+    margin-top:15px;
+    padding:20px;
+    background:white;
+    border-radius:12px;
+    box-shadow:0 4px 14px rgba(0,0,0,.06);
+}
+
+.course h4{
+    margin-bottom:5px;
+    color:#222;
+}
+
+.course small{
+    color:#666;
+    display:block;
+    margin-bottom:10px;
+}
+
+ul{
+    margin-left:20px;
+    line-height:1.8;
+    color:var(--text);
+}
+
+.stats{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:20px;
+}
+
+.stat{
+    background:var(--light);
+    padding:30px;
+    border-radius:16px;
+    text-align:center;
+}
+
+.stat h2{
+    font-size:42px;
+    color:var(--primary);
+}
+
+@keyframes fade{
+    from{opacity:0;transform:translateY(15px);}
+    to{opacity:1;transform:translateY(0);}
 }
 
 </style>
 </head>
 
 <body>
-<!-- =====================
-     HEADER
-===================== -->
 
-<header>
+<section class="experience-module">
 
-    <div class="logo">
-    <img src="Images/Corporate Logo.png"
-         alt="Jeremy L. Haecker Logo">
+<!-- HEADER -->
+
+<div class="header">
+
+<div class="icon">🤖</div>
+
+<div>
+<h1>Artificial Intelligence Technologies</h1>
+<h2>AI-Enhanced Instructional Design</h2>
+<p>Leveraging AI to improve learning design, development, and productivity</p>
 </div>
 
-    <nav>
-        <a href="index.html">Home</a>
-       <a href="about.html">About</a>
-       
-        <a href="designhub.html">Design Hub</a>
-        <a href="contact.html">Contact</a>
-    </nav>
+</div>
 
-</header>
+<!-- TABS -->
 
+<div class="tabs">
 
+<button class="tab active" data-tab="overview">Overview</button>
+<button class="tab" data-tab="chatgpt">ChatGPT</button>
+<button class="tab" data-tab="claude">Claude</button>
+<button class="tab" data-tab="copilot">Microsoft Copilot</button>
+<button class="tab" data-tab="impact">Impact</button>
 
+</div>
 
- <!-- =====================
-     WELCOME
-===================== -->
+<!-- CONTENT -->
 
-<section class="welcome">
+<div class="content">
 
-    <h1>Development Navigation Hub</h1>
+<!-- OVERVIEW -->
 
-    <p>
-        Welcome to the course. Use the navigation tiles below to access
-        course materials, assignments, support resources, and important
-        information.
-    </p>
+<div class="panel active" id="overview">
 
-    <br>
+<h3>AI in Instructional Design</h3>
 
-    <p>
-        This page serves as your central course dashboard. Select any tile
-        below to quickly navigate to course content, support services,
-        grades, announcements, and learning resources.
-    </p>
+<p>
+
+Artificial intelligence has become an essential component of my instructional design workflow.
+I leverage AI technologies to accelerate course development, improve instructional quality,
+generate learning scenarios, enhance accessibility, create assessments, refine instructional
+content, and streamline development processes while maintaining sound instructional design
+principles and quality assurance standards.
+
+</p>
+
+</div>
+
+<!-- CHATGPT -->
+
+<div class="panel" id="chatgpt">
+
+<h3>OpenAI ChatGPT</h3>
+
+<div class="institution">
+
+<div class="course">
+
+<h4>Instructional Design Applications</h4>
+
+<ul>
+
+<li>Develop learning objectives aligned with Bloom's Taxonomy.</li>
+
+<li>Create realistic scenario-based learning activities and case studies.</li>
+
+<li>Generate quiz questions, knowledge checks, and formative assessments.</li>
+
+<li>Draft instructor guides, learner communications, and course documentation.</li>
+
+<li>Produce HTML, CSS, and JavaScript for interactive learning experiences.</li>
+
+<li>Support accessibility improvements and content refinement.</li>
+
+</ul>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- CLAUDE -->
+
+<div class="panel" id="claude">
+
+<h3>Anthropic Claude</h3>
+
+<div class="institution">
+
+<div class="course">
+
+<h4>Content Review & Learning Design</h4>
+
+<ul>
+
+<li>Review instructional materials for clarity and consistency.</li>
+
+<li>Analyze complex documents and summarize technical information.</li>
+
+<li>Improve instructional writing and learner-focused communication.</li>
+
+<li>Refine assessments and course alignment.</li>
+
+<li>Support storyboard creation and instructional planning.</li>
+
+<li>Assist with quality assurance and course review processes.</li>
+
+</ul>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- COPILOT -->
+
+<div class="panel" id="copilot">
+
+<h3>Microsoft Copilot</h3>
+
+<div class="institution">
+
+<div class="course">
+
+<h4>Microsoft 365 Productivity</h4>
+
+<ul>
+
+<li>Create and enhance PowerPoint presentations.</li>
+
+<li>Draft professional emails and project documentation.</li>
+
+<li>Summarize meetings and organize project information.</li>
+
+<li>Generate reports and instructional support materials.</li>
+
+<li>Improve workflow efficiency across Microsoft 365 applications.</li>
+
+<li>Assist with research and information synthesis.</li>
+
+</ul>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- IMPACT -->
+
+<div class="panel" id="impact">
+
+<h3>AI Technology Impact</h3>
+
+<div class="stats">
+
+<div class="stat">
+<h2>3</h2>
+<p>Primary AI Platforms</p>
+</div>
+
+<div class="stat">
+<h2>100+</h2>
+<p>AI-Assisted Learning Assets</p>
+</div>
+
+<div class="stat">
+<h2>Daily</h2>
+<p>Workflow Integration</p>
+</div>
+
+<div class="stat">
+<h2>ADDIE</h2>
+<p>Framework Supported</p>
+</div>
+
+</div>
+
+</div>
+
+</div>
 
 </section>
-  <!-- TILE GRID -->
 
-  <section class="tile-grid">
+<script>
 
-   
+const tabs=document.querySelectorAll(".tab");
+const panels=document.querySelectorAll(".panel");
 
+tabs.forEach(tab=>{
 
- <a href="AI.html" class="tile resources">
-  <div class="tile-icon material-icons">psychology</div>
-  <h3>AI Technologies</h3>
-  <p>
-    Learn how AI supports instructional design through rapid content creation,
-    instructional planning, and learning experience development.
-  </p>
-</a>
+tab.addEventListener("click",()=>{
 
+tabs.forEach(t=>t.classList.remove("active"));
+panels.forEach(p=>p.classList.remove("active"));
 
+tab.classList.add("active");
+document.getElementById(tab.dataset.tab).classList.add("active");
 
+});
 
-     
-    <a href="iSpringSuite.html" class="tile syllabus">
-  <div class="tile-icon material-icons">slideshow</div>
-  <h3>iSpring Suite Projects</h3>
-  <p>
-    Review course policies, grading expectations,
-    objectives, and important dates.
-  </p>
-</a>
+});
 
-  <a href="HTML_LO.html" class="tile announcements">
-  <div class="tile-icon material-icons">code</div>
-  <h3>HTML/CSS/JS Portfolio</h3>
-  <p>
-    Review course policies, grading expectations,
-    objectives, and important dates.
-  </p>
-</a>
-
-    <a href="Adjunct.html" class="tile grades">
-      <div class="tile-icon">📊</div>
-      <h3>Adjunct Faculty Portfolio</h3>
-      <p>
-        Check assignment feedback,
-        grade progress, and course performance.
-      </p>
-    </a>
-
-    <a href="Captivate.html" class="tile support">
-  <div class="tile-icon material-icons">school</div>
-  <h3>Adobe Captivate Projects</h3>
-  <p>
-    Access tutoring, library services,
-    technical support, and academic resources.
-  </p>
-</a>
-
-    <a href="test.html" class="tile contact">
-      <div class="tile-icon">✉️</div>
-      <h3>Instructor (Test) Contact</h3>
-      <p>
-        View instructor information,
-        office hours, and communication options.
-      </p>
-    </a>
-
-
-
- <a href="TrainingManuals.html" class="tile modules">
-      <div class="tile-icon">📚</div>
-      <h3>Training Manuals</h3>
-      <p>
-        Access weekly learning modules, activities,
-        assignments, and instructional materials.
-      </p>
-    </a>
-
-
-
-
-
-
-     
-
-    <a href="Accessibility.html" class="tile accessibility">
-      <div class="tile-icon">♿</div>
-      <h3>Accessibility Requirements</h3>
-      <p>
-        Learn more about specific accommodations, accessibility support,
-        and inclusive learning resources utilized daily.
-      </p>
-     </a>
-
-  </section>
-
-  <footer>
-    <p><strong>Development Navigation Hub</strong></p>
-    <p>Jeremy Haecker | Instructional Design Portfolio</p>
-  </footer>
+</script>
 
 </body>
 </html>
