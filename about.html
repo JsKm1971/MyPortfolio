@@ -204,6 +204,29 @@ nav a[aria-current="page"]{
     color:#000052;
 }
 
+
+/* =====================
+   TWO COLUMN SECTION
+===================== */
+
+.two-column-section{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:40px;
+    align-items:start;
+}
+
+.column h2{
+    color:#000052;
+    margin-bottom:25px;
+}
+
+@media (max-width:900px){
+    .two-column-section{
+        grid-template-columns:1fr;
+    }
+}
+  
 /* =====================
    GALLERY
 ===================== */
@@ -434,97 +457,86 @@ nav a[aria-current="page"]{
 
 
 
-    <!-- STRENGTHS -->
+   <!-- CLIFTON STRENGTHS + EDUCATION -->
 
-    <section class="section">
+<section class="section">
 
-      <h2>Clifton Strengths</h2>
+    <div class="two-column-section">
 
-      <div class="skills-grid">
+        <!-- LEFT COLUMN -->
+        <div class="column">
 
-        <div class="skill-card">
-          <h3>Learner</h3>
-          <p>- I have a great desire as a learner to improve continuously.</p>
+            <h2>Clifton Strengths</h2>
+
+            <div class="skills-grid">
+
+                <div class="skill-card">
+                    <h3>Learner</h3>
+                    <p>I have a great desire to continuously improve through learning.</p>
+                </div>
+
+                <div class="skill-card">
+                    <h3>Achiever</h3>
+                    <p>I take great pride in being productive and accomplishing meaningful work.</p>
+                </div>
+
+                <div class="skill-card">
+                    <h3>Responsibility</h3>
+                    <p>I take ownership of my commitments and strive to be honest, dependable, and loyal.</p>
+                </div>
+
+                <div class="skill-card">
+                    <h3>Futuristic</h3>
+                    <p>I enjoy envisioning future possibilities and inspiring others to think beyond today's challenges.</p>
+                </div>
+
+                <div class="skill-card">
+                    <h3>Command</h3>
+                    <p>When faced with adversity, I confidently take control and make decisions that move people forward.</p>
+                </div>
+
+            </div>
+
         </div>
 
-        <div class="skill-card">
-          <h3>Achiever </h3>
-          <p>- I take great pride in being busy and productive.</p>
+        <!-- RIGHT COLUMN -->
+        <div class="column">
+
+            <h2>Education &amp; Professional Development</h2>
+
+            <div class="skills-grid">
+
+                <div class="skill-card">
+                    <h3>Master of Arts in Leadership</h3>
+                    <p>Bellevue University (2005)<br>
+                    GPA: 3.70 / 4.00</p>
+                </div>
+
+                <div class="skill-card">
+                    <h3>Bachelor of Science in Project Management</h3>
+                    <p>Bellevue University (2002)<br>
+                    GPA: 3.85 / 4.00</p>
+                </div>
+
+                <div class="skill-card">
+                    <h3>Bachelor of Science in Marketing Management</h3>
+                    <p>Bellevue University (2018)<br>
+                    GPA: 3.85 / 4.00</p>
+                </div>
+
+                <div class="skill-card">
+                    <h3>Associate of Applied Science in Culinary Arts</h3>
+                    <p>Colorado Institute of Art (1995)<br>
+                    GPA: 3.25 / 4.00</p>
+                </div>
+
+            </div>
+
         </div>
 
-        <div class="skill-card">
-          <h3>Responsibility</h3>
-          <p>- I am vested in what I say and do. I am honest and loyal.</p>
-        </div>
-
-        <div class="skill-card">
-          <h3>Futuristic</h3>
-          <p>- The future and its potential inspires me. I inspire others to think about what we can do rather
-            than what we have done.</p>
-        </div>
-
-        <div class="skill-card">
-  <h3>Command</h3>
-  <p>- When faced with adversity, I take control of the situation and make decisions that matter.</p>
-</div>
-
-</div>
+    </div>
 
 </section>
-    <!-- SKILLS -->
-
-    <section class="section">
-
-      <h2>Education & Professional Development</h2>
-
-      <div class="skills-grid">
-
-        <div class="skill-card">
-          <h3>Master's Degree</h3>
-          <p>
-            Master of Arts in Leadership,
-            Bellevue University, (2005)
-            - GPA: 3.7/4.0
-          </p>
-        </div>
-
-        <div class="skill-card">
-          <h3>Bachelor's Degree</h3>
-          <p>
-            Bachelor of Science in Project Management,
-            Bellevue University, (2002)
-            - GPA: 3.85/4.0
-          </p>
-        </div>
-
-        <div class="skill-card">
-          <h3>Bachelor's Degree</h3>
-          <p>
-            Bachelor of Science in Marketing Management,
-            Bellevue University, (2018)
-            - GPA: 3.85/4.0
-          </p>
-        </div>
-
-        <div class="skill-card">
-          <h3>Associate's Degree</h3>
-          <p>
-            Associate of Applied Science in Culinary Arts,
-            Colorado Institute of Art, (1995)
-            - GPA: 3.25/4.0
-          </p>
-        </div>
-
-      </div>
-
-    </section>
-
-
-
-
-
-  </div>
-
 
 
 </body>
