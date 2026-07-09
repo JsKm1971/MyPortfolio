@@ -1,19 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>About Me | Jeremy Haecker</title>
+<title>Course Home Page</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
-
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 <style>
 
-/* =====================
+/* ====================================
    GLOBAL STYLES
-===================== */
+==================================== */
 
 *{
     margin:0;
@@ -23,10 +22,28 @@
 
 body{
     font-family:'Roboto',sans-serif;
-    background-color:#F7F6F9;
+    background:#f4f6f9;
     color:#333;
     line-height:1.6;
-    padding-top:260px;
+}
+
+
+/* ====================================
+   WELCOME SECTION
+==================================== */
+
+.welcome{
+    max-width:1200px;
+    margin:40px auto;
+    background:white;
+    padding:30px;
+    border-radius:12px;
+    box-shadow:0 4px 12px rgba(0,0,0,.08);
+}
+
+.welcome h2{
+    color:#4f3674;
+    margin-bottom:15px;
 }
 
 /* =====================
@@ -34,16 +51,14 @@ body{
 ===================== */
 
 header{
-    position:fixed;
-    top:0;
-    left:0;
-    width:100%;
     display:flex;
     justify-content:space-between;
     align-items:center;
     padding:20px 8%;
     background:#fff;
     box-shadow:0 2px 15px rgba(0,0,0,.05);
+    position:sticky;
+    top:0;
     z-index:1000;
 }
 
@@ -69,266 +84,194 @@ nav a:hover{
     color:#0F4C81;
 }
 
-nav a[aria-current="page"]{
-    color:#000052;
-    font-weight:700;
-}
-
 /* =====================
-   MAIN CONTAINER
-===================== */
-
-.about-container{
-    width:98%;
-    margin:auto;
-    background:white;
-    border-radius:20px;
-    overflow:hidden;
-    box-shadow:0 20px 50px rgba(0,0,0,.25);
-}
-
-/* =====================
-   HERO SECTION
+   HERO BANNER
 ===================== */
 
 .hero{
-    padding:60px;
-    display:grid;
-    grid-template-columns:300px 1fr;
-    gap:40px;
-    align-items:center;
-}
+    height:300px;
 
-.profile-image img{
-    width:100%;
-    max-width:500px;
-    height:auto;
-    border-radius:20px;
-    box-shadow:0 8px 20px rgba(0,0,0,.15);
-}
+    background:
+    linear-gradient(
+        rgba(79,54,116,.75),
+        rgba(15,76,129,.75)
+    ),
+    url('images/course-banner.jpg');
 
-.hero-content h1{
-    color:#000052;
-    font-size:3rem;
-    margin-bottom:20px;
-}
-
-.hero-content h2{
-    color:#666;
-    font-weight:400;
-    margin-bottom:20px;
-}
-
-.hero-content p{
-    line-height:1.8;
+    background-size:cover;
+    background-position:center;
 }
 
 /* =====================
-   QUOTE BOX
+   WELCOME SECTION
 ===================== */
 
-.box-container{
-    display:flex;
-    gap:24px;
+.welcome{
     max-width:1200px;
-    margin:0 auto;
-}
-
-.content-box{
-    background:#fff;
+    margin:40px auto;
+    background:white;
+    padding:40px;
     border-radius:12px;
-    flex:1;
-    padding:20px 24px;
-    box-shadow:0 4px 10px rgba(0,0,0,.1);
-    border:1px solid #e0e0e0;
+    box-shadow:0 4px 12px rgba(0,0,0,.08);
 }
 
-.header-divider{
-    height:3px;
-    width:100%;
-    background:#000052;
-    border-radius:2px;
-    margin:8px 0 16px;
-}
-
-.quote-text{
-    text-align:center;
-    font-style:italic;
-   font-size: 20px;   /* Body text */
-    margin:0;
-}
-
-/* =====================
-   CONTENT SECTIONS
-===================== */
-
-.section{
-    padding:60px;
-    border-top:1px solid #eee;
-}
-
-.section h2{
-    color:#000052;
-    margin-bottom:25px;
-}
-
-.section p{
+.welcome h1{
+    color:#000080;
     margin-bottom:20px;
-    line-height:1.8;
+    font-size:2.2rem;
 }
 
-/* =====================
-   SKILLS CARDS
-===================== */
-
-.skills-grid{
-    display:flex;
-    flex-direction:column;
-    gap:15px;
+.welcome p{
+    font-size:1.05rem;
+    color:#555;
 }
+   
+/* ====================================
+   TILE GRID
+==================================== */
 
-.skill-card{
-    background:#f8f9fc;
-    border-left:5px solid #000052;
-    padding:25px;
-    border-radius:8px;
-    transition:.3s;
-}
+.tile-grid{
+    max-width:1200px;
+    margin:40px auto;
+    padding:0 20px;
 
-.skill-card:hover{
-    transform:translateX(5px);
-}
-
-.skill-card h3{
-    margin-bottom:10px;
-    color:#000052;
-}
-
-
-/* =====================
-   TWO COLUMN SECTION
-===================== */
-
-.two-column-section{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:40px;
-    align-items:start;
-}
-
-.column h2{
-    color:#000052;
-    margin-bottom:25px;
-}
-
-@media (max-width:900px){
-    .two-column-section{
-        grid-template-columns:1fr;
-    }
-}
-  
-/* =====================
-   GALLERY
-===================== */
-
-.gallery{
     display:grid;
     grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-    gap:20px;
+    gap:25px;
 }
 
-.gallery img{
-    width:100%;
+.tile{
+    background:white;
     border-radius:12px;
-    transition:.3s;
-}
-
-.gallery img:hover{
-    transform:scale(1.03);
-}
-
-/* =====================
-   TIMELINE
-===================== */
-
-.timeline-item{
-    border-left:4px solid #000052;
-    padding-left:20px;
-    margin-bottom:30px;
-}
-
-.timeline-item h3{
-    color:#000052;
-}
-
-/* =====================
-   CTA
-===================== */
-
-.cta{
-    text-align:center;
-}
-
-.cta-btn{
-    display:inline-block;
-    margin-top:20px;
-    padding:14px 28px;
-    background:#000052;
-    color:white;
     text-decoration:none;
-    border-radius:8px;
-    transition:.3s;
+    color:inherit;
+
+    padding:25px;
+
+    box-shadow:0 4px 12px rgba(0,0,0,.08);
+
+    transition:.3s ease;
 }
 
-.cta-btn:hover{
-    background:#002a7f;
+.tile:hover,
+.tile:focus{
+    transform:translateY(-5px);
+    box-shadow:0 10px 20px rgba(0,0,0,.15);
 }
 
-/* =====================
+.tile-icon {
+    font-size: 42px;
+    margin-bottom: 15px;
+    color: #0F4C81;
+}
+
+
+.tile h3{
+    color:#4f3674;
+    margin-bottom:10px;
+}
+
+.tile p{
+    font-size:.95rem;
+}
+
+/* ====================================
+   COLOR ACCENTS
+==================================== */
+
+.modules{
+    border-top:6px solid #4f3674;
+}
+
+.syllabus{
+    border-top:6px solid #D6A800;
+}
+
+.announcements{
+    border-top:6px solid #2E8B57;
+}
+
+.grades{
+    border-top:6px solid #1E88E5;
+}
+
+.support{
+    border-top:6px solid #F57C00;
+}
+
+.contact{
+    border-top:6px solid #C62828;
+}
+
+.resources{
+    border-top:6px solid #00838F;
+}
+
+.accessibility{
+    border-top:6px solid #6A1B9A;
+}
+
+/* ====================================
+   FOOTER
+==================================== */
+
+footer{
+    text-align:center;
+    padding:30px;
+    margin-top:40px;
+    background:#2795F5;
+    color:white;
+}
+
+footer p{
+    margin:5px 0;
+}
+
+/* ====================================
    MOBILE
-===================== */
+==================================== */
 
-@media (max-width:900px){
+@media(max-width:768px){
 
     header{
         flex-direction:column;
-        gap:15px;
-        padding:15px;
-    }
-
-    .logo img{
-        height:120px;
+        text-align:center;
     }
 
     nav{
         flex-wrap:wrap;
         justify-content:center;
-        gap:15px;
+        margin-top:20px;
+    }
+
+    .logo img{
+        height:90px;
     }
 
     .hero{
-        grid-template-columns:1fr;
-        text-align:center;
+        height:200px;
     }
 
-    .section{
-        padding:40px 25px;
+    .welcome{
+        margin:20px;
+        padding:25px;
     }
 
-    .box-container{
-        flex-direction:column;
+    .welcome h1{
+        font-size:1.8rem;
     }
 
-    body{
-        padding-top:220px;
-    }
 }
 
 </style>
 </head>
+
 <body>
-  <div>
-    <header>
+<!-- =====================
+     HEADER
+===================== -->
+
+<header>
 
     <div class="logo">
     <img src="Images/Corporate Logo.png"
@@ -338,205 +281,121 @@ nav a[aria-current="page"]{
     <nav>
         <a href="index.html">Home</a>
        <a href="about.html">About</a>
-      
+       
         <a href="designhub.html">Design Hub</a>
         <a href="contact.html">Contact</a>
     </nav>
 
 </header>
 
-  </div>
-
-  <div class="about-container">
-
-    <!-- HERO -->
-
-    <section class="hero">
-
-      <div class="profile-image">
-       <img src="Images/Professional_AI_Image.png"
-     alt="Jeremy Haecker">
-      </div>
-
-      <div class="hero-content">
 
 
 
-        <h1><center>Instructional Designer | eLearning Developer</center></h1>
+ <!-- =====================
+     WELCOME
+===================== -->
 
-        <div class="box-container">
+<section class="welcome">
 
-          <!-- Box 1 -->
-          <div class="content-box">
+    <h1>Development Navigation Hub</h1>
 
+    <p>
+        Welcome to the course. Use the navigation tiles below to access
+        course materials, assignments, support resources, and important
+        information.
+    </p>
 
-            <div class="header-divider"></div>
-           <blockquote>
-  <p class="quote-text">
-    "I turn complex content into powerful learning experiences through AI-driven innovation and strategic leadership."
-  </p>
-</blockquote>
-          </div>
+    <br>
 
-
-
-
-
-        </div>
-
-
-      </div>
-
-    </section>
-
-    <!-- ABOUT -->
-
-    <section class="section">
-
-      <h2>My Story</h2>
-
-      <p>I began my career in the late 1990s as a Corporate Training Specialist, quickly advancing from a
-        new-hire trainer to
-        a
-        software and technology trainer. Over the past two decades, my professional journey has spanned
-        multiple
-        disciplines,
-        including Information Technology and Software Applications, Insurance Licensing, Sales and Customer
-        Service,
-        Leadership,
-        and Ethics.</p>
-      
-      <p>Early in my career, I recognized that effective training extends far beyond delivering content. That
-        realization led
-        me
-        to further my education in Content Development, Instructional Design, Web Development, and Teaching
-        in Higher
-        Education.
-        These experiences have shaped my strategic, learner-centered, and innovation-driven approach to
-        instructional
-        design.</p>
-      <p>Since 2017, I have served in Design and Development at Bellevue University as an Instructional
-        Designer. In this
-        role, I
-        integrate evidence-based design principles and emerging technologies to create engaging, high-impact
-        courses that
-        enhance the student learning experience and support measurable academic outcomes.</p></br>
-      <p><b>AI Integration and Emerging Technologies</b></p>
-      <p>I actively incorporate Artificial Intelligence and emerging technologies into both course design and
-        development
-        workflows. I leverage generative AI platforms such as ChatGPT to assist faculty with curriculum
-        planning, refining
-        learning objectives, developing assessments and rubrics, and creating adaptive and applied learning
-        activities.</p>
-      <p>In addition, I guide faculty in the responsible and ethical integration of AI into coursework. This
-        includes
-        designing
-        AI-informed assignments, critical thinking exercises, and workplace-aligned applications that
-        prepare students for
-        technology-driven environments. My approach emphasizes thoughtful prompt engineering, iterative
-        refinement, and
-        alignment with established instructional frameworks such as ADDIE and Bloom’s Taxonomy. I view AI as
-        a strategic
-        enhancement tool—one that strengthens sound pedagogy rather than replacing it.</p></br>
-      <p><b>Professional Philosophy</b></p>
-      <p>My vision for instructional design centers on innovation, purposeful technology integration, and
-        strong collaboration
-        with Program Directors and faculty partners. By working closely with subject matter experts, I
-        strive to push the
-        boundaries of what is possible with each course build—balancing academic rigor, creativity, and
-        meaningful learner
-        engagement.</p>
-        <p>Outside of my professional work, I enjoy spending time with my family and playing the guitar.</p>
-      </br>   <p><b>Personal Code of Ethics</b></p>
-       <p>- Be honest at all times.</p>
-        <p>- Treat everyone with dignity and respect.</p>
-         <p>- Always strive for continious improvement.</p>
-     
-
-    </section>
-
-
-
-   <!-- CLIFTON STRENGTHS + EDUCATION -->
-
-<section class="section">
-
-    <div class="two-column-section">
-
-        <!-- LEFT COLUMN -->
-        <div class="column">
-
-            <h2>Clifton Strengths</h2>
-
-            <div class="skills-grid">
-
-                <div class="skill-card">
-                    <h3>Learner</h3>
-                    <p>I have a great desire to continuously improve through learning.</p>
-                </div>
-
-                <div class="skill-card">
-                    <h3>Achiever</h3>
-                    <p>I take great pride in being productive and accomplishing meaningful work.</p>
-                </div>
-
-                <div class="skill-card">
-                    <h3>Responsibility</h3>
-                    <p>I take ownership of my commitments and strive to be honest, dependable, and loyal.</p>
-                </div>
-
-                <div class="skill-card">
-                    <h3>Futuristic</h3>
-                    <p>I enjoy envisioning future possibilities and inspiring others to think beyond today's challenges.</p>
-                </div>
-
-                <div class="skill-card">
-                    <h3>Command</h3>
-                    <p>When faced with adversity, I confidently take control and make decisions that move people forward.</p>
-                </div>
-
-            </div>
-
-        </div>
-
-        <!-- RIGHT COLUMN -->
-        <div class="column">
-
-            <h2>Education &amp; Professional Development</h2>
-
-            <div class="skills-grid">
-
-                <div class="skill-card">
-                    <h3>Master of Arts in Leadership</h3>
-                    <p>Bellevue University (2005)<br>
-                    GPA: 3.70 / 4.00</p>
-                </div>
-
-                <div class="skill-card">
-                    <h3>Bachelor of Science in Project Management</h3>
-                    <p>Bellevue University (2002)<br>
-                    GPA: 3.85 / 4.00</p>
-                </div>
-
-                <div class="skill-card">
-                    <h3>Bachelor of Science in Marketing Management</h3>
-                    <p>Bellevue University (2018)<br>
-                    GPA: 3.85 / 4.00</p>
-                </div>
-
-                <div class="skill-card">
-                    <h3>Associate of Applied Science in Culinary Arts</h3>
-                    <p>Colorado Institute of Art (1995)<br>
-                    GPA: 3.25 / 4.00</p>
-                </div>
-
-            </div>
-
-        </div>
-
-    </div>
+    <p>
+        This page serves as your central course dashboard. Select any tile
+        below to quickly navigate to course content, support services,
+        grades, announcements, and learning resources.
+    </p>
 
 </section>
+  <!-- TILE GRID -->
 
+  <section class="tile-grid">
+
+    <a href="TrainingManuals.html" class="tile modules">
+      <div class="tile-icon">📚</div>
+      <h3>Training Manuals</h3>
+      <p>
+        Access weekly learning modules, activities,
+        assignments, and instructional materials.
+      </p>
+    </a>
+
+    <a href="iSpringSuite.html" class="tile syllabus">
+  <div class="tile-icon material-icons">slideshow</div>
+  <h3>iSpring Suite Projects</h3>
+  <p>
+    Review course policies, grading expectations,
+    objectives, and important dates.
+  </p>
+</a>
+
+  <a href="HTML_LO.html" class="tile announcements">
+  <div class="tile-icon material-icons">code</div>
+  <h3>HTML/CSS/JS Portfolio</h3>
+  <p>
+    Review course policies, grading expectations,
+    objectives, and important dates.
+  </p>
+</a>
+
+    <a href="Adjunct.html" class="tile grades">
+      <div class="tile-icon">📊</div>
+      <h3>Adjunct Faculty Portfolio</h3>
+      <p>
+        Check assignment feedback,
+        grade progress, and course performance.
+      </p>
+    </a>
+
+    <a href="Captivate.html" class="tile support">
+  <div class="tile-icon material-icons">school</div>
+  <h3>Adobe Captivate Projects</h3>
+  <p>
+    Access tutoring, library services,
+    technical support, and academic resources.
+  </p>
+</a>
+
+    <a href="test.html" class="tile contact">
+      <div class="tile-icon">✉️</div>
+      <h3>Instructor (Test) Contact</h3>
+      <p>
+        View instructor information,
+        office hours, and communication options.
+      </p>
+    </a>
+
+   <a href="AI.html" class="tile resources">
+  <div class="tile-icon material-icons">psychology</div>
+  <h3>AI Technologies</h3>
+  <p>
+    Learn how AI supports instructional design through rapid content creation,
+    instructional planning, and learning experience development.
+  </p>
+</a>
+
+    <a href="Accessibility.html" class="tile accessibility">
+      <div class="tile-icon">♿</div>
+      <h3>Accessibility Requirements</h3>
+      <p>
+        Learn more about specific accommodations, accessibility support,
+        and inclusive learning resources utilized daily.
+      </p>
+     </a>
+
+  </section>
+
+  <footer>
+    <p><strong>Development Navigation Hub</strong></p>
+    <p>Jeremy Haecker | Instructional Design Portfolio</p>
+  </footer>
 
 </body>
+</html>
