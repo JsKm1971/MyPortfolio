@@ -1,429 +1,192 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Layout</title>
+    <style>
+        /* Reset */
 
-<title>AI Technologies</title>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+        /* Body */
 
-<style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #ffffff;
+            color: #000000;
+            line-height: 1.6;
+        }
 
-:root{
-    --primary:#003366;
-    --secondary:#D6A800;
-    --light:#f5f7fa;
-    --text:#444;
-}
+        /* Navigation */
 
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
+        header {
+            border-bottom: 1px solid #dddddd;
+        }
 
-body{
-    font-family:'Roboto',sans-serif;
-    background:#eef2f6;
-    padding:60px;
-}
+        nav {
+            max-width: 1100px;
+            margin: auto;
+            padding: 20px;
 
-/* CARD */
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
 
-.experience-module{
-    max-width:1200px;
-    margin:auto;
-    background:white;
-    border-radius:20px;
-    box-shadow:0 18px 40px rgba(0,0,0,.12);
-    overflow:hidden;
-}
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
 
-/* HEADER */
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 30px;
+        }
 
-.header{
-    display:flex;
-    align-items:center;
-    gap:30px;
-    padding:40px;
-    background:linear-gradient(135deg,var(--primary),#004b87);
-    color:white;
-}
+        .nav-links a {
+            text-decoration: none;
+            color: #000;
+            font-weight: bold;
+            transition: .3s;
+        }
 
-.icon{
-    font-size:50px;
-    width:80px;
-    height:80px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    background:rgba(255,255,255,.15);
-    border-radius:50%;
-}
+        .nav-links a:hover {
+            text-decoration: underline;
+        }
 
-/* TABS */
+        /* Hero */
 
-.tabs{
-    display:flex;
-    flex-wrap:wrap;
-    justify-content:center;
-    gap:15px;
-    padding:25px;
-    background:#fff;
-}
+        .hero {
+            max-width: 900px;
+            margin: 120px auto;
+            text-align: center;
+            padding: 20px;
+        }
 
-.tab{
-    border:none;
-    padding:12px 22px;
-    border-radius:40px;
-    cursor:pointer;
-    background:#e9ecef;
-    font-weight:600;
-    transition:.3s;
-}
+        .hero h1 {
+            font-size: 52px;
+            margin-bottom: 20px;
+        }
 
-.tab:hover{
-    background:var(--secondary);
-    transform:translateY(-2px);
-}
+        .hero p {
+            font-size: 20px;
+            margin-bottom: 40px;
+        }
 
-.tab.active{
-    background:var(--primary);
-    color:white;
-}
+        .hero button {
+            padding: 14px 28px;
+            font-size: 18px;
+            cursor: pointer;
 
-/* CONTENT */
+            background: #000;
+            color: #fff;
 
-.content{
-    padding:45px;
-}
+            border: none;
+            transition: .3s;
+        }
 
-.panel{
-    display:none;
-    animation:fade .4s ease;
-}
+        .hero button:hover {
+            background: #444;
+        }
 
-.panel.active{
-    display:block;
-}
+        /* Footer */
 
-h3{
-    color:var(--primary);
-    margin-bottom:18px;
-}
+        footer {
+            text-align: center;
+            padding: 30px;
+            border-top: 1px solid #ddd;
+            margin-top: 80px;
+        }
 
-.institution{
-    margin-bottom:30px;
-    padding:25px;
-    background:#f8f9fb;
-    border-radius:14px;
-    border-left:5px solid var(--secondary);
-}
+        /* Mobile */
 
-.course{
-    margin-top:15px;
-    padding:20px;
-    background:white;
-    border-radius:12px;
-    box-shadow:0 4px 14px rgba(0,0,0,.06);
-}
+        @media(max-width:768px) {
 
-.course h4{
-    margin-bottom:5px;
-    color:#222;
-}
+            nav {
+                flex-direction: column;
+                gap: 20px;
+            }
 
-.course small{
-    color:#666;
-    display:block;
-    margin-bottom:10px;
-}
+            .nav-links {
+                flex-direction: column;
+                text-align: center;
+                gap: 15px;
+            }
 
-ul{
-    margin-left:20px;
-    line-height:1.8;
-    color:var(--text);
-}
+            .hero h1 {
+                font-size: 40px;
+            }
 
-.stats{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-    gap:20px;
-}
+            .hero p {
+                font-size: 18px;
+            }
 
-.stat{
-    background:var(--light);
-    padding:30px;
-    border-radius:16px;
-    text-align:center;
-}
-
-.stat h2{
-    font-size:42px;
-    color:var(--primary);
-}
-
-@keyframes fade{
-    from{opacity:0;transform:translateY(15px);}
-    to{opacity:1;transform:translateY(0);}
-}
-
-</style>
+        }
+    </style>
 </head>
 
 <body>
+    <header>
+        <nav>
+            <div class="logo">
+                My Website
+            </div>
 
-<section class="experience-module">
+            <ul class="nav-links">
+                <li><a href="#" onclick="showMessage('Home')">Home</a></li>
+                <li><a href="#" onclick="showMessage('About')">About</a></li>
+                <li><a href="#" onclick="showMessage('Contact')">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
 
-<!-- HEADER -->
+    <main>
 
-<div class="header">
+        <section class="hero">
+            <h1>Welcome</h1>
 
-<div class="icon">🤖</div>
+            <p>
+                This is a simple homepage built with HTML, CSS, and JavaScript.
+                It provides a clean foundation that you can expand into a complete website.
+            </p>
 
-<div>
-<h1>Artificial Intelligence Technologies</h1>
-<h2>AI-Enhanced Instructional Design</h2>
-<p>Leveraging AI to improve learning design, development, and productivity</p>
-</div>
+            <button onclick="learnMore()">
+                Learn More
+            </button>
+        </section>
 
-</div>
+    </main>
 
-<!-- TABS -->
+    <footer>
+        <p>&copy; 2026 My Website. All Rights Reserved.</p>
+    </footer>
 
-<div class="tabs">
+    <script src="script.js">
 
-<button class="tab active" data-tab="overview">Overview</button>
-<button class="tab" data-tab="chatgpt">ChatGPT</button>
-<button class="tab" data-tab="claude">Claude</button>
-<button class="tab" data-tab="copilot">Microsoft Copilot</button>
-<button class="tab" data-tab="grammarly">Grammarly</button>    
-<button class="tab" data-tab="impact">Impact</button>
+        function showMessage(page) {
 
-</div>
+            alert("You clicked the " + page + " page.");
 
-<!-- CONTENT -->
+        }
 
-<div class="content">
+        function learnMore() {
 
-<!-- OVERVIEW -->
+            alert("Thanks for visiting! Expand this page with your own content.");
 
-<div class="panel active" id="overview">
+        }
 
-<h3>AI in Instructional Design</h3>
 
-<p>
 
-Artificial intelligence has become an essential component of my instructional design workflow.
-I leverage AI technologies to accelerate course development, improve instructional quality,
-generate learning scenarios, enhance accessibility, create assessments, refine instructional
-content, and streamline development processes while maintaining sound instructional design
-principles and quality assurance standards.
 
-</p>
-
-</div>
-
-<!-- CHATGPT -->
-
-<div class="panel" id="chatgpt">
-
-<h3>OpenAI ChatGPT</h3>
-
-<div class="institution">
-
-<div class="course">
-
-<h4>Instructional Design Applications</h4>
-
-<ul>
-
-<li>Develop learning objectives aligned with Bloom's Taxonomy.</li>
-
-<li>Create realistic scenario-based learning activities and case studies.</li>
-
-<li>Generate quiz questions, knowledge checks, and formative assessments.</li>
-
-<li>Draft instructor guides, learner communications, and course documentation.</li>
-
-<li>Produce HTML, CSS, and JavaScript for interactive learning experiences.</li>
-
-<li>Support accessibility improvements and content refinement.</li>
-
-</ul>
-
-</div>
-
-</div>
-
-</div>
-
-<!-- CLAUDE -->
-
-<div class="panel" id="claude">
-
-<h3>Anthropic Claude</h3>
-
-<div class="institution">
-
-<div class="course">
-
-<h4>Content Review & Learning Design</h4>
-
-<ul>
-
-<li>Review instructional materials for clarity and consistency.</li>
-
-<li>Analyze complex documents and summarize technical information.</li>
-
-<li>Improve instructional writing and learner-focused communication.</li>
-
-<li>Refine assessments and course alignment.</li>
-
-<li>Support storyboard creation and instructional planning.</li>
-
-<li>Assist with quality assurance and course review processes.</li>
-
-</ul>
-
-</div>
-
-</div>
-
-</div>
-
-<!-- COPILOT -->
-
-<div class="panel" id="copilot">
-
-<h3>Microsoft Copilot</h3>
-
-<div class="institution">
-
-<div class="course">
-
-<h4>Microsoft 365 Productivity</h4>
-
-<ul>
-
-<li>Create and enhance PowerPoint presentations.</li>
-
-<li>Draft professional emails and project documentation.</li>
-
-<li>Summarize meetings and organize project information.</li>
-
-<li>Generate reports and instructional support materials.</li>
-
-<li>Improve workflow efficiency across Microsoft 365 applications.</li>
-
-<li>Assist with research and information synthesis.</li>
-
-</ul>
-
-</div>
-
-</div>
-
-</div>
-
-<!-- GRAMMARLY -->
-
-<div class="panel" id="grammarly">
-
-<h3>Grammarly</h3>
-
-<div class="institution">
-
-<div class="course">
-
-<h4>Document Review & Content Refinement</h4>
-
-<ul>
-
-<li>Review instructional materials for grammar, spelling, and punctuation accuracy.</li>
-
-<li>Improve sentence structure, readability, and overall writing clarity.</li>
-
-<li>Ensure consistency in tone, style, and professional communication.</li>
-
-<li>Refine course content, learner instructions, and assessment directions.</li>
-
-<li>Identify opportunities to improve conciseness and eliminate unnecessary wording.</li>
-
-<li>Support quality assurance processes through comprehensive document review.</li>
-
-</ul>
-
-</div>
-
-</div>
-
-</div>
-
-
-
-
-
-
-    
-
-<!-- IMPACT -->
-
-<div class="panel" id="impact">
-
-<h3>AI Technology Impact</h3>
-
-<div class="stats">
-
-<div class="stat">
-<h2>3</h2>
-<p>Primary AI Platforms</p>
-</div>
-
-<div class="stat">
-<h2>100+</h2>
-<p>AI-Assisted Learning Assets</p>
-</div>
-
-<div class="stat">
-<h2>Daily</h2>
-<p>Workflow Integration</p>
-</div>
-
-<div class="stat">
-<h2>ADDIE</h2>
-<p>Framework Supported</p>
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-<script>
-
-const tabs=document.querySelectorAll(".tab");
-const panels=document.querySelectorAll(".panel");
-
-tabs.forEach(tab=>{
-
-tab.addEventListener("click",()=>{
-
-tabs.forEach(t=>t.classList.remove("active"));
-panels.forEach(p=>p.classList.remove("active"));
-
-tab.classList.add("active");
-document.getElementById(tab.dataset.tab).classList.add("active");
-
-});
-
-});
-
-</script>
+    </script>
 
 </body>
+
 </html>
