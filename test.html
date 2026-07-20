@@ -1,327 +1,164 @@
 <!DOCTYPE html>
-2
 <html lang="en">
-3
 <head>
-4
-<meta charset="UTF-8">
-5
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-6
-<title>My Home Page</title>
-7
- 
-8
-<style>
-9
-* {
-10
-margin: 0;
-11
-padding: 0;
-12
-box-sizing: border-box;
-13
-font-family: Arial, sans-serif;
-14
-}
-15
- 
-16
-body {
-17
-line-height: 1.6;
-18
-color: #333;
-19
-}
-20
- 
-21
-header {
-22
-background: #1e3a8a;
-23
-color: white;
-24
-padding: 1rem 2rem;
-25
-display: flex;
-26
-justify-content: space-between;
-27
-align-items: center;
-28
-}
-29
- 
-30
-nav ul {
-31
-list-style: none;
-32
-display: flex;
-33
-gap: 20px;
-34
-}
-35
- 
-36
-nav a {
-37
-color: white;
-38
-text-decoration: none;
-39
-}
-40
- 
-41
-.hero {
-42
-height: 70vh;
-43
-display: flex;
-44
-flex-direction: column;
-45
-justify-content: center;
-46
-align-items: center;
-47
-background: linear-gradient(135deg, #2563eb, #3b82f6);
-48
-color: white;
-49
-text-align: center;
-50
-padding: 20px;
-51
-}
-52
- 
-53
-.hero h1 {
-54
-font-size: 3rem;
-55
-margin-bottom: 1rem;
-56
-}
-57
- 
-58
-.hero p {
-59
-max-width: 600px;
-60
-margin-bottom: 1.5rem;
-61
-}
-62
- 
-63
-.btn {
-64
-padding: 12px 24px;
-65
-border: none;
-66
-background: white;
-67
-color: #2563eb;
-68
-font-size: 1rem;
-69
-border-radius: 5px;
-70
-cursor: pointer;
-71
-transition: 0.3s;
-72
-}
-73
- 
-74
-.btn:hover {
-75
-transform: translateY(-3px);
-76
-box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-77
-}
-78
- 
-79
-.features {
-80
-padding: 4rem 2rem;
-81
-display: grid;
-82
-grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-83
-gap: 20px;
-84
-}
-85
- 
-86
-.feature-card {
-87
-background: #f4f4f4;
-88
-padding: 20px;
-89
-border-radius: 10px;
-90
-text-align: center;
-91
-}
-92
- 
-93
-footer {
-94
-background: #1f2937;
-95
-color: white;
-96
-text-align: center;
-97
-padding: 1rem;
-98
-}
-99
- 
-100
-@media (max-width: 768px) {
-101
-header {
-102
-flex-direction: column;
-103
-gap: 10px;
-104
-}
-105
- 
-106
-.hero h1 {
-107
-font-size: 2rem;
-108
-}
-109
-}
-110
-</style>
-111
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Home Page</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            line-height: 1.6;
+            color: #333;
+        }
+
+        header {
+            background: #1e3a8a;
+            color: white;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .hero {
+            height: 70vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #2563eb, #3b82f6);
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            max-width: 600px;
+            margin-bottom: 1.5rem;
+        }
+
+        .btn {
+            padding: 12px 24px;
+            border: none;
+            background: white;
+            color: #2563eb;
+            font-size: 1rem;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        }
+
+        .features {
+            padding: 4rem 2rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .feature-card {
+            background: #f4f4f4;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        footer {
+            background: #1f2937;
+            color: white;
+            text-align: center;
+            padding: 1rem;
+        }
+
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
 </head>
-112
 <body>
-113
- 
-114
-<header>
-115
-<h2>My Website</h2>
-116
-<nav>
-117
-<ul>
-118
-<li>#Home</a></li>
-119
-<li>#About</a></li>
-120
-<li>#</li>
-121
-<li>#</li>
-122
-</ul>
-123
-</nav>
-124
-</header>
-125
- 
-126
-<section class="hero">
-127
-<h1>Welcome to My Website</h1>
-128
-<p>
-129
-A simple and modern homepage built using HTML, CSS, and JavaScript.
-130
-</p>
-131
-<button class="btn" id="welcomeBtn">Get Started</button>
-132
-</section>
-133
- 
-134
-<section class="features">
-135
-<div class="feature-card">
-136
-<h3>Fast</h3>
-137
-<p>Optimized for speed and performance.</p>
-138
-</div>
-139
- 
-140
-<div class="feature-card">
-141
-<h3>Responsive</h3>
-142
-<p>Looks great on desktops, tablets, and phones.</p>
-143
-</div>
-144
- 
-145
-<div class="feature-card">
-146
-<h3>Easy to Customize</h3>
-147
-<p>Simple code structure for quick modifications.</p>
-148
-</div>
-149
-</section>
-150
- 
-151
-<footer>
-152
-<p>&copy; 2026 My Website. All Rights Reserved.</p>
-153
-</footer>
-154
- 
-155
-<script>
-156
-const button = document.getElementById("welcomeBtn");
-157
- 
-158
-button.addEventListener("click", () => {
-159
-alert("Thanks for visiting our website!");
-160
-});
-161
-</script>
-162
- 
-163
+
+    <header>
+        <h2>My Website</h2>
+        <nav>
+            <ul>
+                <li>#Home</a></li>
+                <li>#About</a></li>
+                <li>#</li>
+                <li>#</li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h1>Welcome to My Website</h1>
+        <p>
+            A simple and modern homepage built using HTML, CSS, and JavaScript.
+        </p>
+        <button class="btn" id="welcomeBtn">Get Started</button>
+    </section>
+
+    <section class="features">
+        <div class="feature-card">
+            <h3>Fast</h3>
+            <p>Optimized for speed and performance.</p>
+        </div>
+
+        <div class="feature-card">
+            <h3>Responsive</h3>
+            <p>Looks great on desktops, tablets, and phones.</p>
+        </div>
+
+        <div class="feature-card">
+            <h3>Easy to Customize</h3>
+            <p>Simple code structure for quick modifications.</p>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 My Website. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        const button = document.getElementById("welcomeBtn");
+
+        button.addEventListener("click", () => {
+            alert("Thanks for visiting our website!");
+        });
+    </script>
+
 </body>
-164
 </html>
