@@ -1,164 +1,175 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Home Page</title>
-
+    <title>Test Layout</title>
     <style>
+        /* Reset */
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: Arial, sans-serif;
         }
+
+        /* Body */
 
         body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #e2aeae;
+            color: #000000;
             line-height: 1.6;
-            color: #333;
         }
 
+        /* Navigation */
+
         header {
-            background: #1e3a8a;
-            color: white;
-            padding: 1rem 2rem;
+            border-bottom: 1px solid #dddddd;
+        }
+
+        nav {
+            max-width: 1100px;
+            margin: auto;
+            padding: 20px;
+
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
 
-        nav ul {
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .nav-links {
             list-style: none;
             display: flex;
-            gap: 20px;
+            gap: 30px;
         }
 
-        nav a {
-            color: white;
+        .nav-links a {
             text-decoration: none;
+            color: #000;
+            font-weight: bold;
+            transition: .3s;
         }
+
+        .nav-links a:hover {
+            text-decoration: underline;
+        }
+
+        /* Hero */
 
         .hero {
-            height: 70vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            background: linear-gradient(135deg, #2563eb, #3b82f6);
-            color: white;
+            max-width: 900px;
+            margin: 120px auto;
             text-align: center;
             padding: 20px;
         }
 
         .hero h1 {
-            font-size: 3rem;
-            margin-bottom: 1rem;
+            font-size: 52px;
+            margin-bottom: 20px;
         }
 
         .hero p {
-            max-width: 600px;
-            margin-bottom: 1.5rem;
+            font-size: 20px;
+            margin-bottom: 40px;
         }
 
-        .btn {
-            padding: 12px 24px;
-            border: none;
-            background: white;
-            color: #2563eb;
-            font-size: 1rem;
-            border-radius: 5px;
+        .hero button {
+            padding: 14px 28px;
+            font-size: 18px;
             cursor: pointer;
-            transition: 0.3s;
+
+            background: #000;
+            color: #fff;
+
+            border: none;
+            transition: .3s;
         }
 
-        .btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        .hero button:hover {
+            background: #444;
         }
 
-        .features {
-            padding: 4rem 2rem;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-        }
-
-        .feature-card {
-            background: #f4f4f4;
-            padding: 20px;
-            border-radius: 10px;
-            text-align: center;
-        }
+        /* Footer */
 
         footer {
-            background: #1f2937;
-            color: white;
             text-align: center;
-            padding: 1rem;
+            padding: 30px;
+            border-top: 1px solid #ddd;
+            margin-top: 80px;
         }
 
-        @media (max-width: 768px) {
-            header {
+        /* Mobile */
+
+        @media(max-width:768px) {
+
+            nav {
                 flex-direction: column;
-                gap: 10px;
+                gap: 20px;
+            }
+
+            .nav-links {
+                flex-direction: column;
+                text-align: center;
+                gap: 15px;
             }
 
             .hero h1 {
-                font-size: 2rem;
+                font-size: 40px;
             }
+
+            .hero p {
+                font-size: 18px;
+            }
+
         }
     </style>
 </head>
-<body>
 
+<body>
     <header>
-        <h2>My Website</h2>
         <nav>
-            <ul>
-                <li>#Home</a></li>
-                <li>#About</a></li>
-                <li>#</li>
-                <li>#</li>
+            <div class="logo">
+                My Website
+            </div>
+
+            <ul class="nav-links">
+                <li><a href="#" onclick="showMessage('Home')">Home</a></li>
+                <li><a href="#" onclick="showMessage('About')">About</a></li>
+                <li><a href="#" onclick="showMessage('Contact')">Contact</a></li>
             </ul>
         </nav>
     </header>
 
-    <section class="hero">
-        <h1>Welcome to My Website</h1>
-        <p>
-            A simple and modern homepage built using HTML, CSS, and JavaScript.
-        </p>
-        <button class="btn" id="welcomeBtn">Get Started</button>
-    </section>
+    <main>
 
-    <section class="features">
-        <div class="feature-card">
-            <h3>Fast</h3>
-            <p>Optimized for speed and performance.</p>
-        </div>
+        <section class="hero">
+            <h1>Welcome</h1>
 
-        <div class="feature-card">
-            <h3>Responsive</h3>
-            <p>Looks great on desktops, tablets, and phones.</p>
-        </div>
+            <p>
+                This is a simple homepage built with HTML, CSS, and JavaScript.
+                It provides a clean foundation that you can expand into a complete website.
+            </p>
 
-        <div class="feature-card">
-            <h3>Easy to Customize</h3>
-            <p>Simple code structure for quick modifications.</p>
-        </div>
-    </section>
+            <button onclick="learnMore()">
+                Learn More
+            </button>
+        </section>
+
+    </main>
 
     <footer>
         <p>&copy; 2026 My Website. All Rights Reserved.</p>
     </footer>
 
-    <script>
-        const button = document.getElementById("welcomeBtn");
 
-        button.addEventListener("click", () => {
-            alert("Thanks for visiting our website!");
-        });
-    </script>
 
 </body>
+
 </html>
