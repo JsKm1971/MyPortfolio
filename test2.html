@@ -1,0 +1,187 @@
+```html
+<style>
+    /* Container for multiple cards */
+    .flip-card-container {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 25px;
+        max-width: 1300px;
+        margin: 0 auto;
+        padding: 20px;
+    }
+
+    /* Container for each flip card */
+    .flip-card {
+        background-color: transparent;
+        width: 100%;
+        height: 200px;
+        perspective: 1000px;
+    }
+
+    /* Flip card inner container */
+    .flip-card-inner {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        text-align: center;
+        transition: transform 0.6s;
+        transform-style: preserve-3d;
+    }
+
+    /* Flip card when hovering */
+    .flip-card:hover .flip-card-inner {
+        transform: rotateY(180deg);
+    }
+
+    /* Front and back sides of the card */
+    .flip-card-front,
+    .flip-card-back {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        -webkit-backface-visibility: hidden;
+        backface-visibility: hidden;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        box-sizing: border-box;
+    }
+
+    /* Front of the card */
+    .flip-card-front {
+        background-color: #4F3674;
+        color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 24px;
+        font-weight: bold;
+        padding: 20px;
+    }
+
+    /* Back of the card */
+    .flip-card-back {
+        background-color: #f1f1f1;
+        color: black;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 18px;
+        padding: 20px;
+        transform: rotateY(180deg);
+    }
+
+    /* Tablet: 2 cards per row */
+    @media (max-width: 900px) {
+        .flip-card-container {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+
+    /* Mobile: 1 card per row */
+    @media (max-width: 600px) {
+        .flip-card-container {
+            grid-template-columns: 1fr;
+        }
+    }
+</style>
+
+<div class="flip-card-container">
+
+    <!-- Row 1 - Card 1 -->
+    <div class="flip-card">
+        <div class="flip-card-inner">
+            <div class="flip-card-front">
+                Card 1
+            </div>
+            <div class="flip-card-back">
+                This is the back of Card 1.
+            </div>
+        </div>
+    </div>
+
+    <!-- Row 1 - Card 2 -->
+    <div class="flip-card">
+        <div class="flip-card-inner">
+            <div class="flip-card-front">
+                Card 2
+            </div>
+            <div class="flip-card-back">
+                This is the back of Card 2.
+            </div>
+        </div>
+    </div>
+
+    <!-- Row 1 - Card 3 -->
+    <div class="flip-card">
+        <div class="flip-card-inner">
+            <div class="flip-card-front">
+                Card 3
+            </div>
+            <div class="flip-card-back">
+                This is the back of Card 3.
+            </div>
+        </div>
+    </div>
+
+    <!-- Row 1 - Card 4 -->
+    <div class="flip-card">
+        <div class="flip-card-inner">
+            <div class="flip-card-front">
+                Card 4
+            </div>
+            <div class="flip-card-back">
+                This is the back of Card 4.
+            </div>
+        </div>
+    </div>
+
+    <!-- Row 2 - Card 5 -->
+    <div class="flip-card">
+        <div class="flip-card-inner">
+            <div class="flip-card-front">
+                Card 5
+            </div>
+            <div class="flip-card-back">
+                This is the back of Card 5.
+            </div>
+        </div>
+    </div>
+
+    <!-- Row 2 - Card 6 -->
+    <div class="flip-card">
+        <div class="flip-card-inner">
+            <div class="flip-card-front">
+                Card 6
+            </div>
+            <div class="flip-card-back">
+                This is the back of Card 6.
+            </div>
+        </div>
+    </div>
+
+    <!-- Row 2 - Card 7 -->
+    <div class="flip-card">
+        <div class="flip-card-inner">
+            <div class="flip-card-front">
+                Card 7
+            </div>
+            <div class="flip-card-back">
+                This is the back of Card 7.
+            </div>
+        </div>
+    </div>
+
+    <!-- Row 2 - Card 8 -->
+    <div class="flip-card">
+        <div class="flip-card-inner">
+            <div class="flip-card-front">
+                Card 8
+            </div>
+            <div class="flip-card-back">
+                This is the back of Card 8.
+            </div>
+        </div>
+    </div>
+
+</div>
+```
