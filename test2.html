@@ -91,9 +91,40 @@
         color: white;
 
         font-family: "Open Sans", Arial, sans-serif;
-        font-size: 24px;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        text-align: center;
+        gap: 12px;
+    }
+
+
+    /* ==============================
+       QUESTION NUMBER
+       ============================== */
+
+    .question-number {
+        display: block;
+        font-size: 26px;
+        font-weight: 700;
+        line-height: 1.2;
+        margin: 0;
+    }
+
+
+    /* ==============================
+       QUESTION TEXT
+       ============================== */
+
+    .question-text {
+        display: block;
+        font-size: 18px;
         font-weight: 700;
         line-height: 1.4;
+        margin: 0;
     }
 
 
@@ -111,29 +142,34 @@
         line-height: 1.5;
 
         transform: rotateY(180deg);
+
+        text-align: center;
     }
 
-/* ==============================
-   HEADING AND INTRODUCTION
-   ============================== */
 
-.flip-card-container-wrapper h2 {
-    font-family: "Open Sans", Arial, sans-serif;
-    font-size: 28px;
-    font-weight: 700;
-    line-height: 1.3;
-    text-align: center;
-    margin: 0 0 10px 0;
-}
+    /* ==============================
+       HEADING AND INTRODUCTION
+       ============================== */
 
-.flip-card-container-wrapper p {
-    font-family: "Open Sans", Arial, sans-serif;
-    font-size: 18px;
-    font-weight: 400;
-    line-height: 1.5;
-    text-align: center;
-    margin: 0 0 25px 0;
-}
+    .h2 {
+        font-family: "Open Sans", Arial, sans-serif;
+        font-size: 30px;
+        font-weight: 700;
+        line-height: 1.3;
+        text-align: center;
+        margin: 0 0 10px 0;
+    }
+
+    .p {
+        font-family: "Open Sans", Arial, sans-serif;
+        font-size: 18px;
+        font-weight: 400;
+        line-height: 1.5;
+        text-align: center;
+        margin: 0 0 25px 0;
+    }
+
+
     /* ==============================
        TABLET
        2 CARDS PER ROW
@@ -146,8 +182,12 @@
             gap: 20px;
         }
 
-        .flip-card-front {
-            font-size: 21px;
+        .question-number {
+            font-size: 24px;
+        }
+
+        .question-text {
+            font-size: 17px;
         }
 
         .flip-card-back {
@@ -175,8 +215,15 @@
         }
 
         .flip-card-front {
-            font-size: 19px;
             padding: 18px;
+        }
+
+        .question-number {
+            font-size: 22px;
+        }
+
+        .question-text {
+            font-size: 16px;
         }
 
         .flip-card-back {
@@ -197,8 +244,12 @@
             height: 240px;
         }
 
-        .flip-card-front {
-            font-size: 18px;
+        .question-number {
+            font-size: 21px;
+        }
+
+        .question-text {
+            font-size: 15px;
         }
 
         .flip-card-back {
@@ -221,6 +272,10 @@
 </style>
 
 
+<!-- ==============================
+     HEADING
+     ============================== -->
+
 <h2 style="text-align: center;">Flip Cards</h2>
 
 <p style="text-align: center;">
@@ -228,133 +283,245 @@
 </p>
 
 
+<!-- ==============================
+     FLIP CARDS
+     ============================== -->
+
 <div class="flip-card-container">
 
-    <!-- Card 1 -->
+
+    <!-- ==========================
+         CARD 1
+         ========================== -->
+
     <div class="flip-card" tabindex="0">
+
         <div class="flip-card-inner">
 
             <div class="flip-card-front">
-                Q1. A team adds a final inspection step to catch defects before units ship. Is that quality assurance or quality control?
+
+                <span class="question-number">Q1.</span>
+
+                <span class="question-text">
+                    A team adds a final inspection step to catch defects before units ship.
+                    Is that quality assurance or quality control?
+                </span>
+
             </div>
 
             <div class="flip-card-back">
+
                 Answer: Quality control—it detects defects in the output after the work is done.
+
             </div>
 
         </div>
+
     </div>
 
 
-    <!-- Card 2 -->
+    <!-- ==========================
+         CARD 2
+         ========================== -->
+
     <div class="flip-card" tabindex="0">
+
         <div class="flip-card-inner">
 
             <div class="flip-card-front">
-                Q2. Writing a quality plan with peer-review checkpoints into the schedule is an example of which?
+
+                <span class="question-number">Q2.</span>
+
+                <span class="question-text">
+                    Writing a quality plan with peer-review checkpoints into the schedule
+                    is an example of which?
+                </span>
+
             </div>
 
             <div class="flip-card-back">
+
                 Answer: Quality assurance—it builds quality in to prevent defects before they occur.
+
             </div>
 
         </div>
+
     </div>
 
 
-    <!-- Card 3 -->
+    <!-- ==========================
+         CARD 3
+         ========================== -->
+
     <div class="flip-card" tabindex="0">
+
         <div class="flip-card-inner">
 
             <div class="flip-card-front">
-                Q3. True or false: quality assurance is reactive and quality control is proactive.
+
+                <span class="question-number">Q3.</span>
+
+                <span class="question-text">
+                    True or false: quality assurance is reactive and quality control is proactive.
+                </span>
+
             </div>
 
             <div class="flip-card-back">
+
                 Answer: False—it is the reverse. QA is proactive (prevention); QC is reactive (detection).
+
             </div>
 
         </div>
+
     </div>
 
 
-    <!-- Card 4 -->
+    <!-- ==========================
+         CARD 4
+         ========================== -->
+
     <div class="flip-card" tabindex="0">
+
         <div class="flip-card-inner">
 
             <div class="flip-card-front">
-                Q4. A sponsor says testing is costing too much. Which concept helps you frame that trade-off?
+
+                <span class="question-number">Q4.</span>
+
+                <span class="question-text">
+                    A sponsor says testing is costing too much. Which concept helps you frame that trade-off?
+                </span>
+
             </div>
 
             <div class="flip-card-back">
+
                 Answer: Cost of quality—weighing prevention and appraisal costs against the cost of failures.
+
             </div>
 
         </div>
+
     </div>
 
 
-    <!-- Card 5 -->
+    <!-- ==========================
+         CARD 5
+         ========================== -->
+
     <div class="flip-card" tabindex="0">
+
         <div class="flip-card-inner">
 
             <div class="flip-card-front">
-                Q5. What does SIPOC stand for?
+
+                <span class="question-number">Q5.</span>
+
+                <span class="question-text">
+                    What does SIPOC stand for?
+                </span>
+
             </div>
 
             <div class="flip-card-back">
+
                 Answer: Suppliers, Inputs, Process, Outputs, Customers.
+
             </div>
 
         </div>
+
     </div>
 
 
-    <!-- Card 6 -->
+    <!-- ==========================
+         CARD 6
+         ========================== -->
+
     <div class="flip-card" tabindex="0">
+
         <div class="flip-card-inner">
 
             <div class="flip-card-front">
-                Q6. Turning stakeholder interviews into concrete acceptance criteria captures what?
+
+                <span class="question-number">Q6.</span>
+
+                <span class="question-text">
+                    Turning stakeholder interviews into concrete acceptance criteria captures what?
+                </span>
+
             </div>
 
             <div class="flip-card-back">
+
                 Answer: The Voice of the Customer (VOC).
+
             </div>
 
         </div>
+
     </div>
 
 
-    <!-- Card 7 -->
+    <!-- ==========================
+         CARD 7
+         ========================== -->
+
     <div class="flip-card" tabindex="0">
+
         <div class="flip-card-inner">
 
             <div class="flip-card-front">
-                Q7. A "ship it and fix it later" mindset across an organization is an example of what shaping quality?
+
+                <span class="question-number">Q7.</span>
+
+                <span class="question-text">
+                    A "ship it and fix it later" mindset across an organization is an example of what shaping quality?
+                </span>
+
             </div>
 
             <div class="flip-card-back">
+
                 Answer: Organizational culture.
+
             </div>
 
         </div>
+
     </div>
 
 
-    <!-- Card 8 -->
+    <!-- ==========================
+         CARD 8
+         ========================== -->
+
     <div class="flip-card" tabindex="0">
+
         <div class="flip-card-inner">
 
             <div class="flip-card-front">
-                Q8. The recipient who receives and judges your deliverable—internal or external—is called what?
+
+                <span class="question-number">Q8.</span>
+
+                <span class="question-text">
+                    The recipient who receives and judges your deliverable—internal or external—is called what?
+                </span>
+
             </div>
 
             <div class="flip-card-back">
+
                 Answer: The customer.
+
             </div>
 
         </div>
+
     </div>
+
 
 </div>
