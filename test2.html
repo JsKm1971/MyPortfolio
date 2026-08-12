@@ -1,184 +1,339 @@
 <style>
-    /* Container for multiple cards */
+    /* ==============================
+       FLIP CARD CONTAINER
+       ============================== */
+
     .flip-card-container {
         display: grid;
-        grid-template-columns: repeat(4, 1fr);
+        grid-template-columns: repeat(4, minmax(0, 1fr));
         gap: 25px;
+        width: 100%;
         max-width: 1300px;
         margin: 0 auto;
         padding: 20px;
+        box-sizing: border-box;
+        font-family: "Open Sans", Arial, sans-serif;
     }
 
-    /* Container for each flip card */
+
+    /* ==============================
+       INDIVIDUAL FLIP CARD
+       ============================== */
+
     .flip-card {
         background-color: transparent;
         width: 100%;
-        height: 200px;
+        min-height: 200px;
         perspective: 1000px;
     }
 
-    /* Flip card inner container */
+
+    /* ==============================
+       INNER CARD
+       ============================== */
+
     .flip-card-inner {
         position: relative;
         width: 100%;
-        height: 100%;
+        height: 200px;
         text-align: center;
-        transition: transform 0.6s;
+        transition: transform 0.6s ease;
         transform-style: preserve-3d;
     }
 
-    /* Flip card when hovering */
-    .flip-card:hover .flip-card-inner {
+
+    /* ==============================
+       FLIP EFFECT
+       ============================== */
+
+    .flip-card:hover .flip-card-inner,
+    .flip-card:focus-within .flip-card-inner {
         transform: rotateY(180deg);
     }
 
-    /* Front and back sides of the card */
+
+    /* ==============================
+       FRONT & BACK
+       ============================== */
+
     .flip-card-front,
     .flip-card-back {
         position: absolute;
         width: 100%;
         height: 100%;
-        -webkit-backface-visibility: hidden;
-        backface-visibility: hidden;
+        top: 0;
+        left: 0;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        padding: 20px;
+        box-sizing: border-box;
+
         border-radius: 10px;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-        box-sizing: border-box;
+
+        -webkit-backface-visibility: hidden;
+        backface-visibility: hidden;
+
+        overflow-wrap: break-word;
+        word-wrap: break-word;
     }
 
-    /* Front of the card */
+
+    /* ==============================
+       FRONT OF CARD
+       ============================== */
+
     .flip-card-front {
         background-color: #4F3674;
         color: white;
-        display: flex;
-        justify-content: center;
-        align-items: center;
+
+        font-family: "Open Sans", Arial, sans-serif;
         font-size: 24px;
-        font-weight: bold;
-        padding: 20px;
+        font-weight: 700;
+        line-height: 1.4;
     }
 
-    /* Back of the card */
+
+    /* ==============================
+       BACK OF CARD
+       ============================== */
+
     .flip-card-back {
         background-color: #f1f1f1;
-        color: black;
-        display: flex;
-        justify-content: center;
-        align-items: center;
+        color: #000000;
+
+        font-family: "Open Sans", Arial, sans-serif;
         font-size: 18px;
-        padding: 20px;
+        font-weight: 400;
+        line-height: 1.5;
+
         transform: rotateY(180deg);
     }
 
-    /* Tablet: 2 cards per row */
+
+    /* ==============================
+       TABLET
+       2 CARDS PER ROW
+       ============================== */
+
     @media (max-width: 900px) {
+
         .flip-card-container {
-            grid-template-columns: repeat(2, 1fr);
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 20px;
+        }
+
+        .flip-card-front {
+            font-size: 21px;
+        }
+
+        .flip-card-back {
+            font-size: 17px;
         }
     }
 
-    /* Mobile: 1 card per row */
+
+    /* ==============================
+       MOBILE
+       1 CARD PER ROW
+       ============================== */
+
     @media (max-width: 600px) {
+
         .flip-card-container {
             grid-template-columns: 1fr;
+            gap: 20px;
+            padding: 15px;
+        }
+
+        .flip-card,
+        .flip-card-inner {
+            height: 220px;
+        }
+
+        .flip-card-front {
+            font-size: 19px;
+            padding: 18px;
+        }
+
+        .flip-card-back {
+            font-size: 16px;
+            padding: 18px;
+        }
+    }
+
+
+    /* ==============================
+       EXTRA SMALL PHONES
+       ============================== */
+
+    @media (max-width: 400px) {
+
+        .flip-card,
+        .flip-card-inner {
+            height: 240px;
+        }
+
+        .flip-card-front {
+            font-size: 18px;
+        }
+
+        .flip-card-back {
+            font-size: 15px;
+        }
+    }
+
+
+    /* ==============================
+       REDUCED MOTION
+       Accessibility preference
+       ============================== */
+
+    @media (prefers-reduced-motion: reduce) {
+
+        .flip-card-inner {
+            transition: none;
         }
     }
 </style>
 
+
+<h2 style="text-align: center;">Flip Cards</h2>
+
+<p style="text-align: center;">
+    Hover Over Card To Reveal Answer
+</p>
+
+
 <div class="flip-card-container">
 
-    <!-- Row 1 - Card 1 -->
-    <div class="flip-card">
+    <!-- Card 1 -->
+    <div class="flip-card" tabindex="0">
         <div class="flip-card-inner">
+
             <div class="flip-card-front">
-                Q1.  A team adds a final inspection step to catch defects before units ship. Is that quality assurance or quality control?
+                Q1. A team adds a final inspection step to catch defects before units ship. Is that quality assurance or quality control?
             </div>
+
             <div class="flip-card-back">
-                Answer:  Quality control—it detects defects in the output after the work is done.
+                Answer: Quality control—it detects defects in the output after the work is done.
             </div>
+
         </div>
     </div>
 
-    <!-- Row 1 - Card 2 -->
-    <div class="flip-card">
+
+    <!-- Card 2 -->
+    <div class="flip-card" tabindex="0">
         <div class="flip-card-inner">
+
             <div class="flip-card-front">
-                Card 2
+                Q2. Writing a quality plan with peer-review checkpoints into the schedule is an example of which?
             </div>
+
             <div class="flip-card-back">
-                This is the back of Card 2.
+                Answer: Quality assurance—it builds quality in to prevent defects before they occur.
             </div>
+
         </div>
     </div>
 
-    <!-- Row 1 - Card 3 -->
-    <div class="flip-card">
+
+    <!-- Card 3 -->
+    <div class="flip-card" tabindex="0">
         <div class="flip-card-inner">
+
             <div class="flip-card-front">
-                Card 3
+                Q3. True or false: quality assurance is reactive and quality control is proactive.
             </div>
+
             <div class="flip-card-back">
-                This is the back of Card 3.
+                Answer: False—it is the reverse. QA is proactive (prevention); QC is reactive (detection).
             </div>
+
         </div>
     </div>
 
-    <!-- Row 1 - Card 4 -->
-    <div class="flip-card">
+
+    <!-- Card 4 -->
+    <div class="flip-card" tabindex="0">
         <div class="flip-card-inner">
+
             <div class="flip-card-front">
-                Card 4
+                Q4. A sponsor says testing is costing too much. Which concept helps you frame that trade-off?
             </div>
+
             <div class="flip-card-back">
-                This is the back of Card 4.
+                Answer: Cost of quality—weighing prevention and appraisal costs against the cost of failures.
             </div>
+
         </div>
     </div>
 
-    <!-- Row 2 - Card 5 -->
-    <div class="flip-card">
+
+    <!-- Card 5 -->
+    <div class="flip-card" tabindex="0">
         <div class="flip-card-inner">
+
             <div class="flip-card-front">
-                Card 5
+                Q5. What does SIPOC stand for?
             </div>
+
             <div class="flip-card-back">
-                This is the back of Card 5.
+                Answer: Suppliers, Inputs, Process, Outputs, Customers.
             </div>
+
         </div>
     </div>
 
-    <!-- Row 2 - Card 6 -->
-    <div class="flip-card">
+
+    <!-- Card 6 -->
+    <div class="flip-card" tabindex="0">
         <div class="flip-card-inner">
+
             <div class="flip-card-front">
-                Card 6
+                Q6. Turning stakeholder interviews into concrete acceptance criteria captures what?
             </div>
+
             <div class="flip-card-back">
-                This is the back of Card 6.
+                Answer: The Voice of the Customer (VOC).
             </div>
+
         </div>
     </div>
 
-    <!-- Row 2 - Card 7 -->
-    <div class="flip-card">
+
+    <!-- Card 7 -->
+    <div class="flip-card" tabindex="0">
         <div class="flip-card-inner">
+
             <div class="flip-card-front">
-                Card 7
+                Q7. A "ship it and fix it later" mindset across an organization is an example of what shaping quality?
             </div>
+
             <div class="flip-card-back">
-                This is the back of Card 7.
+                Answer: Organizational culture.
             </div>
+
         </div>
     </div>
 
-    <!-- Row 2 - Card 8 -->
-    <div class="flip-card">
+
+    <!-- Card 8 -->
+    <div class="flip-card" tabindex="0">
         <div class="flip-card-inner">
+
             <div class="flip-card-front">
-                Card 8
+                Q8. The recipient who receives and judges your deliverable—internal or external—is called what?
             </div>
+
             <div class="flip-card-back">
-                This is the back of Card 8.
+                Answer: The customer.
             </div>
+
         </div>
     </div>
 
