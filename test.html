@@ -1,6 +1,4 @@
-### HTML
 
-```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -1023,39 +1021,3 @@ updateTimeline(0);
 
 </body>
 </html>
-```
-
-### What the learner sees
-
-The experience flows visually like this:
-
-**01 Kick Off → 02 Course Planning → 03 Content Development → 04 Instructional Design → 05 Course Build → 06 Quality Review → 07 SME Review → 08 Launch**
-
-When a learner clicks a phase, the **gold progress line advances**, completed phases change to gold, and the information panel below the timeline dynamically changes to show the details for that phase.
-
-### Easy customization
-
-The most important section to modify is the JavaScript `phases` array. For example, if your actual Bellevue course-development process has different stages, you can simply change:
-
-```javascript
-{
-    title: "Course Planning",
-    description: "...",
-    items: [
-        "...",
-        "...",
-        "...",
-        "..."
-    ]
-}
-```
-
-You can also add additional phases without having to rewrite the timeline logic.
-
-### Suggested course-development sequence
-
-For an instructional-design environment, I would actually recommend expanding this into a **10-phase version**:
-
-**Kick Off → Course Blueprint → Content Development → Storyboarding → Instructional Design → Course Build → Accessibility & QA → SME Review → Final Approval → Launch**
-
-That would give you a very polished **end-to-end Course Development Roadmap**, particularly if this is going into Anthology Ultra.
