@@ -1,282 +1,357 @@
-<!-- =========================================================
-     WEEK 1 — FOUNDATIONS OF PROJECT QUALITY
-     Responsive HTML / CSS / JavaScript Banner
-     ========================================================= -->
-
 <style>
-    /* ==============================
-       BANNER CONTAINER
-       ============================== */
+/* =========================================================
+   WEEK 1 — FOUNDATIONS OF PROJECT QUALITY
+   STANDALONE BANNER
+   ========================================================= */
 
-    .quality-banner {
-        width: 100%;
-        max-width: 1400px;
-        margin: 25px auto;
-        display: flex;
-        align-items: stretch;
-        overflow: hidden;
-
-        background: #ffffff;
-        border-radius: 18px;
-
-        box-shadow:
-            0 8px 24px rgba(0, 0, 0, 0.12);
-
-        border-left: 7px solid #D6A800;
-
-        min-height: 260px;
-
-        font-family: "Open Sans", Arial, sans-serif;
-    }
+:root {
+    --pq-navy: #003366;
+    --pq-gold: #D6A800;
+    --pq-gray: #5B6777;
+    --pq-white: #FFFFFF;
+}
 
 
-    /* ==============================
-       IMAGE SECTION
-       ============================== */
+/* =========================================================
+   BANNER
+   ========================================================= */
 
-    .quality-banner-image {
-        flex: 0 0 42%;
-        position: relative;
-        overflow: hidden;
-        background: #003366;
-    }
+.pq-banner {
+    width: 100%;
+    max-width: 1400px;
+    min-height: 350px;
 
-    .quality-banner-image img {
-        width: 100%;
-        height: 100%;
-        min-height: 260px;
+    margin: 25px auto;
 
-        display: block;
+    display: flex;
+    align-items: stretch;
 
-        object-fit: cover;
-        object-position: center;
+    overflow: hidden;
 
-        transition: transform 0.6s ease;
-    }
+    background: #FFFFFF;
 
-    /* Subtle image zoom on hover */
-    .quality-banner:hover .quality-banner-image img {
-        transform: scale(1.04);
-    }
+    border-radius: 18px;
+
+    border-left: 7px solid var(--pq-gold);
+
+    box-shadow:
+        0 8px 28px rgba(0, 0, 0, 0.12);
+
+    font-family: "Open Sans", Arial, sans-serif;
+
+    opacity: 0;
+
+    transform: translateY(20px);
+
+    transition:
+        opacity 0.7s ease,
+        transform 0.7s ease;
+}
 
 
-    /* ==============================
-       IMAGE OVERLAY
-       ============================== */
+/* =========================================================
+   IMAGE
+   ========================================================= */
 
-    .quality-banner-image::after {
-        content: "";
-        position: absolute;
-        inset: 0;
+.pq-banner-image {
+    flex: 0 0 45%;
 
-        background: linear-gradient(
+    position: relative;
+
+    overflow: hidden;
+
+    background: var(--pq-navy);
+}
+
+.pq-banner-image img {
+    width: 100%;
+    height: 100%;
+
+    min-height: 350px;
+
+    display: block;
+
+    object-fit: cover;
+    object-position: center;
+
+    transition: transform 0.7s ease;
+}
+
+
+/* Subtle image movement */
+
+.pq-banner:hover .pq-banner-image img {
+    transform: scale(1.035);
+}
+
+
+/* =========================================================
+   IMAGE OVERLAY
+   ========================================================= */
+
+.pq-banner-image::after {
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        linear-gradient(
             90deg,
-            rgba(0, 51, 102, 0.05),
-            rgba(0, 51, 102, 0.35)
+            rgba(0, 51, 102, 0.02),
+            rgba(0, 51, 102, 0.20)
         );
 
-        pointer-events: none;
+    pointer-events: none;
+}
+
+
+/* =========================================================
+   CONTENT AREA
+   ========================================================= */
+
+.pq-banner-content {
+    flex: 1;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    padding: 50px 60px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #FFFFFF 0%,
+            #F7F9FC 100%
+        );
+}
+
+
+/* =========================================================
+   WEEK LABEL
+   ========================================================= */
+
+.pq-banner-week {
+    display: inline-flex;
+
+    align-items: center;
+
+    width: fit-content;
+
+    margin-bottom: 18px;
+
+    padding: 8px 18px;
+
+    background: var(--pq-navy);
+
+    color: #FFFFFF;
+
+    border-radius: 50px;
+
+    font-size: 14px;
+
+    font-weight: 700;
+
+    letter-spacing: 1.5px;
+
+    text-transform: uppercase;
+}
+
+
+/* =========================================================
+   TITLE
+   ========================================================= */
+
+.pq-banner-title {
+    margin: 0;
+
+    color: var(--pq-navy);
+
+    font-size: clamp(34px, 4vw, 52px);
+
+    font-weight: 700;
+
+    line-height: 1.12;
+
+    letter-spacing: -1px;
+}
+
+
+/* =========================================================
+   GOLD ACCENT
+   ========================================================= */
+
+.pq-banner-accent {
+    width: 75px;
+
+    height: 5px;
+
+    margin: 22px 0;
+
+    background: var(--pq-gold);
+
+    border-radius: 10px;
+}
+
+
+/* =========================================================
+   DESCRIPTION
+   ========================================================= */
+
+.pq-banner-description {
+    max-width: 650px;
+
+    margin: 0;
+
+    color: var(--pq-gray);
+
+    font-size: 17px;
+
+    line-height: 1.65;
+
+    font-weight: 400;
+}
+
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 900px) {
+
+    .pq-banner {
+        min-height: 300px;
     }
 
+    .pq-banner-image {
+        flex: 0 0 42%;
+    }
 
-    /* ==============================
-       CONTENT SECTION
-       ============================== */
+    .pq-banner-image img {
+        min-height: 300px;
+    }
 
-    .quality-banner-content {
-        flex: 1;
+    .pq-banner-content {
+        padding: 40px;
+    }
 
-        display: flex;
+    .pq-banner-title {
+        font-size: 38px;
+    }
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 650px) {
+
+    .pq-banner {
+
         flex-direction: column;
-        justify-content: center;
 
-        padding: 45px 55px;
+        margin: 20px auto;
 
-        background:
-            linear-gradient(
-                135deg,
-                #ffffff 0%,
-                #f7f9fc 100%
-            );
+        border-left: none;
+
+        border-top:
+            6px solid var(--pq-gold);
+
+        border-radius: 14px;
     }
 
 
-    /* ==============================
-       WEEK LABEL
-       ============================== */
+    .pq-banner-image {
 
-    .quality-banner-week {
-        display: inline-flex;
-        align-items: center;
+        flex: none;
 
-        width: fit-content;
+        width: 100%;
 
-        margin-bottom: 14px;
+        height: 230px;
+    }
+
+
+    .pq-banner-image img {
+
+        min-height: 230px;
+    }
+
+
+    .pq-banner-content {
+
+        padding: 35px 25px 40px;
+    }
+
+
+    .pq-banner-week {
+
+        font-size: 13px;
 
         padding: 7px 15px;
-
-        background: #003366;
-        color: #ffffff;
-
-        border-radius: 50px;
-
-        font-size: 14px;
-        font-weight: 700;
-        letter-spacing: 1.2px;
-        text-transform: uppercase;
     }
 
 
-    /* ==============================
-       TITLE
-       ============================== */
+    .pq-banner-title {
 
-    .quality-banner-title {
-        margin: 0;
-
-        color: #003366;
-
-        font-size: clamp(30px, 4vw, 48px);
-        font-weight: 700;
-
-        line-height: 1.15;
+        font-size: 34px;
 
         letter-spacing: -0.5px;
     }
 
 
-    /* ==============================
-       GOLD ACCENT
-       ============================== */
+    .pq-banner-description {
 
-    .quality-banner-accent {
-        width: 70px;
-        height: 5px;
-
-        margin: 20px 0;
-
-        background: #D6A800;
-
-        border-radius: 10px;
+        font-size: 15px;
     }
-
-
-    /* ==============================
-       SUBTITLE
-       ============================== */
-
-    .quality-banner-subtitle {
-        margin: 0;
-
-        max-width: 650px;
-
-        color: #4a5568;
-
-        font-size: 17px;
-        line-height: 1.6;
-        font-weight: 400;
-    }
-
-
-    /* ==============================
-       RESPONSIVE DESIGN
-       ============================== */
-
-    @media (max-width: 800px) {
-
-        .quality-banner {
-            flex-direction: column;
-
-            margin: 20px auto;
-
-            border-left: none;
-            border-top: 6px solid #D6A800;
-        }
-
-        .quality-banner-image {
-            flex: none;
-            width: 100%;
-            height: 230px;
-        }
-
-        .quality-banner-image img {
-            min-height: 230px;
-        }
-
-        .quality-banner-content {
-            padding: 35px 30px 40px;
-        }
-
-        .quality-banner-title {
-            font-size: 34px;
-        }
-    }
-
-
-    @media (max-width: 480px) {
-
-        .quality-banner {
-            border-radius: 12px;
-        }
-
-        .quality-banner-image {
-            height: 190px;
-        }
-
-        .quality-banner-image img {
-            min-height: 190px;
-        }
-
-        .quality-banner-content {
-            padding: 28px 24px 32px;
-        }
-
-        .quality-banner-title {
-            font-size: 30px;
-        }
-
-        .quality-banner-subtitle {
-            font-size: 15px;
-        }
-    }
+}
 </style>
 
 
-<!-- ==============================
-     BANNER HTML
-     ============================== -->
+<!-- =========================================================
+     STANDALONE WEEK 1 BANNER
+     ========================================================= -->
 
-<div class="quality-banner" id="week1QualityBanner">
+<div class="pq-banner" id="projectQualityBanner">
 
-    <!-- IMAGE -->
-    <div class="quality-banner-image">
+    <!-- LEFT: PROJECT QUALITY IMAGE -->
 
-        <!-- Replace the image filename below -->
+    <div class="pq-banner-image">
+
         <img
-            src="your-image.jpg"
-            alt="Foundations of Project Quality"
+            src="project-quality-week1.png"
+            alt="Project Quality"
         >
 
     </div>
 
 
-    <!-- CONTENT -->
-    <div class="quality-banner-content">
+    <!-- RIGHT: WEEK INFORMATION -->
 
-        <div class="quality-banner-week">
+    <div class="pq-banner-content">
+
+        <div class="pq-banner-week">
             Week 1
         </div>
 
-        <h1 class="quality-banner-title">
+
+        <h1 class="pq-banner-title">
             Foundations of<br>
             Project Quality
         </h1>
 
-        <div class="quality-banner-accent"></div>
 
-        <p class="quality-banner-subtitle">
+        <div class="pq-banner-accent"></div>
+
+
+        <p class="pq-banner-description">
             Explore the fundamental principles of project quality,
-            including quality planning, assurance, and control.
+            including quality planning, quality assurance, and
+            quality control.
         </p>
 
     </div>
@@ -285,28 +360,19 @@
 
 
 <script>
-    /* =========================================
-       WEEK 1 BANNER — JAVASCRIPT
-       Adds a subtle entrance animation
-       ========================================= */
+document.addEventListener("DOMContentLoaded", function () {
 
-    document.addEventListener("DOMContentLoaded", function () {
+    const banner =
+        document.getElementById("projectQualityBanner");
 
-        const banner = document.getElementById("week1QualityBanner");
+    if (!banner) return;
 
-        if (!banner) return;
+    setTimeout(function () {
 
-        banner.style.opacity = "0";
-        banner.style.transform = "translateY(15px)";
-        banner.style.transition =
-            "opacity 0.7s ease, transform 0.7s ease";
+        banner.style.opacity = "1";
+        banner.style.transform = "translateY(0)";
 
-        setTimeout(function () {
+    }, 100);
 
-            banner.style.opacity = "1";
-            banner.style.transform = "translateY(0)";
-
-        }, 100);
-
-    });
+});
 </script>
