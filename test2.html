@@ -1,48 +1,31 @@
 <style>
 /* =========================================================
    WEEK 1 — FOUNDATIONS OF PROJECT QUALITY
+   STANDALONE BANNER
    ========================================================= */
 
-:root {
-    --pq-navy: #003366;
-    --pq-gold: #D6A800;
-    --pq-dark: #172B4D;
-    --pq-gray: #5B6777;
-    --pq-light: #F5F7FA;
-    --pq-white: #FFFFFF;
-}
-
-
-/* =========================================================
-   MAIN WRAPPER
-   ========================================================= */
-
-.pq-module {
+.pq-banner {
     width: 100%;
     max-width: 1400px;
-    margin: 30px auto;
-    font-family: "Open Sans", Arial, sans-serif;
-}
-
-
-/* =========================================================
-   HERO BANNER
-   ========================================================= */
-
-.pq-hero {
-    display: flex;
     min-height: 350px;
+
+    margin: 25px auto;
+
+    display: flex;
+    align-items: stretch;
 
     overflow: hidden;
 
-    background: var(--pq-white);
+    background: #FFFFFF;
 
     border-radius: 18px;
 
-    border-left: 7px solid var(--pq-gold);
+    border-left: 7px solid #D6A800;
 
     box-shadow:
         0 8px 28px rgba(0, 0, 0, 0.12);
+
+    font-family: "Open Sans", Arial, sans-serif;
 
     opacity: 0;
     transform: translateY(20px);
@@ -54,20 +37,20 @@
 
 
 /* =========================================================
-   HERO IMAGE
+   IMAGE
    ========================================================= */
 
-.pq-hero-image {
+.pq-banner-image {
     flex: 0 0 45%;
 
     position: relative;
 
     overflow: hidden;
 
-    background: var(--pq-navy);
+    background: #003366;
 }
 
-.pq-hero-image img {
+.pq-banner-image img {
     width: 100%;
     height: 100%;
 
@@ -81,8 +64,11 @@
     transition: transform 0.7s ease;
 }
 
-.pq-hero:hover .pq-hero-image img {
-    transform: scale(1.04);
+
+/* Subtle hover effect */
+
+.pq-banner:hover .pq-banner-image img {
+    transform: scale(1.035);
 }
 
 
@@ -90,7 +76,7 @@
    IMAGE OVERLAY
    ========================================================= */
 
-.pq-hero-image::after {
+.pq-banner-image::after {
     content: "";
 
     position: absolute;
@@ -99,7 +85,7 @@
     background:
         linear-gradient(
             90deg,
-            rgba(0, 51, 102, 0.05),
+            rgba(0, 51, 102, 0.02),
             rgba(0, 51, 102, 0.20)
         );
 
@@ -108,14 +94,16 @@
 
 
 /* =========================================================
-   HERO CONTENT
+   CONTENT
    ========================================================= */
 
-.pq-hero-content {
+.pq-banner-content {
     flex: 1;
 
     display: flex;
+
     flex-direction: column;
+
     justify-content: center;
 
     padding: 50px 60px;
@@ -133,23 +121,25 @@
    WEEK LABEL
    ========================================================= */
 
-.pq-week {
+.pq-banner-week {
     display: inline-flex;
 
     align-items: center;
 
     width: fit-content;
 
-    padding: 8px 18px;
-
     margin-bottom: 18px;
 
+    padding: 8px 18px;
+
+    background: #003366;
+
     color: #FFFFFF;
-    background: var(--pq-navy);
 
     border-radius: 50px;
 
     font-size: 14px;
+
     font-weight: 700;
 
     letter-spacing: 1.5px;
@@ -159,13 +149,13 @@
 
 
 /* =========================================================
-   MAIN TITLE
+   TITLE
    ========================================================= */
 
-.pq-title {
+.pq-banner-title {
     margin: 0;
 
-    color: var(--pq-navy);
+    color: #003366;
 
     font-size: clamp(34px, 4vw, 52px);
 
@@ -178,16 +168,17 @@
 
 
 /* =========================================================
-   GOLD DIVIDER
+   GOLD ACCENT
    ========================================================= */
 
-.pq-divider {
+.pq-banner-accent {
     width: 75px;
+
     height: 5px;
 
     margin: 22px 0;
 
-    background: var(--pq-gold);
+    background: #D6A800;
 
     border-radius: 10px;
 }
@@ -197,12 +188,12 @@
    DESCRIPTION
    ========================================================= */
 
-.pq-description {
+.pq-banner-description {
     max-width: 650px;
 
     margin: 0;
 
-    color: var(--pq-gray);
+    color: #5B6777;
 
     font-size: 17px;
 
@@ -211,229 +202,29 @@
 
 
 /* =========================================================
-   COURSE ITEMS CONTAINER
-   ========================================================= */
-
-.pq-items {
-    display: grid;
-
-    grid-template-columns:
-        repeat(4, minmax(0, 1fr));
-
-    gap: 18px;
-
-    margin-top: 22px;
-}
-
-
-/* =========================================================
-   COURSE ITEM CARD
-   ========================================================= */
-
-.pq-item {
-    position: relative;
-
-    display: flex;
-
-    flex-direction: column;
-
-    align-items: center;
-
-    justify-content: flex-start;
-
-    min-height: 220px;
-
-    padding: 30px 22px;
-
-    text-align: center;
-
-    text-decoration: none;
-
-    background: #FFFFFF;
-
-    border-radius: 16px;
-
-    border: 1px solid #E5E9EF;
-
-    box-shadow:
-        0 5px 18px rgba(0, 0, 0, 0.08);
-
-    transition:
-        transform 0.3s ease,
-        box-shadow 0.3s ease,
-        border-color 0.3s ease;
-}
-
-
-/* Gold accent at top */
-
-.pq-item::before {
-    content: "";
-
-    position: absolute;
-
-    top: 0;
-    left: 50%;
-
-    width: 45px;
-    height: 4px;
-
-    transform: translateX(-50%);
-
-    background: var(--pq-gold);
-
-    border-radius: 0 0 6px 6px;
-
-    transition: width 0.3s ease;
-}
-
-
-/* Hover */
-
-.pq-item:hover {
-
-    transform: translateY(-7px);
-
-    border-color: var(--pq-gold);
-
-    box-shadow:
-        0 12px 28px rgba(0, 0, 0, 0.14);
-}
-
-.pq-item:hover::before {
-    width: 75px;
-}
-
-
-/* =========================================================
-   ICON CIRCLE
-   ========================================================= */
-
-.pq-icon {
-
-    width: 72px;
-    height: 72px;
-
-    display: flex;
-
-    align-items: center;
-    justify-content: center;
-
-    margin-bottom: 17px;
-
-    color: #FFFFFF;
-
-    background: var(--pq-navy);
-
-    border-radius: 50%;
-
-    box-shadow:
-        0 5px 12px rgba(0, 51, 102, 0.20);
-
-    transition:
-        transform 0.3s ease,
-        background 0.3s ease;
-}
-
-
-/* Alternate gold icons */
-
-.pq-item:nth-child(even) .pq-icon {
-    background: var(--pq-gold);
-}
-
-.pq-item:hover .pq-icon {
-    transform: scale(1.08);
-}
-
-
-/* SVG */
-
-.pq-icon svg {
-    width: 38px;
-    height: 38px;
-
-    fill: none;
-
-    stroke: currentColor;
-
-    stroke-width: 1.8;
-
-    stroke-linecap: round;
-    stroke-linejoin: round;
-}
-
-
-/* =========================================================
-   ITEM TITLE
-   ========================================================= */
-
-.pq-item-title {
-
-    margin: 0 0 10px 0;
-
-    color: var(--pq-navy);
-
-    font-size: 22px;
-
-    font-weight: 700;
-
-    line-height: 1.2;
-}
-
-
-/* =========================================================
-   ITEM DESCRIPTION
-   ========================================================= */
-
-.pq-item-description {
-
-    margin: 0;
-
-    color: var(--pq-gray);
-
-    font-size: 15px;
-
-    line-height: 1.55;
-}
-
-
-/* =========================================================
-   KEYBOARD ACCESSIBILITY
-   ========================================================= */
-
-.pq-item:focus-visible {
-
-    outline: 4px solid rgba(214, 168, 0, 0.45);
-
-    outline-offset: 3px;
-}
-
-
-/* =========================================================
    TABLET
    ========================================================= */
 
-@media (max-width: 950px) {
+@media (max-width: 900px) {
 
-    .pq-hero {
-        flex-direction: column;
-    }
-
-    .pq-hero-image {
-        flex: none;
-
-        width: 100%;
-        height: 300px;
-    }
-
-    .pq-hero-image img {
+    .pq-banner {
         min-height: 300px;
     }
 
-    .pq-items {
-        grid-template-columns:
-            repeat(2, minmax(0, 1fr));
+    .pq-banner-image {
+        flex: 0 0 42%;
+    }
+
+    .pq-banner-image img {
+        min-height: 300px;
+    }
+
+    .pq-banner-content {
+        padding: 40px;
+    }
+
+    .pq-banner-title {
+        font-size: 38px;
     }
 }
 
@@ -442,277 +233,100 @@
    MOBILE
    ========================================================= */
 
-@media (max-width: 600px) {
+@media (max-width: 650px) {
 
-    .pq-module {
+    .pq-banner {
+
+        flex-direction: column;
+
         margin: 20px auto;
-    }
 
-    .pq-hero {
         border-left: none;
 
-        border-top:
-            6px solid var(--pq-gold);
+        border-top: 6px solid #D6A800;
 
         border-radius: 14px;
     }
 
-    .pq-hero-image {
+    .pq-banner-image {
+
+        flex: none;
+
+        width: 100%;
+
         height: 230px;
     }
 
-    .pq-hero-image img {
+    .pq-banner-image img {
+
         min-height: 230px;
     }
 
-    .pq-hero-content {
+    .pq-banner-content {
+
         padding: 35px 25px 40px;
     }
 
-    .pq-title {
+    .pq-banner-week {
+
+        font-size: 13px;
+
+        padding: 7px 15px;
+    }
+
+    .pq-banner-title {
+
         font-size: 34px;
+
+        letter-spacing: -0.5px;
     }
 
-    .pq-description {
+    .pq-banner-description {
+
         font-size: 15px;
-    }
-
-    .pq-items {
-        grid-template-columns: 1fr;
-
-        gap: 15px;
-    }
-
-    .pq-item {
-        min-height: auto;
-
-        padding: 28px 25px;
     }
 }
 </style>
 
 
 <!-- =========================================================
-     MODULE
+     WEEK 1 BANNER
      ========================================================= -->
 
-<div class="pq-module">
+<div class="pq-banner" id="projectQualityBanner">
+
+    <!-- PROJECT QUALITY IMAGE -->
+
+    <div class="pq-banner-image">
+
+        <img
+            src="project-quality-week1.png"
+            alt="Project Quality"
+        >
+
+    </div>
 
 
-    <!-- =====================================================
-         HERO
-         ===================================================== -->
+    <!-- BANNER CONTENT -->
 
-    <section class="pq-hero" id="projectQualityHero">
+    <div class="pq-banner-content">
 
-        <!-- IMAGE -->
-        <div class="pq-hero-image">
-
-            <!-- Replace this path with your hosted image -->
-            <img
-                src="project-quality-week1.png"
-                alt="Project quality planning, assurance, and control"
-            >
-
+        <div class="pq-banner-week">
+            Week 1
         </div>
 
-
-        <!-- CONTENT -->
-        <div class="pq-hero-content">
-
-            <div class="pq-week">
-                Week 1
-            </div>
-
-            <h1 class="pq-title">
-                Foundations of<br>
-                Project Quality
-            </h1>
-
-            <div class="pq-divider"></div>
-
-            <p class="pq-description">
-                Explore the fundamental principles of project quality,
-                including quality planning, quality assurance, and
-                quality control.
-            </p>
-
-        </div>
-
-    </section>
-
-
-
-    <!-- =====================================================
-         COURSE ITEMS
-         ===================================================== -->
-
-    <div class="pq-items">
-
-
-        <!-- ================= READINGS ================= -->
-
-        <a
-            href="#readings"
-            class="pq-item"
-            aria-label="Readings"
-        >
-
-            <div class="pq-icon">
-
-                <svg viewBox="0 0 48 48">
-
-                    <path d="M7 8h25a5 5 0 0 1 5 5v27H12a5 5 0 0 1-5-5V8z"/>
-
-                    <path d="M12 40V13a5 5 0 0 1 5-5"/>
-
-                    <path d="M18 17h13"/>
-
-                    <path d="M18 23h13"/>
-
-                    <path d="M18 29h9"/>
-
-                </svg>
-
-            </div>
-
-            <h2 class="pq-item-title">
-                Readings
-            </h2>
-
-            <p class="pq-item-description">
-                Review the required readings to build
-                your foundational knowledge.
-            </p>
-
-        </a>
-
-
-
-        <!-- ================= DISCUSSION ================= -->
-
-        <a
-            href="#discussion"
-            class="pq-item"
-            aria-label="Discussion"
-        >
-
-            <div class="pq-icon">
-
-                <svg viewBox="0 0 48 48">
-
-                    <path d="M8 9h32v23H22l-9 8v-8H8z"/>
-
-                    <path d="M16 18h16"/>
-
-                    <path d="M16 24h11"/>
-
-                    <circle cx="35" cy="35" r="5"/>
-
-                </svg>
-
-            </div>
-
-            <h2 class="pq-item-title">
-                Discussion
-            </h2>
-
-            <p class="pq-item-description">
-                Engage with your peers, share your
-                ideas, and explore key concepts.
-            </p>
-
-        </a>
-
-
-
-        <!-- ================= ASSIGNMENT ================= -->
-
-        <a
-            href="#assignment"
-            class="pq-item"
-            aria-label="Assignment"
-        >
-
-            <div class="pq-icon">
-
-                <svg viewBox="0 0 48 48">
-
-                    <path d="M11 5h21l7 7v31H11z"/>
-
-                    <path d="M32 5v9h7"/>
-
-                    <path d="M17 21h14"/>
-
-                    <path d="M17 27h14"/>
-
-                    <path d="M17 33h8"/>
-
-                    <path d="M31 34l7-7"/>
-
-                    <path d="M28 37l3-1 7-7-3-3-7 7z"/>
-
-                </svg>
-
-            </div>
-
-            <h2 class="pq-item-title">
-                Assignment
-            </h2>
-
-            <p class="pq-item-description">
-                Apply what you've learned by completing
-                this week's assignment.
-            </p>
-
-        </a>
-
-
-
-        <!-- ================= QUIZ ================= -->
-
-        <a
-            href="#quiz"
-            class="pq-item"
-            aria-label="Quiz"
-        >
-
-            <div class="pq-icon">
-
-                <svg viewBox="0 0 48 48">
-
-                    <rect
-                        x="10"
-                        y="6"
-                        width="28"
-                        height="36"
-                        rx="3"
-                    />
-
-                    <path d="M18 15h12"/>
-
-                    <path d="M17 23l2 2 4-5"/>
-
-                    <path d="M26 22h7"/>
-
-                    <path d="M17 32l2 2 4-5"/>
-
-                    <path d="M26 31h7"/>
-
-                </svg>
-
-            </div>
-
-            <h2 class="pq-item-title">
-                Quiz
-            </h2>
-
-            <p class="pq-item-description">
-                Test your understanding and reinforce
-                the key concepts from the week.
-            </p>
-
-        </a>
+        <h1 class="pq-banner-title">
+            Foundations of<br>
+            Project Quality
+        </h1>
+
+        <div class="pq-banner-accent"></div>
+
+        <p class="pq-banner-description">
+            Explore the fundamental principles of project quality,
+            including quality planning, quality assurance, and
+            quality control.
+        </p>
 
     </div>
 
@@ -720,21 +334,17 @@
 
 
 <script>
-/* =========================================================
-   SIMPLE ENTRANCE ANIMATION
-   ========================================================= */
-
 document.addEventListener("DOMContentLoaded", function () {
 
-    const hero =
-        document.getElementById("projectQualityHero");
+    const banner =
+        document.getElementById("projectQualityBanner");
 
-    if (!hero) return;
+    if (!banner) return;
 
     setTimeout(function () {
 
-        hero.style.opacity = "1";
-        hero.style.transform = "translateY(0)";
+        banner.style.opacity = "1";
+        banner.style.transform = "translateY(0)";
 
     }, 100);
 
