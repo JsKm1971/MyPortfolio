@@ -1,536 +1,312 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Course Home Page</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-
+<!-- =========================================================
+     WEEK 1 — FOUNDATIONS OF PROJECT QUALITY
+     Responsive HTML / CSS / JavaScript Banner
+     ========================================================= -->
 
 <style>
+    /* ==============================
+       BANNER CONTAINER
+       ============================== */
 
-/* ====================================
-   GLOBAL STYLES
-==================================== */
+    .quality-banner {
+        width: 100%;
+        max-width: 1400px;
+        margin: 25px auto;
+        display: flex;
+        align-items: stretch;
+        overflow: hidden;
 
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
+        background: #ffffff;
+        border-radius: 18px;
 
-body{
-    font-family:'Roboto',sans-serif;
-    background:#f4f6f9;
-    color:#333;
-    line-height:1.6;
-}
+        box-shadow:
+            0 8px 24px rgba(0, 0, 0, 0.12);
 
+        border-left: 7px solid #D6A800;
 
-/* ====================================
-   WELCOME SECTION
-==================================== */
+        min-height: 260px;
 
-.welcome{
-    max-width:1200px;
-    margin:40px auto;
-    background:white;
-    padding:30px;
-    border-radius:12px;
-    box-shadow:0 4px 12px rgba(0,0,0,.08);
-}
-
-.welcome h2{
-    color:#4f3674;
-    margin-bottom:15px;
-}
-
-
-/* =====================
-   HEADER
-===================== */
-
-header{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    padding:20px 8%;
-    background:#fff;
-    box-shadow:0 2px 15px rgba(0,0,0,.05);
-    position:sticky;
-    top:0;
-    z-index:1000;
-}
-
-.logo img{
-    height:200px;
-    width:auto;
-    display:block;
-}
-
-nav{
-    display:flex;
-    gap:30px;
-}
-
-nav a{
-    text-decoration:none;
-    color:#444;
-    font-weight:500;
-    transition:.3s;
-}
-
-nav a:hover{
-    color:#0F4C81;
-}
-
-
-/* =====================
-   HERO BANNER
-===================== */
-
-.hero{
-    height:300px;
-
-    background:
-    linear-gradient(
-        rgba(79,54,116,.75),
-        rgba(15,76,129,.75)
-    ),
-    url('images/course-banner.jpg');
-
-    background-size:cover;
-    background-position:center;
-}
-
-
-/* =====================
-   WELCOME SECTION
-===================== */
-
-.welcome{
-    max-width:1200px;
-    margin:40px auto;
-    background:white;
-    padding:40px;
-    border-radius:12px;
-    box-shadow:0 4px 12px rgba(0,0,0,.08);
-}
-
-.welcome h1{
-    color:#000080;
-    margin-bottom:20px;
-    font-size:2.2rem;
-}
-
-.welcome p{
-    font-size:1.05rem;
-    color:#555;
-}
-
-
-/* ====================================
-   TILE GRID
-==================================== */
-
-.tile-grid{
-    max-width:1200px;
-    margin:40px auto;
-    padding:0 20px;
-
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-    gap:25px;
-}
-
-.tile{
-    background:white;
-    border-radius:12px;
-    text-decoration:none;
-    color:inherit;
-
-    padding:25px;
-
-    box-shadow:0 4px 12px rgba(0,0,0,.08);
-
-    transition:.3s ease;
-}
-
-.tile:hover,
-.tile:focus{
-    transform:translateY(-5px);
-    box-shadow:0 10px 20px rgba(0,0,0,.15);
-}
-
-
-/* ====================================
-   TILE ICONS
-==================================== */
-
-.tile-icon{
-    font-size:42px;
-    margin-bottom:15px;
-    color:#0F4C81;
-
-    display:flex;
-    align-items:center;
-    justify-content:flex-start;
-
-    transition:transform .3s ease;
-}
-
-.tile:hover .tile-icon{
-    transform:scale(1.1);
-}
-
-
-/* ====================================
-   TILE HEADINGS
-==================================== */
-
-.tile h3{
-    color:#4f3674;
-    margin-bottom:10px;
-}
-
-.tile p{
-    font-size:.95rem;
-}
-
-
-/* ====================================
-   COLOR ACCENTS
-==================================== */
-
-.modules{
-    border-top:6px solid #4f3674;
-}
-
-.syllabus{
-    border-top:6px solid #D6A800;
-}
-
-.announcements{
-    border-top:6px solid #2E8B57;
-}
-
-.grades{
-    border-top:6px solid #1E88E5;
-}
-
-.support{
-    border-top:6px solid #F57C00;
-}
-
-.contact{
-    border-top:6px solid #C62828;
-}
-
-.resources{
-    border-top:6px solid #00838F;
-}
-
-.accessibility{
-    border-top:6px solid #6A1B9A;
-}
-
-
-/* ====================================
-   FOOTER
-==================================== */
-
-footer{
-    text-align:center;
-    padding:30px;
-    margin-top:40px;
-    background:#2795F5;
-    color:white;
-}
-
-footer p{
-    margin:5px 0;
-}
-
-
-/* ====================================
-   MOBILE
-==================================== */
-
-@media(max-width:768px){
-
-    header{
-        flex-direction:column;
-        text-align:center;
+        font-family: "Open Sans", Arial, sans-serif;
     }
 
-    nav{
-        flex-wrap:wrap;
-        justify-content:center;
-        margin-top:20px;
+
+    /* ==============================
+       IMAGE SECTION
+       ============================== */
+
+    .quality-banner-image {
+        flex: 0 0 42%;
+        position: relative;
+        overflow: hidden;
+        background: #003366;
     }
 
-    .logo img{
-        height:90px;
+    .quality-banner-image img {
+        width: 100%;
+        height: 100%;
+        min-height: 260px;
+
+        display: block;
+
+        object-fit: cover;
+        object-position: center;
+
+        transition: transform 0.6s ease;
     }
 
-    .hero{
-        height:200px;
+    /* Subtle image zoom on hover */
+    .quality-banner:hover .quality-banner-image img {
+        transform: scale(1.04);
     }
 
-    .welcome{
-        margin:20px;
-        padding:25px;
+
+    /* ==============================
+       IMAGE OVERLAY
+       ============================== */
+
+    .quality-banner-image::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+
+        background: linear-gradient(
+            90deg,
+            rgba(0, 51, 102, 0.05),
+            rgba(0, 51, 102, 0.35)
+        );
+
+        pointer-events: none;
     }
 
-    .welcome h1{
-        font-size:1.8rem;
+
+    /* ==============================
+       CONTENT SECTION
+       ============================== */
+
+    .quality-banner-content {
+        flex: 1;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+        padding: 45px 55px;
+
+        background:
+            linear-gradient(
+                135deg,
+                #ffffff 0%,
+                #f7f9fc 100%
+            );
     }
 
-}
 
+    /* ==============================
+       WEEK LABEL
+       ============================== */
+
+    .quality-banner-week {
+        display: inline-flex;
+        align-items: center;
+
+        width: fit-content;
+
+        margin-bottom: 14px;
+
+        padding: 7px 15px;
+
+        background: #003366;
+        color: #ffffff;
+
+        border-radius: 50px;
+
+        font-size: 14px;
+        font-weight: 700;
+        letter-spacing: 1.2px;
+        text-transform: uppercase;
+    }
+
+
+    /* ==============================
+       TITLE
+       ============================== */
+
+    .quality-banner-title {
+        margin: 0;
+
+        color: #003366;
+
+        font-size: clamp(30px, 4vw, 48px);
+        font-weight: 700;
+
+        line-height: 1.15;
+
+        letter-spacing: -0.5px;
+    }
+
+
+    /* ==============================
+       GOLD ACCENT
+       ============================== */
+
+    .quality-banner-accent {
+        width: 70px;
+        height: 5px;
+
+        margin: 20px 0;
+
+        background: #D6A800;
+
+        border-radius: 10px;
+    }
+
+
+    /* ==============================
+       SUBTITLE
+       ============================== */
+
+    .quality-banner-subtitle {
+        margin: 0;
+
+        max-width: 650px;
+
+        color: #4a5568;
+
+        font-size: 17px;
+        line-height: 1.6;
+        font-weight: 400;
+    }
+
+
+    /* ==============================
+       RESPONSIVE DESIGN
+       ============================== */
+
+    @media (max-width: 800px) {
+
+        .quality-banner {
+            flex-direction: column;
+
+            margin: 20px auto;
+
+            border-left: none;
+            border-top: 6px solid #D6A800;
+        }
+
+        .quality-banner-image {
+            flex: none;
+            width: 100%;
+            height: 230px;
+        }
+
+        .quality-banner-image img {
+            min-height: 230px;
+        }
+
+        .quality-banner-content {
+            padding: 35px 30px 40px;
+        }
+
+        .quality-banner-title {
+            font-size: 34px;
+        }
+    }
+
+
+    @media (max-width: 480px) {
+
+        .quality-banner {
+            border-radius: 12px;
+        }
+
+        .quality-banner-image {
+            height: 190px;
+        }
+
+        .quality-banner-image img {
+            min-height: 190px;
+        }
+
+        .quality-banner-content {
+            padding: 28px 24px 32px;
+        }
+
+        .quality-banner-title {
+            font-size: 30px;
+        }
+
+        .quality-banner-subtitle {
+            font-size: 15px;
+        }
+    }
 </style>
-</head>
 
 
-<body>
+<!-- ==============================
+     BANNER HTML
+     ============================== -->
 
+<div class="quality-banner" id="week1QualityBanner">
 
-<!-- =====================
-     HEADER
-===================== -->
+    <!-- IMAGE -->
+    <div class="quality-banner-image">
 
-<header>
+        <!-- Replace the image filename below -->
+        <img
+            src="your-image.jpg"
+            alt="Foundations of Project Quality"
+        >
 
-    <div class="logo">
-        <img src="Images/Corporate Logo.png"
-             alt="Jeremy L. Haecker Logo">
     </div>
 
-    <nav>
-        <a href="index.html">Home</a>
-        <a href="about.html">About</a>
-        <a href="designhub.html">Design Hub</a>
-        <a href="contact.html">Contact</a>
-    </nav>
 
-</header>
+    <!-- CONTENT -->
+    <div class="quality-banner-content">
 
-
-<!-- =====================
-     WELCOME
-===================== -->
-
-<section class="welcome">
-
-    <h1>Development Navigation Hub</h1>
-
-    <p>
-        Welcome to the course. Use the navigation tiles below to access
-        course materials, assignments, support resources, and important
-        information.
-    </p>
-
-    <br>
-
-    <p>
-        This page serves as your central course dashboard. Select any tile
-        below to quickly navigate to course content, support services,
-        grades, announcements, and learning resources.
-    </p>
-
-</section>
-
-
-<!-- =====================
-     TILE GRID
-===================== -->
-
-<section class="tile-grid">
-
-
-    <!-- AI TECHNOLOGIES -->
-
-    <a href="ai.html" class="tile resources">
-
-        <div class="tile-icon material-icons">
-            smart_toy
+        <div class="quality-banner-week">
+            Week 1
         </div>
 
-        <h3>AI Technologies</h3>
+        <h1 class="quality-banner-title">
+            Foundations of<br>
+            Project Quality
+        </h1>
 
-        <p>
-            Learn how AI supports instructional design through rapid content
-            creation, instructional planning, and learning experience development.
+        <div class="quality-banner-accent"></div>
+
+        <p class="quality-banner-subtitle">
+            Explore the fundamental principles of project quality,
+            including quality planning, assurance, and control.
         </p>
 
-    </a>
+    </div>
 
+</div>
 
-    <!-- iSPRING SUITE -->
 
-    <a href="iSpringSuite.html" class="tile syllabus">
+<script>
+    /* =========================================
+       WEEK 1 BANNER — JAVASCRIPT
+       Adds a subtle entrance animation
+       ========================================= */
 
-        <div class="tile-icon material-icons">
-            present_to_all
-        </div>
+    document.addEventListener("DOMContentLoaded", function () {
 
-        <h3>iSpring Suite Projects</h3>
+        const banner = document.getElementById("week1QualityBanner");
 
-        <p>
-            Review course policies, grading expectations,
-            objectives, and important dates.
-        </p>
+        if (!banner) return;
 
-    </a>
+        banner.style.opacity = "0";
+        banner.style.transform = "translateY(15px)";
+        banner.style.transition =
+            "opacity 0.7s ease, transform 0.7s ease";
 
+        setTimeout(function () {
 
-    <!-- HTML / CSS / JS -->
+            banner.style.opacity = "1";
+            banner.style.transform = "translateY(0)";
 
-    <a href="HTML_LO.html" class="tile announcements">
+        }, 100);
 
-        <div class="tile-icon material-icons">
-            code
-        </div>
-
-        <h3>HTML/CSS/JS Portfolio</h3>
-
-        <p>
-            Review course policies, grading expectations,
-            objectives, and important dates.
-        </p>
-
-    </a>
-
-
-    <!-- ADJUNCT FACULTY -->
-
-    <a href="Adjunct.html" class="tile grades">
-
-        <div class="tile-icon material-icons">
-            person
-        </div>
-
-        <h3>Adjunct Faculty Portfolio</h3>
-
-        <p>
-            Check assignment feedback,
-            grade progress, and course performance.
-        </p>
-
-    </a>
-
-
-    <!-- ADOBE CAPTIVATE -->
-
-    <a href="Captivate.html" class="tile support">
-
-        <div class="tile-icon material-icons">
-            devices
-        </div>
-
-        <h3>Adobe Captivate Projects</h3>
-
-        <p>
-            Access tutoring, library services,
-            technical support, and academic resources.
-        </p>
-
-    </a>
-
-
-    <!-- CONTACT -->
-
-    <a href="test.html" class="tile contact">
-
-        <div class="tile-icon material-icons">
-            contact_mail
-        </div>
-
-        <h3>Instructor (Test) Contact</h3>
-
-        <p>
-            View instructor information,
-            office hours, and communication options.
-        </p>
-
-    </a>
-
-
-    <!-- TRAINING MANUALS -->
-
-    <a href="TrainingManuals.html" class="tile modules">
-
-        <div class="tile-icon material-icons">
-            menu_book
-        </div>
-
-        <h3>Training Manuals</h3>
-
-        <p>
-            Access weekly learning modules, activities,
-            assignments, and instructional materials.
-        </p>
-
-    </a>
-
-
-    <!-- DEVELOPMENT PROCESS -->
-
-    <a href="development.html" class="tile modules">
-
-        <div class="tile-icon material-icons">
-            account_tree
-        </div>
-
-        <h3>Development Process</h3>
-
-        <p>
-            Step by step process for developing content.
-        </p>
-
-    </a>
-
-
-    <!-- ACCESSIBILITY -->
-
-    <a href="Accessibility.html" class="tile accessibility">
-
-        <div class="tile-icon material-icons">
-            accessibility_new
-        </div>
-
-        <h3>Accessibility Requirements</h3>
-
-        <p>
-            Learn more about specific accommodations, accessibility support,
-            and inclusive learning resources utilized daily.
-        </p>
-
-    </a>
-
-
-</section>
-
-
-<!-- =====================
-     FOOTER
-===================== -->
-
-<footer>
-
-    <p>
-        <strong>Development Navigation Hub</strong>
-    </p>
-
-    <p>
-        Jeremy Haecker | Instructional Design Portfolio
-    </p>
-
-</footer>
-
-
-</body>
-</html>
+    });
+</script>
