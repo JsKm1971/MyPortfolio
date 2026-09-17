@@ -30,7 +30,10 @@
         overflow: hidden;
     }
 
-    /* Header */
+    /* =====================================================
+       HEADER
+       ===================================================== */
+
     .case-header {
         padding: 32px 36px;
         background-color: #4F3674;
@@ -53,7 +56,10 @@
         line-height: 1.25;
     }
 
-    /* Main Content */
+    /* =====================================================
+       MAIN CONTENT
+       ===================================================== */
+
     .case-content {
         padding: 32px 36px;
     }
@@ -62,7 +68,10 @@
         margin: 0 0 18px;
     }
 
-    /* Week 2 Assignment Callout */
+    /* =====================================================
+       WEEK 2 FOCUS
+       ===================================================== */
+
     .week-focus {
         margin: 26px 0;
         padding: 20px 24px;
@@ -75,7 +84,10 @@
         margin-bottom: 0;
     }
 
-    /* Case Continuity */
+    /* =====================================================
+       CASE CONTINUITY
+       ===================================================== */
+
     .continuity {
         margin-top: 30px;
         padding-top: 26px;
@@ -96,7 +108,10 @@
         color: #4F3674;
     }
 
-    /* Important Instruction */
+    /* =====================================================
+       IMPORTANT NOTE
+       ===================================================== */
+
     .important-note {
         margin-top: 26px;
         padding: 18px 22px;
@@ -111,19 +126,93 @@
         font-weight: 600;
     }
 
-    /* Responsive */
+    /* =====================================================
+       DOWNLOAD SECTION
+       ===================================================== */
+
+    .download-section {
+        padding: 28px 30px;
+        background-color: #f7f7f7;
+        border-top: 1px solid #dddddd;
+        text-align: center;
+    }
+
+    .download-section h2 {
+        margin: 0 0 6px;
+        color: #4F3674;
+        font-size: 1.25rem;
+    }
+
+    .download-section p {
+        margin: 0 0 18px;
+        color: #333333;
+    }
+
+    /* =====================================================
+       DOWNLOAD BUTTON
+       ===================================================== */
+
+    .download-button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+
+        padding: 12px 20px;
+
+        background-color: #4F3674;
+        color: #ffffff;
+
+        border: 2px solid #4F3674;
+        border-radius: 7px;
+
+        font-family: "Open Sans", Arial, sans-serif;
+        font-size: 1rem;
+        font-weight: 700;
+
+        text-decoration: none;
+        cursor: pointer;
+    }
+
+    .download-button:hover {
+        background-color: #35234f;
+        color: #ffffff;
+        border-color: #35234f;
+    }
+
+    .download-button:focus-visible {
+        outline: 3px solid #D6A800;
+        outline-offset: 4px;
+    }
+
+    .download-icon {
+        width: 21px;
+        height: 21px;
+        flex-shrink: 0;
+    }
+
+    /* =====================================================
+       RESPONSIVE DESIGN
+       ===================================================== */
+
     @media (max-width: 700px) {
+
         body {
             padding: 15px;
         }
 
         .case-header,
-        .case-content {
+        .case-content,
+        .download-section {
             padding: 24px 20px;
         }
 
         .case-header h1 {
             font-size: 1.6rem;
+        }
+
+        .download-button {
+            width: 100%;
         }
     }
 </style>
@@ -133,16 +222,32 @@
 
 <main class="lighthouse-case">
 
-    <!-- Header -->
+    <!-- =================================================
+         HEADER
+         ================================================= -->
+
     <header class="case-header">
-        <div class="case-label">The Running Case</div>
-        <h1>Project Lighthouse</h1>
+
+        <div class="case-label">
+            The Running Case
+        </div>
+
+        <h1>
+            Project Lighthouse
+        </h1>
+
     </header>
 
-    <!-- Main Case Content -->
-    <section class="case-content" aria-labelledby="case-heading">
 
-        <h2 id="case-heading" style="position:absolute;left:-9999px;">
+    <!-- =================================================
+         MAIN CASE CONTENT
+         ================================================= -->
+
+    <section class="case-content"
+             aria-labelledby="case-heading">
+
+        <h2 id="case-heading"
+            style="position:absolute; left:-9999px;">
             Project Lighthouse Week 2 Case
         </h2>
 
@@ -156,22 +261,32 @@
             occurred, and the initial risk register has not been created.
         </p>
 
-        <!-- Week 2 Focus -->
+
+        <!-- WEEK 2 FOCUS -->
+
         <div class="week-focus">
+
             <p>
                 This week, your job is to create a practical framework
                 that will help the team identify risks systematically.
                 Your RBS and rating scales will be used again in later
                 weeks, so keep them clear and usable.
             </p>
+
         </div>
 
-        <!-- Case Continuity -->
+
+        <!-- CASE CONTINUITY -->
+
         <div class="continuity">
 
-            <h2>Case Continuity — Project Lighthouse</h2>
+            <h2>
+                Case Continuity — Project Lighthouse
+            </h2>
+
 
             <div class="continuity-item">
+
                 <p>
                     <strong>Week 1:</strong>
                     You established the risk foundations and evaluated
@@ -179,18 +294,24 @@
                     Brightwater is moving forward on the conditional
                     18-month path with stronger risk controls.
                 </p>
+
             </div>
 
+
             <div class="continuity-item">
+
                 <p>
                     <strong>Week 2:</strong>
                     You will create the RBS and probability, cost-impact,
                     and schedule-impact scales before formal risk
                     identification begins.
                 </p>
+
             </div>
 
+
             <div class="continuity-item">
+
                 <p>
                     <strong>Looking Ahead:</strong>
                     In Week 3, you will use the RBS to identify and
@@ -198,17 +319,74 @@
                     you will use the rating scales to score and prioritize
                     that same register.
                 </p>
+
             </div>
 
         </div>
 
-        <!-- Important Instruction -->
-        <aside class="important-note" aria-label="Important Week 2 instruction">
+
+        <!-- IMPORTANT INSTRUCTION -->
+
+        <aside class="important-note"
+               aria-label="Important Week 2 instruction">
+
             <p>
-                Do not identify or score individual risks yet. This week
-                is about building the framework that later risk work will use.
+                Do not identify or score individual risks yet.
+                This week is about building the framework that
+                later risk work will use.
             </p>
+
         </aside>
+
+    </section>
+
+
+    <!-- =================================================
+         DOWNLOAD PROJECT LIGHTHOUSE CASE
+         ================================================= -->
+
+    <section class="download-section"
+             aria-labelledby="download-heading">
+
+        <h2 id="download-heading">
+            Running Case: Project Lighthouse
+        </h2>
+
+        <p>
+            Download a PDF version of the Project Lighthouse
+            running case for reference throughout the course.
+        </p>
+
+
+        <a class="download-button"
+           href="https://content.bellevue.edu/cst/pmgt/410/casestudy/Project_Lighthouse_Running_Case.pdf"
+           target="_blank"
+           rel="noopener noreferrer"
+           aria-label="Download Project Lighthouse running case PDF. Opens in a new window.">
+
+            <svg class="download-icon"
+                 viewBox="0 0 24 24"
+                 aria-hidden="true"
+                 focusable="false">
+
+                <path
+                    d="M12 3v12
+                       M7 10l5 5 5-5
+                       M5 21h14"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round">
+                </path>
+
+            </svg>
+
+            <span>
+                Download Project Lighthouse Case (PDF)
+            </span>
+
+        </a>
 
     </section>
 
