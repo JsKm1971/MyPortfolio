@@ -1,428 +1,1483 @@
-<style>
-/* =========================================================
-   COURSE CONTENT ICONS
-   STATIC / NON-CLICKABLE
-   ========================================================= */
+<!DOCTYPE html>
+<html lang="en">
 
-.pq-content-icons {
+<head>
 
-    width: 100%;
-    max-width: 1400px;
+    <!-- =====================================================
+         DOCUMENT INFORMATION
+         ===================================================== -->
 
-    margin: 25px auto;
+    <meta charset="UTF-8">
 
-    display: grid;
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
 
-    grid-template-columns:
-        repeat(4, minmax(0, 1fr));
+    <title>Project Lighthouse - Week 2</title>
 
-    gap: 18px;
 
-    font-family: "Open Sans", Arial, sans-serif;
-}
+    <!-- =====================================================
+         CSS STYLES
+         ===================================================== -->
 
+    <style>
 
-/* =========================================================
-   INDIVIDUAL CONTENT ITEM
-   ========================================================= */
+        /* =====================================================
+           GLOBAL
+           ===================================================== */
 
-.pq-content-item {
+        * {
+            box-sizing: border-box;
+        }
 
-    position: relative;
+        body {
+            margin: 0;
+            padding: 30px;
 
-    display: flex;
+            font-family: "Open Sans", Arial, sans-serif;
 
-    flex-direction: column;
+            background-color: #f2f2f2;
+            color: #222222;
 
-    align-items: center;
+            line-height: 1.6;
+        }
 
-    justify-content: flex-start;
 
-    min-height: 200px;
+        /* =====================================================
+           PROJECT LIGHTHOUSE CONTAINER
+           ===================================================== */
 
-    padding: 30px 22px;
+        .lighthouse-case {
+            width: 100%;
+            max-width: 1200px;
 
-    text-align: center;
+            margin: 0 auto;
 
-    background: #FFFFFF;
+            background-color: #ffffff;
+        }
 
-    border-radius: 16px;
 
-    border: 1px solid #E5E9EF;
+        /* =====================================================
+           HEADER
+           ===================================================== */
 
-    box-shadow:
-        0 5px 18px rgba(0, 0, 0, 0.08);
+        .case-header {
+            padding: 34px 36px;
 
-    transition:
-        transform 0.3s ease,
-        box-shadow 0.3s ease;
-}
+            background-color: #4F3674;
+            color: #ffffff;
 
+            border-radius: 12px 12px 0 0;
+            border-bottom: 5px solid #D6A800;
+        }
 
-/* =========================================================
-   TOP GOLD ACCENT
-   ========================================================= */
+        .case-label {
+            display: inline-block;
 
-.pq-content-item::before {
+            margin-bottom: 8px;
 
-    content: "";
+            color: #ffffff;
 
-    position: absolute;
+            font-size: 0.78rem;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+        }
 
-    top: 0;
-    left: 50%;
+        .case-header h1 {
+            margin: 0 0 8px;
 
-    width: 45px;
-    height: 4px;
+            color: #ffffff;
 
-    transform: translateX(-50%);
+            font-size: 2rem;
+            line-height: 1.25;
+        }
 
-    background: #D6A800;
+        .case-intro {
+            max-width: 900px;
 
-    border-radius:
-        0 0 6px 6px;
-}
+            margin: 0;
 
+            font-size: 1rem;
+        }
 
-/* =========================================================
-   SUBTLE HOVER
-   ========================================================= */
 
-.pq-content-item:hover {
+        /* =====================================================
+           CONTENT SECTIONS
+           ===================================================== */
 
-    transform: translateY(-5px);
+        .case-section {
+            padding: 30px 36px;
 
-    box-shadow:
-        0 10px 25px rgba(0, 0, 0, 0.12);
-}
+            background-color: #ffffff;
 
+            border-left: 1px solid #dddddd;
+            border-right: 1px solid #dddddd;
+            border-bottom: 1px solid #dddddd;
+        }
 
-/* =========================================================
-   ICON CIRCLE
-   ========================================================= */
+        .case-section h2 {
+            margin: 0 0 12px;
 
-.pq-content-icon {
+            color: #4F3674;
 
-    width: 72px;
-    height: 72px;
+            font-size: 1.4rem;
+        }
 
-    display: flex;
+        .case-section p {
+            margin: 0 0 16px;
+        }
 
-    align-items: center;
-    justify-content: center;
+        .section-instruction {
+            color: #555555;
+        }
 
-    margin-bottom: 17px;
 
-    color: #FFFFFF;
+        /* =====================================================
+           YOUR ROLE CALLOUT
+           ===================================================== */
 
-    background: #003366;
+        .role-callout {
+            display: flex;
+            align-items: center;
 
-    border-radius: 50%;
+            gap: 14px;
 
-    box-shadow:
-        0 5px 12px rgba(0, 51, 102, 0.20);
-}
+            margin-top: 22px;
+            padding: 16px 20px;
 
+            background-color: #f5f2f8;
 
-/* Gold icons on alternating items */
+            border-left: 5px solid #4F3674;
+            border-radius: 6px;
+        }
 
-.pq-content-item:nth-child(even)
-.pq-content-icon {
+        .role-icon {
+            color: #D6A800;
 
-    background: #D6A800;
-}
+            font-size: 1.5rem;
+        }
 
+        .role-callout strong,
+        .role-callout span {
+            display: block;
+        }
 
-/* =========================================================
-   SVG ICON
-   ========================================================= */
+        .role-callout strong {
+            color: #4F3674;
+        }
 
-.pq-content-icon svg {
 
-    width: 38px;
-    height: 38px;
+        /* =====================================================
+           KEY FACT CARDS
+           ===================================================== */
 
-    fill: none;
+        .fact-grid {
+            display: grid;
 
-    stroke: currentColor;
+            grid-template-columns: repeat(3, 1fr);
 
-    stroke-width: 1.8;
+            gap: 18px;
 
-    stroke-linecap: round;
+            margin-top: 20px;
+        }
 
-    stroke-linejoin: round;
-}
+        .fact-card {
+            padding: 22px;
 
+            background-color: #f7f7f7;
 
-/* =========================================================
-   CONTENT TITLE
-   ========================================================= */
+            border: 1px solid #dddddd;
+            border-top: 4px solid #D6A800;
+            border-radius: 8px;
+        }
 
-.pq-content-title {
+        .fact-number {
+            color: #4F3674;
 
-    margin: 0 0 10px 0;
+            font-size: 1.8rem;
+            font-weight: 700;
+        }
 
-    color: #003366;
+        .fact-card h3 {
+            margin: 2px 0 8px;
 
-    font-size: 22px;
+            color: #222222;
 
-    font-weight: 700;
+            font-size: 1rem;
+        }
 
-    line-height: 1.2;
-}
+        .fact-card p {
+            margin: 0;
 
+            font-size: 0.94rem;
+        }
 
-/* =========================================================
-   DESCRIPTION
-   ========================================================= */
 
-.pq-content-description {
+        /* =====================================================
+           WEEK 2 FRAMEWORK CARDS
+           ===================================================== */
 
-    margin: 0;
+        .framework-grid {
+            display: grid;
 
-    color: #5B6777;
+            grid-template-columns: repeat(2, 1fr);
 
-    font-size: 15px;
+            gap: 18px;
 
-    line-height: 1.55;
-}
+            margin-top: 22px;
+        }
 
+        .framework-card {
+            padding: 22px;
 
-/* =========================================================
-   TABLET
-   ========================================================= */
+            background-color: #f7f7f7;
 
-@media (max-width: 950px) {
+            border: 1px solid #dddddd;
+            border-left: 5px solid #4F3674;
+            border-radius: 8px;
+        }
 
-    .pq-content-icons {
+        .framework-card h3 {
+            margin: 0 0 8px;
 
-        grid-template-columns:
-            repeat(2, minmax(0, 1fr));
-    }
-}
+            color: #4F3674;
 
+            font-size: 1.05rem;
+        }
 
-/* =========================================================
-   MOBILE
-   ========================================================= */
+        .framework-card p {
+            margin: 0;
 
-@media (max-width: 600px) {
+            font-size: 0.94rem;
+        }
 
-    .pq-content-icons {
 
-        grid-template-columns: 1fr;
+        /* =====================================================
+           ACCORDION
+           ===================================================== */
 
-        gap: 15px;
-    }
+        .accordion-item {
+            margin-top: 12px;
 
-    .pq-content-item {
+            border: 1px solid #cccccc;
+            border-radius: 7px;
 
-        min-height: auto;
+            overflow: hidden;
+        }
 
-        padding: 28px 25px;
-    }
-}
-</style>
+        .accordion-button {
+            width: 100%;
 
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
 
-<!-- =========================================================
-     COURSE CONTENT ICONS
-     STATIC — NOT CLICKABLE
-     ========================================================= -->
+            gap: 20px;
 
-<div class="pq-content-icons">
+            padding: 16px 20px;
 
+            border: 0;
 
-    <!-- ================= READINGS ================= -->
+            background-color: #f7f7f7;
+            color: #222222;
 
-    <div class="pq-content-item">
+            font-family: inherit;
+            text-align: left;
 
-        <div class="pq-content-icon">
+            cursor: pointer;
+        }
 
-            <svg viewBox="0 0 48 48">
+        .accordion-button:hover {
+            background-color: #f1eef5;
+        }
 
-                <path
-                    d="M7 8h25a5 5 0 0 1 5 5v27H12a5 5 0 0 1-5-5V8z"
-                />
+        .accordion-button:focus-visible {
+            outline: 3px solid #D6A800;
+            outline-offset: -3px;
+        }
 
-                <path
-                    d="M12 40V13a5 5 0 0 1 5-5"
-                />
+        .accordion-label {
+            display: block;
 
-                <path
-                    d="M18 17h13"
-                />
+            color: #4F3674;
 
-                <path
-                    d="M18 23h13"
-                />
+            font-weight: 700;
+            font-size: 1rem;
+        }
 
-                <path
-                    d="M18 29h9"
-                />
+        .accordion-summary {
+            display: block;
 
-            </svg>
+            margin-top: 2px;
 
-        </div>
+            color: #555555;
 
-        <h2 class="pq-content-title">
-            Readings
-        </h2>
+            font-size: 0.88rem;
+        }
 
-        <p class="pq-content-description">
-            Review the required readings to build
-            your foundational knowledge.
-        </p>
+        .accordion-symbol {
+            flex-shrink: 0;
 
-    </div>
+            color: #4F3674;
 
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
 
+        .accordion-panel {
+            padding: 16px 22px 20px;
 
-    <!-- ================= DISCUSSION ================= -->
+            background-color: #ffffff;
+        }
 
-    <div class="pq-content-item">
+        .accordion-panel p:last-child {
+            margin-bottom: 0;
+        }
 
-        <div class="pq-content-icon">
 
-            <svg viewBox="0 0 48 48">
+        /* =====================================================
+           CASE CONTINUITY
+           ===================================================== */
 
-                <path
-                    d="M8 9h32v23H22l-9 8v-8H8z"
-                />
+        .continuity-section {
+            background-color: #fafafa;
+        }
 
-                <path
-                    d="M16 18h16"
-                />
+        .continuity-grid {
+            display: grid;
 
-                <path
-                    d="M16 24h11"
-                />
+            grid-template-columns: repeat(4, 1fr);
 
-                <circle
-                    cx="35"
-                    cy="35"
-                    r="5"
-                />
+            gap: 14px;
 
-            </svg>
+            margin-top: 22px;
+        }
 
-        </div>
+        .continuity-card {
+            padding: 20px;
 
-        <h2 class="pq-content-title">
-            Discussion
-        </h2>
+            background-color: #ffffff;
 
-        <p class="pq-content-description">
-            Engage with your peers, share your
-            ideas, and explore key concepts.
-        </p>
+            border: 1px solid #dddddd;
+            border-top: 4px solid #D6A800;
+            border-radius: 8px;
+        }
 
-    </div>
+        .continuity-week {
+            display: inline-block;
 
+            margin-bottom: 8px;
+            padding: 4px 10px;
 
+            background-color: #4F3674;
+            color: #ffffff;
 
-    <!-- ================= ASSIGNMENT ================= -->
+            border-radius: 20px;
 
-    <div class="pq-content-item">
+            font-size: 0.82rem;
+            font-weight: 700;
+        }
 
-        <div class="pq-content-icon">
+        .continuity-card h3 {
+            margin: 0 0 8px;
 
-            <svg viewBox="0 0 48 48">
+            color: #4F3674;
 
-                <path
-                    d="M11 5h21l7 7v31H11z"
-                />
+            font-size: 1rem;
+        }
 
-                <path
-                    d="M32 5v9h7"
-                />
+        .continuity-card p {
+            margin: 0;
 
-                <path
-                    d="M17 21h14"
-                />
+            font-size: 0.9rem;
+        }
 
-                <path
-                    d="M17 27h14"
-                />
 
-                <path
-                    d="M17 33h8"
-                />
+        /* =====================================================
+           IMPORTANT / NOT YET CALLOUT
+           ===================================================== */
 
-                <path
-                    d="M31 34l7-7"
-                />
+        .important-callout {
+            display: flex;
+            align-items: flex-start;
 
-                <path
-                    d="M28 37l3-1 7-7-3-3-7 7z"
-                />
+            gap: 16px;
 
-            </svg>
+            margin-top: 22px;
+            padding: 22px;
 
-        </div>
+            background-color: #fff9e6;
 
-        <h2 class="pq-content-title">
-            Assignment
-        </h2>
+            border: 1px solid #D6A800;
+            border-left: 6px solid #D6A800;
+            border-radius: 8px;
+        }
 
-        <p class="pq-content-description">
-            Apply what you've learned by completing
-            this week's assignment.
-        </p>
+        .important-icon {
+            display: flex;
+            justify-content: center;
+            align-items: center;
 
-    </div>
+            flex: 0 0 42px;
 
+            width: 42px;
+            height: 42px;
 
+            background-color: #4F3674;
+            color: #ffffff;
 
-    <!-- ================= QUIZ ================= -->
+            border-radius: 50%;
 
-    <div class="pq-content-item">
+            font-size: 1.2rem;
+            font-weight: 700;
+        }
 
-        <div class="pq-content-icon">
+        .important-callout h3 {
+            margin: 0 0 5px;
 
-            <svg viewBox="0 0 48 48">
+            color: #4F3674;
 
-                <rect
-                    x="10"
-                    y="6"
-                    width="28"
-                    height="36"
-                    rx="3"
-                />
+            font-size: 1.05rem;
+        }
 
-                <path
-                    d="M18 15h12"
-                />
+        .important-callout p {
+            margin: 0;
+        }
 
-                <path
-                    d="M17 23l2 2 4-5"
-                />
 
-                <path
-                    d="M26 22h7"
-                />
+        /* =====================================================
+           LOOKING AHEAD CALLOUT
+           ===================================================== */
 
-                <path
-                    d="M17 32l2 2 4-5"
-                />
+        .week-callout {
+            display: flex;
+            align-items: center;
 
-                <path
-                    d="M26 31h7"
-                />
+            gap: 20px;
 
-            </svg>
+            padding: 24px 30px;
 
-        </div>
+            background-color: #f5f2f8;
 
-        <h2 class="pq-content-title">
-            Quiz
-        </h2>
+            border-left: 1px solid #dddddd;
+            border-right: 1px solid #dddddd;
+            border-bottom: 1px solid #dddddd;
+            border-top: 4px solid #D6A800;
+        }
 
-        <p class="pq-content-description">
-            Test your understanding and reinforce
-            the key concepts from the week.
-        </p>
+        .week-number {
+            display: flex;
+            justify-content: center;
+            align-items: center;
 
-    </div>
+            flex: 0 0 54px;
 
-</div>
+            height: 54px;
+
+            background-color: #4F3674;
+            color: #ffffff;
+
+            border-radius: 50%;
+
+            font-size: 1.35rem;
+            font-weight: 700;
+        }
+
+        .week-callout h2 {
+            margin: 0 0 4px;
+
+            color: #4F3674;
+
+            font-size: 1.15rem;
+        }
+
+        .week-callout p {
+            margin: 0;
+        }
+
+
+        /* =====================================================
+           PDF DOWNLOAD SECTION
+           ===================================================== */
+
+        .download-section {
+            padding: 28px 30px;
+
+            background-color: #ffffff;
+
+            border-left: 1px solid #dddddd;
+            border-right: 1px solid #dddddd;
+            border-bottom: 1px solid #dddddd;
+
+            border-radius: 0 0 12px 12px;
+
+            text-align: center;
+        }
+
+        .download-section h2 {
+            margin: 0 0 6px;
+
+            color: #4F3674;
+
+            font-size: 1.25rem;
+        }
+
+        .download-section p {
+            margin: 0 0 18px;
+
+            color: #333333;
+        }
+
+
+        /* =====================================================
+           DOWNLOAD BUTTON
+           ===================================================== */
+
+        .download-button {
+            display: inline-flex;
+
+            align-items: center;
+            justify-content: center;
+
+            gap: 10px;
+
+            padding: 12px 20px;
+
+            background-color: #4F3674;
+            color: #ffffff;
+
+            border: 2px solid #4F3674;
+            border-radius: 7px;
+
+            font-family: "Open Sans", Arial, sans-serif;
+            font-size: 1rem;
+            font-weight: 700;
+
+            text-decoration: none;
+
+            cursor: pointer;
+
+            transition:
+                background-color 0.2s ease,
+                color 0.2s ease,
+                border-color 0.2s ease;
+        }
+
+        .download-button:hover {
+            background-color: #35234f;
+            color: #ffffff;
+
+            border-color: #35234f;
+        }
+
+        .download-button:focus-visible {
+            outline: 3px solid #D6A800;
+            outline-offset: 4px;
+        }
+
+        .download-icon {
+            width: 21px;
+            height: 21px;
+
+            flex-shrink: 0;
+        }
+
+
+        /* =====================================================
+           RESPONSIVE DESIGN
+           ===================================================== */
+
+        @media (max-width: 900px) {
+
+            .continuity-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+        }
+
+
+        @media (max-width: 800px) {
+
+            body {
+                padding: 15px;
+            }
+
+            .case-header,
+            .case-section {
+                padding: 24px 20px;
+            }
+
+            .case-header h1 {
+                font-size: 1.65rem;
+            }
+
+            .fact-grid,
+            .framework-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .week-callout {
+                align-items: flex-start;
+
+                padding: 22px 20px;
+            }
+        }
+
+
+        @media (max-width: 600px) {
+
+            .continuity-grid {
+                grid-template-columns: 1fr;
+            }
+
+        }
+
+
+        @media (max-width: 500px) {
+
+            .week-callout,
+            .important-callout {
+                flex-direction: column;
+            }
+
+            .accordion-summary {
+                font-size: 0.82rem;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- =====================================================
+         PROJECT LIGHTHOUSE
+         ===================================================== -->
+
+    <main class="lighthouse-case">
+
+
+        <!-- =================================================
+             HEADER
+             ================================================= -->
+
+        <header class="case-header">
+
+            <div class="case-label">
+                THE RUNNING CASE
+            </div>
+
+            <h1>
+                Project Lighthouse
+            </h1>
+
+            <p class="case-intro">
+
+                You are still the project manager for
+                <strong>Project Lighthouse</strong>,
+                Brightwater Retail's
+                <strong>$48 million automated distribution center</strong>.
+
+            </p>
+
+        </header>
+
+
+        <!-- =================================================
+             CURRENT PROJECT STATUS
+             ================================================= -->
+
+        <section class="case-section"
+                 aria-labelledby="current-status-heading">
+
+            <h2 id="current-status-heading">
+                Where the Project Stands
+            </h2>
+
+            <p>
+
+                Following the Week 1 decision, Brightwater is moving
+                forward with a
+                <strong>conditional 18-month path</strong>
+                supported by stronger risk controls.
+
+            </p>
+
+            <p>
+
+                The formal risk-identification work has not yet occurred,
+                and the initial risk register has not been created.
+
+            </p>
+
+
+            <!-- YOUR ROLE -->
+
+            <div class="role-callout">
+
+                <span class="role-icon"
+                      aria-hidden="true">
+                    ◆
+                </span>
+
+                <div>
+
+                    <strong>
+                        Your Week 2 Role
+                    </strong>
+
+                    <span>
+
+                        Create a practical framework that will help the
+                        Project Lighthouse team identify risks systematically.
+
+                    </span>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             KEY PROJECT FACTS
+             ================================================= -->
+
+        <section class="case-section"
+                 aria-labelledby="key-facts-heading">
+
+            <h2 id="key-facts-heading">
+                Project Lighthouse at a Glance
+            </h2>
+
+
+            <div class="fact-grid">
+
+
+                <!-- BUDGET -->
+
+                <div class="fact-card">
+
+                    <div class="fact-number">
+                        $48M
+                    </div>
+
+                    <h3>
+                        Project Budget
+                    </h3>
+
+                    <p>
+                        Brightwater is making a significant capital
+                        investment in its new automated distribution center.
+                    </p>
+
+                </div>
+
+
+                <!-- SCHEDULE -->
+
+                <div class="fact-card">
+
+                    <div class="fact-number">
+                        18
+                    </div>
+
+                    <h3>
+                        Months to Go-Live
+                    </h3>
+
+                    <p>
+                        Brightwater is proceeding with the conditional
+                        18-month schedule established following Week 1.
+                    </p>
+
+                </div>
+
+
+                <!-- CURRENT PHASE -->
+
+                <div class="fact-card">
+
+                    <div class="fact-number">
+                        Week 2
+                    </div>
+
+                    <h3>
+                        Risk Framework
+                    </h3>
+
+                    <p>
+                        The team is preparing the structure and rating
+                        scales needed before formal risk identification.
+                    </p>
+
+                </div>
+
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             WEEK 2 ASSIGNMENT
+             ================================================= -->
+
+        <section class="case-section"
+                 aria-labelledby="week2-heading">
+
+            <h2 id="week2-heading">
+                This Week: Build the Risk Framework
+            </h2>
+
+            <p>
+
+                This week, your job is to create a practical framework
+                that will help the team identify and evaluate risks
+                systematically.
+
+            </p>
+
+            <p>
+
+                Your Risk Breakdown Structure and rating scales will
+                be used again in later weeks, so keep them
+                <strong>clear, consistent, and usable</strong>.
+
+            </p>
+
+
+            <div class="framework-grid">
+
+
+                <div class="framework-card">
+
+                    <h3>
+                        Risk Breakdown Structure (RBS)
+                    </h3>
+
+                    <p>
+
+                        Develop an organized structure for grouping
+                        potential Project Lighthouse risks by source
+                        or category.
+
+                    </p>
+
+                </div>
+
+
+                <div class="framework-card">
+
+                    <h3>
+                        Probability Scale
+                    </h3>
+
+                    <p>
+
+                        Establish a consistent scale for describing
+                        how likely a risk is to occur.
+
+                    </p>
+
+                </div>
+
+
+                <div class="framework-card">
+
+                    <h3>
+                        Cost-Impact Scale
+                    </h3>
+
+                    <p>
+
+                        Establish clear criteria for evaluating how
+                        strongly a risk could affect project cost.
+
+                    </p>
+
+                </div>
+
+
+                <div class="framework-card">
+
+                    <h3>
+                        Schedule-Impact Scale
+                    </h3>
+
+                    <p>
+
+                        Establish clear criteria for evaluating how
+                        strongly a risk could affect the
+                        Project Lighthouse schedule.
+
+                    </p>
+
+                </div>
+
+
+            </div>
+
+
+            <!-- IMPORTANT -->
+
+            <div class="important-callout"
+                 role="note"
+                 aria-labelledby="not-yet-heading">
+
+                <div class="important-icon"
+                     aria-hidden="true">
+                    !
+                </div>
+
+                <div>
+
+                    <h3 id="not-yet-heading">
+                        Not Yet: Individual Risks
+                    </h3>
+
+                    <p>
+
+                        <strong>
+                            Do not identify or score individual risks yet.
+                        </strong>
+
+                        This week is about building the framework that
+                        later Project Lighthouse risk work will use.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             EXPLORE THE WEEK 2 FRAMEWORK
+             ================================================= -->
+
+        <section class="case-section"
+                 aria-labelledby="framework-details-heading">
+
+            <h2 id="framework-details-heading">
+                Explore the Week 2 Framework
+            </h2>
+
+            <p class="section-instruction">
+
+                Select each section to review how your Week 2 work
+                supports the Project Lighthouse risk-management process.
+
+            </p>
+
+
+            <!-- RBS ACCORDION -->
+
+            <div class="accordion-item">
+
+                <button class="accordion-button"
+                        type="button"
+                        aria-expanded="false"
+                        aria-controls="rbs-panel">
+
+                    <span>
+
+                        <span class="accordion-label">
+                            Risk Breakdown Structure
+                        </span>
+
+                        <span class="accordion-summary">
+                            Create a systematic way to organize potential risks
+                        </span>
+
+                    </span>
+
+                    <span class="accordion-symbol"
+                          aria-hidden="true">
+                        +
+                    </span>
+
+                </button>
+
+
+                <div class="accordion-panel"
+                     id="rbs-panel"
+                     hidden>
+
+                    <p>
+
+                        The Risk Breakdown Structure (RBS) provides an
+                        organized framework for examining potential sources
+                        or categories of project risk.
+
+                    </p>
+
+                    <p>
+
+                        In Week 3, you will use this structure to help
+                        systematically identify Project Lighthouse risks.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- PROBABILITY ACCORDION -->
+
+            <div class="accordion-item">
+
+                <button class="accordion-button"
+                        type="button"
+                        aria-expanded="false"
+                        aria-controls="probability-panel">
+
+                    <span>
+
+                        <span class="accordion-label">
+                            Probability Scale
+                        </span>
+
+                        <span class="accordion-summary">
+                            Define how likelihood will be evaluated
+                        </span>
+
+                    </span>
+
+                    <span class="accordion-symbol"
+                          aria-hidden="true">
+                        +
+                    </span>
+
+                </button>
+
+
+                <div class="accordion-panel"
+                     id="probability-panel"
+                     hidden>
+
+                    <p>
+
+                        Your probability scale establishes a consistent
+                        way for the team to describe how likely an
+                        identified risk is to occur.
+
+                    </p>
+
+                    <p>
+
+                        You are defining the scale this week. You will
+                        apply it to individual risks later.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- COST IMPACT ACCORDION -->
+
+            <div class="accordion-item">
+
+                <button class="accordion-button"
+                        type="button"
+                        aria-expanded="false"
+                        aria-controls="cost-panel">
+
+                    <span>
+
+                        <span class="accordion-label">
+                            Cost-Impact Scale
+                        </span>
+
+                        <span class="accordion-summary">
+                            Define how potential cost effects will be evaluated
+                        </span>
+
+                    </span>
+
+                    <span class="accordion-symbol"
+                          aria-hidden="true">
+                        +
+                    </span>
+
+                </button>
+
+
+                <div class="accordion-panel"
+                     id="cost-panel"
+                     hidden>
+
+                    <p>
+
+                        The cost-impact scale provides consistent criteria
+                        for describing how strongly a risk could affect
+                        the Project Lighthouse budget.
+
+                    </p>
+
+                    <p>
+
+                        The scale you create this week will later be used
+                        to evaluate risks documented in the risk register.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- SCHEDULE IMPACT ACCORDION -->
+
+            <div class="accordion-item">
+
+                <button class="accordion-button"
+                        type="button"
+                        aria-expanded="false"
+                        aria-controls="schedule-panel">
+
+                    <span>
+
+                        <span class="accordion-label">
+                            Schedule-Impact Scale
+                        </span>
+
+                        <span class="accordion-summary">
+                            Define how potential schedule effects will be evaluated
+                        </span>
+
+                    </span>
+
+                    <span class="accordion-symbol"
+                          aria-hidden="true">
+                        +
+                    </span>
+
+                </button>
+
+
+                <div class="accordion-panel"
+                     id="schedule-panel"
+                     hidden>
+
+                    <p>
+
+                        The schedule-impact scale provides consistent
+                        criteria for describing how strongly a risk could
+                        affect the project's schedule objectives.
+
+                    </p>
+
+                    <p>
+
+                        This is especially important because Brightwater
+                        is proceeding with the conditional
+                        <strong>18-month path</strong> established
+                        following Week 1.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+
+        </section>
+
+
+        <!-- =================================================
+             CASE CONTINUITY
+             ================================================= -->
+
+        <section class="case-section continuity-section"
+                 aria-labelledby="continuity-heading">
+
+            <h2 id="continuity-heading">
+                Case Continuity — Project Lighthouse
+            </h2>
+
+            <p>
+
+                Your work on Project Lighthouse builds from week to week.
+                Each stage prepares information you will use in the next.
+
+            </p>
+
+
+            <div class="continuity-grid">
+
+
+                <!-- WEEK 1 -->
+
+                <div class="continuity-card">
+
+                    <span class="continuity-week">
+                        Week 1
+                    </span>
+
+                    <h3>
+                        Risk Foundations
+                    </h3>
+
+                    <p>
+
+                        You established the risk foundations and evaluated
+                        the 18-month versus 22-month schedule decision.
+                        Brightwater is moving forward on the conditional
+                        18-month path with stronger risk controls.
+
+                    </p>
+
+                </div>
+
+
+                <!-- WEEK 2 -->
+
+                <div class="continuity-card">
+
+                    <span class="continuity-week">
+                        Week 2
+                    </span>
+
+                    <h3>
+                        Build the Framework
+                    </h3>
+
+                    <p>
+
+                        Create the RBS and probability, cost-impact,
+                        and schedule-impact scales before formal risk
+                        identification begins.
+
+                    </p>
+
+                </div>
+
+
+                <!-- WEEK 3 -->
+
+                <div class="continuity-card">
+
+                    <span class="continuity-week">
+                        Week 3
+                    </span>
+
+                    <h3>
+                        Identify Risks
+                    </h3>
+
+                    <p>
+
+                        Use the RBS to identify and document
+                        <strong>ten Project Lighthouse risks</strong>.
+
+                    </p>
+
+                </div>
+
+
+                <!-- WEEK 4 -->
+
+                <div class="continuity-card">
+
+                    <span class="continuity-week">
+                        Week 4
+                    </span>
+
+                    <h3>
+                        Score and Prioritize
+                    </h3>
+
+                    <p>
+
+                        Use the Week 2 rating scales to score and
+                        prioritize that same Project Lighthouse
+                        risk register.
+
+                    </p>
+
+                </div>
+
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             LOOKING AHEAD
+             ================================================= -->
+
+        <aside class="week-callout"
+               aria-labelledby="week3-heading">
+
+            <div class="week-number"
+                 aria-hidden="true">
+                3
+            </div>
+
+            <div>
+
+                <h2 id="week3-heading">
+                    Looking Ahead: Week 3
+                </h2>
+
+                <p>
+
+                    You will use the
+                    <strong>Risk Breakdown Structure you create this week</strong>
+                    to systematically identify and document
+                    <strong>ten Project Lighthouse risks</strong>.
+
+                    For now, focus only on building a strong,
+                    usable framework.
+
+                </p>
+
+            </div>
+
+        </aside>
+
+
+        <!-- =================================================
+             DOWNLOAD PROJECT LIGHTHOUSE CASE
+             ================================================= -->
+
+        <section class="download-section"
+                 aria-labelledby="download-heading">
+
+            <h2 id="download-heading">
+                Running Case: Project Lighthouse
+            </h2>
+
+            <p>
+                Download a PDF version of the Project Lighthouse
+                running case for reference throughout the course.
+            </p>
+
+
+            <a class="download-button"
+               href="https://content.bellevue.edu/cst/pmgt/410/casestudy/Project_Lighthouse_Running_Case.pdf"
+               target="_blank"
+               rel="noopener noreferrer">
+
+                <!-- DOWNLOAD ICON -->
+
+                <svg class="download-icon"
+                     viewBox="0 0 24 24"
+                     aria-hidden="true"
+                     focusable="false">
+
+                    <path
+                        d="M12 3v12
+                           M7 10l5 5 5-5
+                           M5 21h14"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round">
+                    </path>
+
+                </svg>
+
+                <span>
+                    Download Project Lighthouse Case (PDF)
+                </span>
+
+            </a>
+
+        </section>
+
+
+    </main>
+
+
+    <!-- =====================================================
+         JAVASCRIPT
+         ACCESSIBLE ACCORDION FUNCTIONALITY
+         ===================================================== -->
+
+    <script>
+
+        document
+            .querySelectorAll(".lighthouse-case .accordion-button")
+            .forEach(function(button) {
+
+                button.addEventListener("click", function() {
+
+                    /*
+                     * Get the ID of the panel controlled
+                     * by the selected button.
+                     */
+
+                    const panelId =
+                        button.getAttribute("aria-controls");
+
+
+                    /*
+                     * Find the corresponding accordion panel.
+                     */
+
+                    const panel =
+                        document.getElementById(panelId);
+
+
+                    /*
+                     * Find the visual + / - indicator.
+                     */
+
+                    const symbol =
+                        button.querySelector(".accordion-symbol");
+
+
+                    /*
+                     * Determine current state.
+                     */
+
+                    const isExpanded =
+                        button.getAttribute("aria-expanded") === "true";
+
+
+                    /*
+                     * Update accessibility state.
+                     */
+
+                    button.setAttribute(
+                        "aria-expanded",
+                        String(!isExpanded)
+                    );
+
+
+                    /*
+                     * Show or hide the content.
+                     */
+
+                    panel.hidden = isExpanded;
+
+
+                    /*
+                     * Update the visual indicator.
+                     */
+
+                    symbol.textContent =
+                        isExpanded ? "+" : "−";
+
+                });
+
+            });
+
+    </script>
+
+</body>
+
+</html>
