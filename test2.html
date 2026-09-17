@@ -1,1483 +1,218 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- =====================================================
-         DOCUMENT INFORMATION
-         ===================================================== -->
+<title>Project Lighthouse - Week 2</title>
 
-    <meta charset="UTF-8">
+<style>
+    * {
+        box-sizing: border-box;
+    }
 
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
+    body {
+        margin: 0;
+        padding: 30px;
+        font-family: "Open Sans", Arial, sans-serif;
+        background-color: #f2f2f2;
+        color: #222222;
+        line-height: 1.6;
+    }
 
-    <title>Project Lighthouse - Week 2</title>
+    .lighthouse-case {
+        width: 100%;
+        max-width: 1200px;
+        margin: 0 auto;
+        background-color: #ffffff;
+        border: 1px solid #dddddd;
+        border-radius: 12px;
+        overflow: hidden;
+    }
 
+    /* Header */
+    .case-header {
+        padding: 32px 36px;
+        background-color: #4F3674;
+        color: #ffffff;
+        border-bottom: 5px solid #D6A800;
+    }
 
-    <!-- =====================================================
-         CSS STYLES
-         ===================================================== -->
+    .case-label {
+        margin-bottom: 6px;
+        font-size: 0.8rem;
+        font-weight: 700;
+        letter-spacing: 1.4px;
+        text-transform: uppercase;
+    }
 
-    <style>
+    .case-header h1 {
+        margin: 0;
+        color: #ffffff;
+        font-size: 2rem;
+        line-height: 1.25;
+    }
 
-        /* =====================================================
-           GLOBAL
-           ===================================================== */
+    /* Main Content */
+    .case-content {
+        padding: 32px 36px;
+    }
 
-        * {
-            box-sizing: border-box;
-        }
+    .case-content p {
+        margin: 0 0 18px;
+    }
 
+    /* Week 2 Assignment Callout */
+    .week-focus {
+        margin: 26px 0;
+        padding: 20px 24px;
+        background-color: #f5f2f8;
+        border-left: 5px solid #4F3674;
+        border-radius: 6px;
+    }
+
+    .week-focus p:last-child {
+        margin-bottom: 0;
+    }
+
+    /* Case Continuity */
+    .continuity {
+        margin-top: 30px;
+        padding-top: 26px;
+        border-top: 3px solid #D6A800;
+    }
+
+    .continuity h2 {
+        margin: 0 0 18px;
+        color: #4F3674;
+        font-size: 1.4rem;
+    }
+
+    .continuity-item {
+        margin-bottom: 18px;
+    }
+
+    .continuity-item strong {
+        color: #4F3674;
+    }
+
+    /* Important Instruction */
+    .important-note {
+        margin-top: 26px;
+        padding: 18px 22px;
+        background-color: #fff9e6;
+        border: 1px solid #D6A800;
+        border-left: 5px solid #D6A800;
+        border-radius: 6px;
+    }
+
+    .important-note p {
+        margin: 0;
+        font-weight: 600;
+    }
+
+    /* Responsive */
+    @media (max-width: 700px) {
         body {
-            margin: 0;
-            padding: 30px;
-
-            font-family: "Open Sans", Arial, sans-serif;
-
-            background-color: #f2f2f2;
-            color: #222222;
-
-            line-height: 1.6;
+            padding: 15px;
         }
 
-
-        /* =====================================================
-           PROJECT LIGHTHOUSE CONTAINER
-           ===================================================== */
-
-        .lighthouse-case {
-            width: 100%;
-            max-width: 1200px;
-
-            margin: 0 auto;
-
-            background-color: #ffffff;
-        }
-
-
-        /* =====================================================
-           HEADER
-           ===================================================== */
-
-        .case-header {
-            padding: 34px 36px;
-
-            background-color: #4F3674;
-            color: #ffffff;
-
-            border-radius: 12px 12px 0 0;
-            border-bottom: 5px solid #D6A800;
-        }
-
-        .case-label {
-            display: inline-block;
-
-            margin-bottom: 8px;
-
-            color: #ffffff;
-
-            font-size: 0.78rem;
-            font-weight: 700;
-            letter-spacing: 1.5px;
+        .case-header,
+        .case-content {
+            padding: 24px 20px;
         }
 
         .case-header h1 {
-            margin: 0 0 8px;
-
-            color: #ffffff;
-
-            font-size: 2rem;
-            line-height: 1.25;
+            font-size: 1.6rem;
         }
-
-        .case-intro {
-            max-width: 900px;
-
-            margin: 0;
-
-            font-size: 1rem;
-        }
-
-
-        /* =====================================================
-           CONTENT SECTIONS
-           ===================================================== */
-
-        .case-section {
-            padding: 30px 36px;
-
-            background-color: #ffffff;
-
-            border-left: 1px solid #dddddd;
-            border-right: 1px solid #dddddd;
-            border-bottom: 1px solid #dddddd;
-        }
-
-        .case-section h2 {
-            margin: 0 0 12px;
-
-            color: #4F3674;
-
-            font-size: 1.4rem;
-        }
-
-        .case-section p {
-            margin: 0 0 16px;
-        }
-
-        .section-instruction {
-            color: #555555;
-        }
-
-
-        /* =====================================================
-           YOUR ROLE CALLOUT
-           ===================================================== */
-
-        .role-callout {
-            display: flex;
-            align-items: center;
-
-            gap: 14px;
-
-            margin-top: 22px;
-            padding: 16px 20px;
-
-            background-color: #f5f2f8;
-
-            border-left: 5px solid #4F3674;
-            border-radius: 6px;
-        }
-
-        .role-icon {
-            color: #D6A800;
-
-            font-size: 1.5rem;
-        }
-
-        .role-callout strong,
-        .role-callout span {
-            display: block;
-        }
-
-        .role-callout strong {
-            color: #4F3674;
-        }
-
-
-        /* =====================================================
-           KEY FACT CARDS
-           ===================================================== */
-
-        .fact-grid {
-            display: grid;
-
-            grid-template-columns: repeat(3, 1fr);
-
-            gap: 18px;
-
-            margin-top: 20px;
-        }
-
-        .fact-card {
-            padding: 22px;
-
-            background-color: #f7f7f7;
-
-            border: 1px solid #dddddd;
-            border-top: 4px solid #D6A800;
-            border-radius: 8px;
-        }
-
-        .fact-number {
-            color: #4F3674;
-
-            font-size: 1.8rem;
-            font-weight: 700;
-        }
-
-        .fact-card h3 {
-            margin: 2px 0 8px;
-
-            color: #222222;
-
-            font-size: 1rem;
-        }
-
-        .fact-card p {
-            margin: 0;
-
-            font-size: 0.94rem;
-        }
-
-
-        /* =====================================================
-           WEEK 2 FRAMEWORK CARDS
-           ===================================================== */
-
-        .framework-grid {
-            display: grid;
-
-            grid-template-columns: repeat(2, 1fr);
-
-            gap: 18px;
-
-            margin-top: 22px;
-        }
-
-        .framework-card {
-            padding: 22px;
-
-            background-color: #f7f7f7;
-
-            border: 1px solid #dddddd;
-            border-left: 5px solid #4F3674;
-            border-radius: 8px;
-        }
-
-        .framework-card h3 {
-            margin: 0 0 8px;
-
-            color: #4F3674;
-
-            font-size: 1.05rem;
-        }
-
-        .framework-card p {
-            margin: 0;
-
-            font-size: 0.94rem;
-        }
-
-
-        /* =====================================================
-           ACCORDION
-           ===================================================== */
-
-        .accordion-item {
-            margin-top: 12px;
-
-            border: 1px solid #cccccc;
-            border-radius: 7px;
-
-            overflow: hidden;
-        }
-
-        .accordion-button {
-            width: 100%;
-
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-
-            gap: 20px;
-
-            padding: 16px 20px;
-
-            border: 0;
-
-            background-color: #f7f7f7;
-            color: #222222;
-
-            font-family: inherit;
-            text-align: left;
-
-            cursor: pointer;
-        }
-
-        .accordion-button:hover {
-            background-color: #f1eef5;
-        }
-
-        .accordion-button:focus-visible {
-            outline: 3px solid #D6A800;
-            outline-offset: -3px;
-        }
-
-        .accordion-label {
-            display: block;
-
-            color: #4F3674;
-
-            font-weight: 700;
-            font-size: 1rem;
-        }
-
-        .accordion-summary {
-            display: block;
-
-            margin-top: 2px;
-
-            color: #555555;
-
-            font-size: 0.88rem;
-        }
-
-        .accordion-symbol {
-            flex-shrink: 0;
-
-            color: #4F3674;
-
-            font-size: 1.5rem;
-            font-weight: 700;
-        }
-
-        .accordion-panel {
-            padding: 16px 22px 20px;
-
-            background-color: #ffffff;
-        }
-
-        .accordion-panel p:last-child {
-            margin-bottom: 0;
-        }
-
-
-        /* =====================================================
-           CASE CONTINUITY
-           ===================================================== */
-
-        .continuity-section {
-            background-color: #fafafa;
-        }
-
-        .continuity-grid {
-            display: grid;
-
-            grid-template-columns: repeat(4, 1fr);
-
-            gap: 14px;
-
-            margin-top: 22px;
-        }
-
-        .continuity-card {
-            padding: 20px;
-
-            background-color: #ffffff;
-
-            border: 1px solid #dddddd;
-            border-top: 4px solid #D6A800;
-            border-radius: 8px;
-        }
-
-        .continuity-week {
-            display: inline-block;
-
-            margin-bottom: 8px;
-            padding: 4px 10px;
-
-            background-color: #4F3674;
-            color: #ffffff;
-
-            border-radius: 20px;
-
-            font-size: 0.82rem;
-            font-weight: 700;
-        }
-
-        .continuity-card h3 {
-            margin: 0 0 8px;
-
-            color: #4F3674;
-
-            font-size: 1rem;
-        }
-
-        .continuity-card p {
-            margin: 0;
-
-            font-size: 0.9rem;
-        }
-
-
-        /* =====================================================
-           IMPORTANT / NOT YET CALLOUT
-           ===================================================== */
-
-        .important-callout {
-            display: flex;
-            align-items: flex-start;
-
-            gap: 16px;
-
-            margin-top: 22px;
-            padding: 22px;
-
-            background-color: #fff9e6;
-
-            border: 1px solid #D6A800;
-            border-left: 6px solid #D6A800;
-            border-radius: 8px;
-        }
-
-        .important-icon {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-
-            flex: 0 0 42px;
-
-            width: 42px;
-            height: 42px;
-
-            background-color: #4F3674;
-            color: #ffffff;
-
-            border-radius: 50%;
-
-            font-size: 1.2rem;
-            font-weight: 700;
-        }
-
-        .important-callout h3 {
-            margin: 0 0 5px;
-
-            color: #4F3674;
-
-            font-size: 1.05rem;
-        }
-
-        .important-callout p {
-            margin: 0;
-        }
-
-
-        /* =====================================================
-           LOOKING AHEAD CALLOUT
-           ===================================================== */
-
-        .week-callout {
-            display: flex;
-            align-items: center;
-
-            gap: 20px;
-
-            padding: 24px 30px;
-
-            background-color: #f5f2f8;
-
-            border-left: 1px solid #dddddd;
-            border-right: 1px solid #dddddd;
-            border-bottom: 1px solid #dddddd;
-            border-top: 4px solid #D6A800;
-        }
-
-        .week-number {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-
-            flex: 0 0 54px;
-
-            height: 54px;
-
-            background-color: #4F3674;
-            color: #ffffff;
-
-            border-radius: 50%;
-
-            font-size: 1.35rem;
-            font-weight: 700;
-        }
-
-        .week-callout h2 {
-            margin: 0 0 4px;
-
-            color: #4F3674;
-
-            font-size: 1.15rem;
-        }
-
-        .week-callout p {
-            margin: 0;
-        }
-
-
-        /* =====================================================
-           PDF DOWNLOAD SECTION
-           ===================================================== */
-
-        .download-section {
-            padding: 28px 30px;
-
-            background-color: #ffffff;
-
-            border-left: 1px solid #dddddd;
-            border-right: 1px solid #dddddd;
-            border-bottom: 1px solid #dddddd;
-
-            border-radius: 0 0 12px 12px;
-
-            text-align: center;
-        }
-
-        .download-section h2 {
-            margin: 0 0 6px;
-
-            color: #4F3674;
-
-            font-size: 1.25rem;
-        }
-
-        .download-section p {
-            margin: 0 0 18px;
-
-            color: #333333;
-        }
-
-
-        /* =====================================================
-           DOWNLOAD BUTTON
-           ===================================================== */
-
-        .download-button {
-            display: inline-flex;
-
-            align-items: center;
-            justify-content: center;
-
-            gap: 10px;
-
-            padding: 12px 20px;
-
-            background-color: #4F3674;
-            color: #ffffff;
-
-            border: 2px solid #4F3674;
-            border-radius: 7px;
-
-            font-family: "Open Sans", Arial, sans-serif;
-            font-size: 1rem;
-            font-weight: 700;
-
-            text-decoration: none;
-
-            cursor: pointer;
-
-            transition:
-                background-color 0.2s ease,
-                color 0.2s ease,
-                border-color 0.2s ease;
-        }
-
-        .download-button:hover {
-            background-color: #35234f;
-            color: #ffffff;
-
-            border-color: #35234f;
-        }
-
-        .download-button:focus-visible {
-            outline: 3px solid #D6A800;
-            outline-offset: 4px;
-        }
-
-        .download-icon {
-            width: 21px;
-            height: 21px;
-
-            flex-shrink: 0;
-        }
-
-
-        /* =====================================================
-           RESPONSIVE DESIGN
-           ===================================================== */
-
-        @media (max-width: 900px) {
-
-            .continuity-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-        }
-
-
-        @media (max-width: 800px) {
-
-            body {
-                padding: 15px;
-            }
-
-            .case-header,
-            .case-section {
-                padding: 24px 20px;
-            }
-
-            .case-header h1 {
-                font-size: 1.65rem;
-            }
-
-            .fact-grid,
-            .framework-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .week-callout {
-                align-items: flex-start;
-
-                padding: 22px 20px;
-            }
-        }
-
-
-        @media (max-width: 600px) {
-
-            .continuity-grid {
-                grid-template-columns: 1fr;
-            }
-
-        }
-
-
-        @media (max-width: 500px) {
-
-            .week-callout,
-            .important-callout {
-                flex-direction: column;
-            }
-
-            .accordion-summary {
-                font-size: 0.82rem;
-            }
-
-        }
-
-    </style>
-
+    }
+</style>
 </head>
-
 
 <body>
 
+<main class="lighthouse-case">
 
-    <!-- =====================================================
-         PROJECT LIGHTHOUSE
-         ===================================================== -->
+    <!-- Header -->
+    <header class="case-header">
+        <div class="case-label">The Running Case</div>
+        <h1>Project Lighthouse</h1>
+    </header>
 
-    <main class="lighthouse-case">
+    <!-- Main Case Content -->
+    <section class="case-content" aria-labelledby="case-heading">
 
+        <h2 id="case-heading" style="position:absolute;left:-9999px;">
+            Project Lighthouse Week 2 Case
+        </h2>
 
-        <!-- =================================================
-             HEADER
-             ================================================= -->
+        <p>
+            You are still the project manager for
+            <strong>Project Lighthouse</strong>, Brightwater Retail’s
+            <strong>$48 million automated distribution center</strong>.
+            Following the Week 1 decision, Brightwater is moving forward
+            with a conditional 18-month path supported by stronger risk
+            controls. The formal risk-identification work has not yet
+            occurred, and the initial risk register has not been created.
+        </p>
 
-        <header class="case-header">
-
-            <div class="case-label">
-                THE RUNNING CASE
-            </div>
-
-            <h1>
-                Project Lighthouse
-            </h1>
-
-            <p class="case-intro">
-
-                You are still the project manager for
-                <strong>Project Lighthouse</strong>,
-                Brightwater Retail's
-                <strong>$48 million automated distribution center</strong>.
-
-            </p>
-
-        </header>
-
-
-        <!-- =================================================
-             CURRENT PROJECT STATUS
-             ================================================= -->
-
-        <section class="case-section"
-                 aria-labelledby="current-status-heading">
-
-            <h2 id="current-status-heading">
-                Where the Project Stands
-            </h2>
-
+        <!-- Week 2 Focus -->
+        <div class="week-focus">
             <p>
-
-                Following the Week 1 decision, Brightwater is moving
-                forward with a
-                <strong>conditional 18-month path</strong>
-                supported by stronger risk controls.
-
-            </p>
-
-            <p>
-
-                The formal risk-identification work has not yet occurred,
-                and the initial risk register has not been created.
-
-            </p>
-
-
-            <!-- YOUR ROLE -->
-
-            <div class="role-callout">
-
-                <span class="role-icon"
-                      aria-hidden="true">
-                    ◆
-                </span>
-
-                <div>
-
-                    <strong>
-                        Your Week 2 Role
-                    </strong>
-
-                    <span>
-
-                        Create a practical framework that will help the
-                        Project Lighthouse team identify risks systematically.
-
-                    </span>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- =================================================
-             KEY PROJECT FACTS
-             ================================================= -->
-
-        <section class="case-section"
-                 aria-labelledby="key-facts-heading">
-
-            <h2 id="key-facts-heading">
-                Project Lighthouse at a Glance
-            </h2>
-
-
-            <div class="fact-grid">
-
-
-                <!-- BUDGET -->
-
-                <div class="fact-card">
-
-                    <div class="fact-number">
-                        $48M
-                    </div>
-
-                    <h3>
-                        Project Budget
-                    </h3>
-
-                    <p>
-                        Brightwater is making a significant capital
-                        investment in its new automated distribution center.
-                    </p>
-
-                </div>
-
-
-                <!-- SCHEDULE -->
-
-                <div class="fact-card">
-
-                    <div class="fact-number">
-                        18
-                    </div>
-
-                    <h3>
-                        Months to Go-Live
-                    </h3>
-
-                    <p>
-                        Brightwater is proceeding with the conditional
-                        18-month schedule established following Week 1.
-                    </p>
-
-                </div>
-
-
-                <!-- CURRENT PHASE -->
-
-                <div class="fact-card">
-
-                    <div class="fact-number">
-                        Week 2
-                    </div>
-
-                    <h3>
-                        Risk Framework
-                    </h3>
-
-                    <p>
-                        The team is preparing the structure and rating
-                        scales needed before formal risk identification.
-                    </p>
-
-                </div>
-
-
-            </div>
-
-        </section>
-
-
-        <!-- =================================================
-             WEEK 2 ASSIGNMENT
-             ================================================= -->
-
-        <section class="case-section"
-                 aria-labelledby="week2-heading">
-
-            <h2 id="week2-heading">
-                This Week: Build the Risk Framework
-            </h2>
-
-            <p>
-
                 This week, your job is to create a practical framework
-                that will help the team identify and evaluate risks
-                systematically.
-
+                that will help the team identify risks systematically.
+                Your RBS and rating scales will be used again in later
+                weeks, so keep them clear and usable.
             </p>
+        </div>
 
-            <p>
+        <!-- Case Continuity -->
+        <div class="continuity">
 
-                Your Risk Breakdown Structure and rating scales will
-                be used again in later weeks, so keep them
-                <strong>clear, consistent, and usable</strong>.
+            <h2>Case Continuity — Project Lighthouse</h2>
 
-            </p>
-
-
-            <div class="framework-grid">
-
-
-                <div class="framework-card">
-
-                    <h3>
-                        Risk Breakdown Structure (RBS)
-                    </h3>
-
-                    <p>
-
-                        Develop an organized structure for grouping
-                        potential Project Lighthouse risks by source
-                        or category.
-
-                    </p>
-
-                </div>
-
-
-                <div class="framework-card">
-
-                    <h3>
-                        Probability Scale
-                    </h3>
-
-                    <p>
-
-                        Establish a consistent scale for describing
-                        how likely a risk is to occur.
-
-                    </p>
-
-                </div>
-
-
-                <div class="framework-card">
-
-                    <h3>
-                        Cost-Impact Scale
-                    </h3>
-
-                    <p>
-
-                        Establish clear criteria for evaluating how
-                        strongly a risk could affect project cost.
-
-                    </p>
-
-                </div>
-
-
-                <div class="framework-card">
-
-                    <h3>
-                        Schedule-Impact Scale
-                    </h3>
-
-                    <p>
-
-                        Establish clear criteria for evaluating how
-                        strongly a risk could affect the
-                        Project Lighthouse schedule.
-
-                    </p>
-
-                </div>
-
-
-            </div>
-
-
-            <!-- IMPORTANT -->
-
-            <div class="important-callout"
-                 role="note"
-                 aria-labelledby="not-yet-heading">
-
-                <div class="important-icon"
-                     aria-hidden="true">
-                    !
-                </div>
-
-                <div>
-
-                    <h3 id="not-yet-heading">
-                        Not Yet: Individual Risks
-                    </h3>
-
-                    <p>
-
-                        <strong>
-                            Do not identify or score individual risks yet.
-                        </strong>
-
-                        This week is about building the framework that
-                        later Project Lighthouse risk work will use.
-
-                    </p>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- =================================================
-             EXPLORE THE WEEK 2 FRAMEWORK
-             ================================================= -->
-
-        <section class="case-section"
-                 aria-labelledby="framework-details-heading">
-
-            <h2 id="framework-details-heading">
-                Explore the Week 2 Framework
-            </h2>
-
-            <p class="section-instruction">
-
-                Select each section to review how your Week 2 work
-                supports the Project Lighthouse risk-management process.
-
-            </p>
-
-
-            <!-- RBS ACCORDION -->
-
-            <div class="accordion-item">
-
-                <button class="accordion-button"
-                        type="button"
-                        aria-expanded="false"
-                        aria-controls="rbs-panel">
-
-                    <span>
-
-                        <span class="accordion-label">
-                            Risk Breakdown Structure
-                        </span>
-
-                        <span class="accordion-summary">
-                            Create a systematic way to organize potential risks
-                        </span>
-
-                    </span>
-
-                    <span class="accordion-symbol"
-                          aria-hidden="true">
-                        +
-                    </span>
-
-                </button>
-
-
-                <div class="accordion-panel"
-                     id="rbs-panel"
-                     hidden>
-
-                    <p>
-
-                        The Risk Breakdown Structure (RBS) provides an
-                        organized framework for examining potential sources
-                        or categories of project risk.
-
-                    </p>
-
-                    <p>
-
-                        In Week 3, you will use this structure to help
-                        systematically identify Project Lighthouse risks.
-
-                    </p>
-
-                </div>
-
-            </div>
-
-
-            <!-- PROBABILITY ACCORDION -->
-
-            <div class="accordion-item">
-
-                <button class="accordion-button"
-                        type="button"
-                        aria-expanded="false"
-                        aria-controls="probability-panel">
-
-                    <span>
-
-                        <span class="accordion-label">
-                            Probability Scale
-                        </span>
-
-                        <span class="accordion-summary">
-                            Define how likelihood will be evaluated
-                        </span>
-
-                    </span>
-
-                    <span class="accordion-symbol"
-                          aria-hidden="true">
-                        +
-                    </span>
-
-                </button>
-
-
-                <div class="accordion-panel"
-                     id="probability-panel"
-                     hidden>
-
-                    <p>
-
-                        Your probability scale establishes a consistent
-                        way for the team to describe how likely an
-                        identified risk is to occur.
-
-                    </p>
-
-                    <p>
-
-                        You are defining the scale this week. You will
-                        apply it to individual risks later.
-
-                    </p>
-
-                </div>
-
-            </div>
-
-
-            <!-- COST IMPACT ACCORDION -->
-
-            <div class="accordion-item">
-
-                <button class="accordion-button"
-                        type="button"
-                        aria-expanded="false"
-                        aria-controls="cost-panel">
-
-                    <span>
-
-                        <span class="accordion-label">
-                            Cost-Impact Scale
-                        </span>
-
-                        <span class="accordion-summary">
-                            Define how potential cost effects will be evaluated
-                        </span>
-
-                    </span>
-
-                    <span class="accordion-symbol"
-                          aria-hidden="true">
-                        +
-                    </span>
-
-                </button>
-
-
-                <div class="accordion-panel"
-                     id="cost-panel"
-                     hidden>
-
-                    <p>
-
-                        The cost-impact scale provides consistent criteria
-                        for describing how strongly a risk could affect
-                        the Project Lighthouse budget.
-
-                    </p>
-
-                    <p>
-
-                        The scale you create this week will later be used
-                        to evaluate risks documented in the risk register.
-
-                    </p>
-
-                </div>
-
-            </div>
-
-
-            <!-- SCHEDULE IMPACT ACCORDION -->
-
-            <div class="accordion-item">
-
-                <button class="accordion-button"
-                        type="button"
-                        aria-expanded="false"
-                        aria-controls="schedule-panel">
-
-                    <span>
-
-                        <span class="accordion-label">
-                            Schedule-Impact Scale
-                        </span>
-
-                        <span class="accordion-summary">
-                            Define how potential schedule effects will be evaluated
-                        </span>
-
-                    </span>
-
-                    <span class="accordion-symbol"
-                          aria-hidden="true">
-                        +
-                    </span>
-
-                </button>
-
-
-                <div class="accordion-panel"
-                     id="schedule-panel"
-                     hidden>
-
-                    <p>
-
-                        The schedule-impact scale provides consistent
-                        criteria for describing how strongly a risk could
-                        affect the project's schedule objectives.
-
-                    </p>
-
-                    <p>
-
-                        This is especially important because Brightwater
-                        is proceeding with the conditional
-                        <strong>18-month path</strong> established
-                        following Week 1.
-
-                    </p>
-
-                </div>
-
-            </div>
-
-
-        </section>
-
-
-        <!-- =================================================
-             CASE CONTINUITY
-             ================================================= -->
-
-        <section class="case-section continuity-section"
-                 aria-labelledby="continuity-heading">
-
-            <h2 id="continuity-heading">
-                Case Continuity — Project Lighthouse
-            </h2>
-
-            <p>
-
-                Your work on Project Lighthouse builds from week to week.
-                Each stage prepares information you will use in the next.
-
-            </p>
-
-
-            <div class="continuity-grid">
-
-
-                <!-- WEEK 1 -->
-
-                <div class="continuity-card">
-
-                    <span class="continuity-week">
-                        Week 1
-                    </span>
-
-                    <h3>
-                        Risk Foundations
-                    </h3>
-
-                    <p>
-
-                        You established the risk foundations and evaluated
-                        the 18-month versus 22-month schedule decision.
-                        Brightwater is moving forward on the conditional
-                        18-month path with stronger risk controls.
-
-                    </p>
-
-                </div>
-
-
-                <!-- WEEK 2 -->
-
-                <div class="continuity-card">
-
-                    <span class="continuity-week">
-                        Week 2
-                    </span>
-
-                    <h3>
-                        Build the Framework
-                    </h3>
-
-                    <p>
-
-                        Create the RBS and probability, cost-impact,
-                        and schedule-impact scales before formal risk
-                        identification begins.
-
-                    </p>
-
-                </div>
-
-
-                <!-- WEEK 3 -->
-
-                <div class="continuity-card">
-
-                    <span class="continuity-week">
-                        Week 3
-                    </span>
-
-                    <h3>
-                        Identify Risks
-                    </h3>
-
-                    <p>
-
-                        Use the RBS to identify and document
-                        <strong>ten Project Lighthouse risks</strong>.
-
-                    </p>
-
-                </div>
-
-
-                <!-- WEEK 4 -->
-
-                <div class="continuity-card">
-
-                    <span class="continuity-week">
-                        Week 4
-                    </span>
-
-                    <h3>
-                        Score and Prioritize
-                    </h3>
-
-                    <p>
-
-                        Use the Week 2 rating scales to score and
-                        prioritize that same Project Lighthouse
-                        risk register.
-
-                    </p>
-
-                </div>
-
-
-            </div>
-
-        </section>
-
-
-        <!-- =================================================
-             LOOKING AHEAD
-             ================================================= -->
-
-        <aside class="week-callout"
-               aria-labelledby="week3-heading">
-
-            <div class="week-number"
-                 aria-hidden="true">
-                3
-            </div>
-
-            <div>
-
-                <h2 id="week3-heading">
-                    Looking Ahead: Week 3
-                </h2>
-
+            <div class="continuity-item">
                 <p>
-
-                    You will use the
-                    <strong>Risk Breakdown Structure you create this week</strong>
-                    to systematically identify and document
-                    <strong>ten Project Lighthouse risks</strong>.
-
-                    For now, focus only on building a strong,
-                    usable framework.
-
+                    <strong>Week 1:</strong>
+                    You established the risk foundations and evaluated
+                    the 18-month versus 22-month schedule decision.
+                    Brightwater is moving forward on the conditional
+                    18-month path with stronger risk controls.
                 </p>
-
             </div>
 
+            <div class="continuity-item">
+                <p>
+                    <strong>Week 2:</strong>
+                    You will create the RBS and probability, cost-impact,
+                    and schedule-impact scales before formal risk
+                    identification begins.
+                </p>
+            </div>
+
+            <div class="continuity-item">
+                <p>
+                    <strong>Looking Ahead:</strong>
+                    In Week 3, you will use the RBS to identify and
+                    document ten Project Lighthouse risks. In Week 4,
+                    you will use the rating scales to score and prioritize
+                    that same register.
+                </p>
+            </div>
+
+        </div>
+
+        <!-- Important Instruction -->
+        <aside class="important-note" aria-label="Important Week 2 instruction">
+            <p>
+                Do not identify or score individual risks yet. This week
+                is about building the framework that later risk work will use.
+            </p>
         </aside>
 
+    </section>
 
-        <!-- =================================================
-             DOWNLOAD PROJECT LIGHTHOUSE CASE
-             ================================================= -->
-
-        <section class="download-section"
-                 aria-labelledby="download-heading">
-
-            <h2 id="download-heading">
-                Running Case: Project Lighthouse
-            </h2>
-
-            <p>
-                Download a PDF version of the Project Lighthouse
-                running case for reference throughout the course.
-            </p>
-
-
-            <a class="download-button"
-               href="https://content.bellevue.edu/cst/pmgt/410/casestudy/Project_Lighthouse_Running_Case.pdf"
-               target="_blank"
-               rel="noopener noreferrer">
-
-                <!-- DOWNLOAD ICON -->
-
-                <svg class="download-icon"
-                     viewBox="0 0 24 24"
-                     aria-hidden="true"
-                     focusable="false">
-
-                    <path
-                        d="M12 3v12
-                           M7 10l5 5 5-5
-                           M5 21h14"
-                        fill="none"
-                        stroke="currentColor"
-                        stroke-width="2"
-                        stroke-linecap="round"
-                        stroke-linejoin="round">
-                    </path>
-
-                </svg>
-
-                <span>
-                    Download Project Lighthouse Case (PDF)
-                </span>
-
-            </a>
-
-        </section>
-
-
-    </main>
-
-
-    <!-- =====================================================
-         JAVASCRIPT
-         ACCESSIBLE ACCORDION FUNCTIONALITY
-         ===================================================== -->
-
-    <script>
-
-        document
-            .querySelectorAll(".lighthouse-case .accordion-button")
-            .forEach(function(button) {
-
-                button.addEventListener("click", function() {
-
-                    /*
-                     * Get the ID of the panel controlled
-                     * by the selected button.
-                     */
-
-                    const panelId =
-                        button.getAttribute("aria-controls");
-
-
-                    /*
-                     * Find the corresponding accordion panel.
-                     */
-
-                    const panel =
-                        document.getElementById(panelId);
-
-
-                    /*
-                     * Find the visual + / - indicator.
-                     */
-
-                    const symbol =
-                        button.querySelector(".accordion-symbol");
-
-
-                    /*
-                     * Determine current state.
-                     */
-
-                    const isExpanded =
-                        button.getAttribute("aria-expanded") === "true";
-
-
-                    /*
-                     * Update accessibility state.
-                     */
-
-                    button.setAttribute(
-                        "aria-expanded",
-                        String(!isExpanded)
-                    );
-
-
-                    /*
-                     * Show or hide the content.
-                     */
-
-                    panel.hidden = isExpanded;
-
-
-                    /*
-                     * Update the visual indicator.
-                     */
-
-                    symbol.textContent =
-                        isExpanded ? "+" : "−";
-
-                });
-
-            });
-
-    </script>
+</main>
 
 </body>
-
 </html>
