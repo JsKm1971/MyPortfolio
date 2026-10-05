@@ -4,389 +4,215 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Project Lighthouse - Week 2</title>
+<title>Course Podcast</title>
 
 <style>
-    * {
-        box-sizing: border-box;
-    }
+/* =========================================================
+   GENERAL PAGE STYLING
+   ========================================================= */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 30px;
+    background-color: #f4f4f4;
+    font-family: "Open Sans", Arial, sans-serif;
+    color: #222222;
+    line-height: 1.6;
+}
+
+/* =========================================================
+   PODCAST CONTAINER
+   ========================================================= */
+
+.podcast-container {
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+    background-color: #ffffff;
+    border: 1px solid #d6d6d6;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.10);
+}
+
+/* =========================================================
+   PODCAST HEADER
+   ========================================================= */
+
+.podcast-header {
+    background-color: #4F3674;
+    color: #ffffff;
+    padding: 24px 30px;
+}
+
+.podcast-header h2 {
+    margin: 0;
+    font-size: 1.7rem;
+    color: #ffffff;
+}
+
+.podcast-header p {
+    margin: 6px 0 0;
+    color: #ffffff;
+}
+
+/* =========================================================
+   PODCAST CONTENT
+   ========================================================= */
+
+.podcast-content {
+    padding: 30px;
+}
+
+.podcast-description {
+    margin-top: 0;
+    font-size: 1rem;
+}
+
+/* =========================================================
+   AUDIO PLAYER
+   ========================================================= */
+
+.audio-wrapper {
+    margin: 24px 0;
+    padding: 20px;
+    background-color: #f2f2f2;
+    border-left: 5px solid #D6A800;
+    border-radius: 6px;
+}
+
+.audio-wrapper h3 {
+    margin-top: 0;
+    margin-bottom: 12px;
+    color: #333333;
+    font-size: 1.15rem;
+}
+
+.podcast-player {
+    display: block;
+    width: 100%;
+}
+
+/* =========================================================
+   TRANSCRIPT AREA
+   ========================================================= */
+
+.transcript-area {
+    margin-top: 20px;
+}
+
+.transcript-button {
+    display: inline-block;
+    padding: 10px 18px;
+    background-color: #4F3674;
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 600;
+    border: 2px solid #4F3674;
+    border-radius: 6px;
+}
+
+.transcript-button:hover,
+.transcript-button:focus {
+    background-color: #ffffff;
+    color: #4F3674;
+    outline: 3px solid #D6A800;
+    outline-offset: 2px;
+}
+
+/* =========================================================
+   RESPONSIVE DESIGN
+   ========================================================= */
+
+@media (max-width: 600px) {
 
     body {
-        margin: 0;
-        padding: 30px;
-        font-family: "Open Sans", Arial, sans-serif;
-        background-color: #f2f2f2;
-        color: #222222;
-        line-height: 1.6;
+        padding: 15px;
     }
 
-    .lighthouse-case {
-        width: 100%;
-        max-width: 1200px;
-        margin: 0 auto;
-        background-color: #ffffff;
-        border: 1px solid #dddddd;
-        border-radius: 12px;
-        overflow: hidden;
+    .podcast-header,
+    .podcast-content {
+        padding: 20px;
     }
-
-    /* =====================================================
-       HEADER
-       ===================================================== */
-
-    .case-header {
-        padding: 32px 36px;
-        background-color: #4F3674;
-        color: #ffffff;
-        border-bottom: 5px solid #D6A800;
-    }
-
-    .case-label {
-        margin-bottom: 6px;
-        font-size: 0.8rem;
-        font-weight: 700;
-        letter-spacing: 1.4px;
-        text-transform: uppercase;
-    }
-
-    .case-header h1 {
-        margin: 0;
-        color: #ffffff;
-        font-size: 2rem;
-        line-height: 1.25;
-    }
-
-    /* =====================================================
-       MAIN CONTENT
-       ===================================================== */
-
-    .case-content {
-        padding: 32px 36px;
-    }
-
-    .case-content p {
-        margin: 0 0 18px;
-    }
-
-    /* =====================================================
-       WEEK 2 FOCUS
-       ===================================================== */
-
-    .week-focus {
-        margin: 26px 0;
-        padding: 20px 24px;
-        background-color: #f5f2f8;
-        border-left: 5px solid #4F3674;
-        border-radius: 6px;
-    }
-
-    .week-focus p:last-child {
-        margin-bottom: 0;
-    }
-
-    /* =====================================================
-       CASE CONTINUITY
-       ===================================================== */
-
-    .continuity {
-        margin-top: 30px;
-        padding-top: 26px;
-        border-top: 3px solid #D6A800;
-    }
-
-    .continuity h2 {
-        margin: 0 0 18px;
-        color: #4F3674;
-        font-size: 1.4rem;
-    }
-
-    .continuity-item {
-        margin-bottom: 18px;
-    }
-
-    .continuity-item strong {
-        color: #4F3674;
-    }
-
-    /* =====================================================
-       IMPORTANT NOTE
-       ===================================================== */
-
-    .important-note {
-        margin-top: 26px;
-        padding: 18px 22px;
-        background-color: #fff9e6;
-        border: 1px solid #D6A800;
-        border-left: 5px solid #D6A800;
-        border-radius: 6px;
-    }
-
-    .important-note p {
-        margin: 0;
-        font-weight: 600;
-    }
-
-    /* =====================================================
-       DOWNLOAD SECTION
-       ===================================================== */
-
-    .download-section {
-        padding: 28px 30px;
-        background-color: #f7f7f7;
-        border-top: 1px solid #dddddd;
-        text-align: center;
-    }
-
-    .download-section h2 {
-        margin: 0 0 6px;
-        color: #4F3674;
-        font-size: 1.25rem;
-    }
-
-    .download-section p {
-        margin: 0 0 18px;
-        color: #333333;
-    }
-
-    /* =====================================================
-       DOWNLOAD BUTTON
-       ===================================================== */
-
-    .download-button {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        gap: 10px;
-
-        padding: 12px 20px;
-
-        background-color: #4F3674;
-        color: #ffffff;
-
-        border: 2px solid #4F3674;
-        border-radius: 7px;
-
-        font-family: "Open Sans", Arial, sans-serif;
-        font-size: 1rem;
-        font-weight: 700;
-
-        text-decoration: none;
-        cursor: pointer;
-    }
-
-    .download-button:hover {
-        background-color: #35234f;
-        color: #ffffff;
-        border-color: #35234f;
-    }
-
-    .download-button:focus-visible {
-        outline: 3px solid #D6A800;
-        outline-offset: 4px;
-    }
-
-    .download-icon {
-        width: 21px;
-        height: 21px;
-        flex-shrink: 0;
-    }
-
-    /* =====================================================
-       RESPONSIVE DESIGN
-       ===================================================== */
-
-    @media (max-width: 700px) {
-
-        body {
-            padding: 15px;
-        }
-
-        .case-header,
-        .case-content,
-        .download-section {
-            padding: 24px 20px;
-        }
-
-        .case-header h1 {
-            font-size: 1.6rem;
-        }
-
-        .download-button {
-            width: 100%;
-        }
-    }
+}
 </style>
+
 </head>
 
 <body>
 
-<main class="lighthouse-case">
+<main>
 
-    <!-- =================================================
-         HEADER
-         ================================================= -->
+    <section class="podcast-container" 
+             aria-labelledby="podcast-title">
 
-    <header class="case-header">
+        <!-- PODCAST HEADER -->
+        <header class="podcast-header">
 
-        <div class="case-label">
-            The Running Case
-        </div>
-
-        <h1>
-            Project Lighthouse
-        </h1>
-
-    </header>
-
-
-    <!-- =================================================
-         MAIN CASE CONTENT
-         ================================================= -->
-
-    <section class="case-content"
-             aria-labelledby="case-heading">
-
-        <h2 id="case-heading"
-            style="position:absolute; left:-9999px;">
-            Project Lighthouse Week 2 Case
-        </h2>
-
-        <p>
-            You are still the project manager for
-            <strong>Project Lighthouse</strong>, Brightwater Retail’s
-            <strong>$48 million automated distribution center</strong>.
-            Following the Week 1 decision, Brightwater is moving forward
-            with a conditional 18-month path supported by stronger risk
-            controls. The formal risk-identification work has not yet
-            occurred, and the initial risk register has not been created.
-        </p>
-
-
-        <!-- WEEK 2 FOCUS -->
-
-        <div class="week-focus">
-
-            <p>
-                This week, your job is to create a practical framework
-                that will help the team identify risks systematically.
-                Your RBS and rating scales will be used again in later
-                weeks, so keep them clear and usable.
-            </p>
-
-        </div>
-
-
-        <!-- CASE CONTINUITY -->
-
-        <div class="continuity">
-
-            <h2>
-                Case Continuity — Project Lighthouse
+            <h2 id="podcast-title">
+                Weekly Podcast
             </h2>
 
+            <p>
+                Course Podcast Series
+            </p>
 
-            <div class="continuity-item">
+        </header>
 
-                <p>
-                    <strong>Week 1:</strong>
-                    You established the risk foundations and evaluated
-                    the 18-month versus 22-month schedule decision.
-                    Brightwater is moving forward on the conditional
-                    18-month path with stronger risk controls.
-                </p>
+        <!-- PODCAST CONTENT -->
+        <div class="podcast-content">
+
+            <p class="podcast-description">
+                Listen to this week's podcast for an overview of the
+                key concepts, topics, and important information covered
+                in this module.
+            </p>
+
+            <!-- AUDIO PLAYER -->
+            <div class="audio-wrapper">
+
+                <h3>Listen to the Podcast</h3>
+
+                <audio 
+                    class="podcast-player"
+                    controls
+                    preload="metadata">
+
+                    <source 
+                        src="YOUR-PODCAST-FILE.mp3"
+                        type="audio/mpeg">
+
+                    Your browser does not support the HTML5 audio element.
+
+                </audio>
 
             </div>
 
-
-            <div class="continuity-item">
-
-                <p>
-                    <strong>Week 2:</strong>
-                    You will create the RBS and probability, cost-impact,
-                    and schedule-impact scales before formal risk
-                    identification begins.
-                </p>
-
-            </div>
-
-
-            <div class="continuity-item">
+            <!-- TRANSCRIPT -->
+            <div class="transcript-area">
 
                 <p>
-                    <strong>Looking Ahead:</strong>
-                    In Week 3, you will use the RBS to identify and
-                    document ten Project Lighthouse risks. In Week 4,
-                    you will use the rating scales to score and prioritize
-                    that same register.
+                    A written transcript is available for accessibility
+                    and review.
                 </p>
+
+                <a 
+                    class="transcript-button"
+                    href="YOUR-TRANSCRIPT.pdf"
+                    target="_blank"
+                    rel="noopener">
+
+                    View Podcast Transcript
+
+                </a>
 
             </div>
 
         </div>
-
-
-        <!-- IMPORTANT INSTRUCTION -->
-
-        <aside class="important-note"
-               aria-label="Important Week 2 instruction">
-
-            <p>
-                Do not identify or score individual risks yet.
-                This week is about building the framework that
-                later risk work will use.
-            </p>
-
-        </aside>
-
-    </section>
-
-
-    <!-- =================================================
-         DOWNLOAD PROJECT LIGHTHOUSE CASE
-         ================================================= -->
-
-    <section class="download-section"
-             aria-labelledby="download-heading">
-
-        <h2 id="download-heading">
-            Running Case: Project Lighthouse
-        </h2>
-
-        <p>
-            Download a PDF version of the Project Lighthouse
-            running case for reference throughout the course.
-        </p>
-
-
-        <a class="download-button"
-           href="https://content.bellevue.edu/cst/pmgt/410/casestudy/Project_Lighthouse_Running_Case.pdf"
-           target="_blank"
-           rel="noopener noreferrer"
-           aria-label="Download Project Lighthouse running case PDF. Opens in a new window.">
-
-            <svg class="download-icon"
-                 viewBox="0 0 24 24"
-                 aria-hidden="true"
-                 focusable="false">
-
-                <path
-                    d="M12 3v12
-                       M7 10l5 5 5-5
-                       M5 21h14"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round">
-                </path>
-
-            </svg>
-
-            <span>
-                Download Project Lighthouse Case (PDF)
-            </span>
-
-        </a>
 
     </section>
 
