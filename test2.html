@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Course Podcast</title>
+<title>GenAI Podcast</title>
 
 <style>
 /* =========================================================
@@ -47,6 +47,7 @@ body {
     background-color: #4F3674;
     color: #ffffff;
     padding: 24px 30px;
+    border-bottom: 5px solid #D6A800;
 }
 
 .podcast-header h2 {
@@ -98,30 +99,15 @@ body {
 }
 
 /* =========================================================
-   TRANSCRIPT AREA
+   ACCESSIBILITY NOTE
    ========================================================= */
 
-.transcript-area {
+.accessibility-note {
     margin-top: 20px;
-}
-
-.transcript-button {
-    display: inline-block;
-    padding: 10px 18px;
-    background-color: #4F3674;
-    color: #ffffff;
-    text-decoration: none;
-    font-weight: 600;
-    border: 2px solid #4F3674;
+    padding: 15px 18px;
+    background-color: #f7f7f7;
     border-radius: 6px;
-}
-
-.transcript-button:hover,
-.transcript-button:focus {
-    background-color: #ffffff;
-    color: #4F3674;
-    outline: 3px solid #D6A800;
-    outline-offset: 2px;
+    font-size: 0.95rem;
 }
 
 /* =========================================================
@@ -147,18 +133,18 @@ body {
 
 <main>
 
-    <section class="podcast-container" 
+    <section class="podcast-container"
              aria-labelledby="podcast-title">
 
         <!-- PODCAST HEADER -->
         <header class="podcast-header">
 
             <h2 id="podcast-title">
-                Weekly Podcast
+                GenAI's Impact on Enterprise Software Development
             </h2>
 
             <p>
-                Course Podcast Series
+                Course Podcast
             </p>
 
         </header>
@@ -167,9 +153,10 @@ body {
         <div class="podcast-content">
 
             <p class="podcast-description">
-                Listen to this week's podcast for an overview of the
-                key concepts, topics, and important information covered
-                in this module.
+                Listen to this podcast to explore how Generative AI
+                is changing enterprise software development. Topics
+                include bug detection, code generation, documentation,
+                developer training, refactoring, and software testing.
             </p>
 
             <!-- AUDIO PLAYER -->
@@ -177,13 +164,13 @@ body {
 
                 <h3>Listen to the Podcast</h3>
 
-                <audio 
+                <audio
                     class="podcast-player"
                     controls
                     preload="metadata">
 
-                    <source 
-                        src="YOUR-PODCAST-FILE.mp3"
+                    <source
+                        src="https://content.bellevue.edu/cst/csd/205/audio/GenAI's_Impact_on_Enterprise_Software_Development.mp3"
                         type="audio/mpeg">
 
                     Your browser does not support the HTML5 audio element.
@@ -192,23 +179,13 @@ body {
 
             </div>
 
-            <!-- TRANSCRIPT -->
-            <div class="transcript-area">
+            <!-- ACCESSIBILITY INFORMATION -->
+            <div class="accessibility-note">
 
-                <p>
-                    A written transcript is available for accessibility
-                    and review.
-                </p>
-
-                <a 
-                    class="transcript-button"
-                    href="YOUR-TRANSCRIPT.pdf"
-                    target="_blank"
-                    rel="noopener">
-
-                    View Podcast Transcript
-
-                </a>
+                <strong>Accessibility:</strong>
+                A written transcript should be provided with this
+                podcast so learners can access the same instructional
+                content in a text-based format.
 
             </div>
 
