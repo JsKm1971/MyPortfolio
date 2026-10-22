@@ -1170,6 +1170,17 @@
 
             flex-shrink: 0;
         }
+
+        /* Native Lighthouse accordions: no JavaScript required. */
+        .lighthouse-case details.lighthouse-native > summary.accordion-button {
+            display: flex;
+            list-style: none;
+            cursor: pointer;
+        }
+        .lighthouse-case details.lighthouse-native > summary.accordion-button::-webkit-details-marker { display: none; }
+        .lighthouse-case details.lighthouse-native[open] > summary.accordion-button { background-color: #f1eef5; }
+        .lighthouse-case details.lighthouse-native[open] > summary.accordion-button .accordion-symbol { font-size: 0; }
+        .lighthouse-case details.lighthouse-native[open] > summary.accordion-button .accordion-symbol::after { content: "−"; font-size: 1.5rem; }
     </style>
 </head>
 
@@ -1846,9 +1857,9 @@
                  PROJECT SCOPE ACCORDION
                  ============================================= -->
 
-    <div class="accordion-item">
+    <details class="accordion-item lighthouse-native">
 
-        <button class="accordion-button" type="button" aria-expanded="false" aria-controls="lighthouse-scope">
+        <summary class="accordion-button">
 
             <span>
 
@@ -1866,10 +1877,10 @@
                 +
             </span>
 
-        </button>
+        </summary>
 
 
-        <div class="lighthouse-accordion-panel" id="lighthouse-scope" hidden>
+        <div class="lighthouse-accordion-panel" id="lighthouse-scope">
 
             <ul>
 
@@ -1903,16 +1914,16 @@
 
         </div>
 
-    </div>
+    </details>
 
 
     <!-- =============================================
                  KEY PLAYERS ACCORDION
                  ============================================= -->
 
-    <div class="accordion-item">
+    <details class="accordion-item lighthouse-native">
 
-        <button class="accordion-button" type="button" aria-expanded="false" aria-controls="lighthouse-players">
+        <summary class="accordion-button">
 
             <span>
 
@@ -1930,10 +1941,10 @@
                 +
             </span>
 
-        </button>
+        </summary>
 
 
-        <div class="lighthouse-accordion-panel" id="lighthouse-players" hidden>
+        <div class="lighthouse-accordion-panel" id="lighthouse-players">
 
             <ul>
 
@@ -1974,16 +1985,16 @@
 
         </div>
 
-    </div>
+    </details>
 
 
     <!-- =============================================
                  KNOWN PRESSURES ACCORDION
                  ============================================= -->
 
-    <div class="accordion-item">
+    <details class="accordion-item lighthouse-native">
 
-        <button class="accordion-button" type="button" aria-expanded="false" aria-controls="lighthouse-pressures">
+        <summary class="accordion-button">
 
             <span>
 
@@ -2001,10 +2012,10 @@
                 +
             </span>
 
-        </button>
+        </summary>
 
 
-        <div class="lighthouse-accordion-panel" id="lighthouse-pressures" hidden>
+        <div class="lighthouse-accordion-panel" id="lighthouse-pressures">
 
             <ul>
 
@@ -2037,7 +2048,7 @@
 
         </div>
 
-    </div>
+    </details>
 
 
 
@@ -2045,9 +2056,9 @@
                  Week 1 Focus ACCORDION
                  ============================================= -->
 
-    <div class="accordion-item">
+    <details class="accordion-item lighthouse-native">
 
-        <button class="accordion-button" type="button" aria-expanded="false" aria-controls="lighthouse-week1-focus">
+        <summary class="accordion-button">
 
             <span>
 
@@ -2065,10 +2076,10 @@
                 +
             </span>
 
-        </button>
+        </summary>
 
 
-        <div class="lighthouse-accordion-panel" id="lighthouse-week1-focus" hidden>
+        <div class="lighthouse-accordion-panel" id="lighthouse-week1-focus">
 
             <p>
                 During Week 1, focus on understanding the uncertainty surrounding Project Lighthouse. Consider the
@@ -2081,7 +2092,7 @@
 
         </div>
 
-    </div>
+    </details>
 
 </section>
       
@@ -2293,92 +2304,6 @@
 
         
     </main>
-
-
-    <!-- =====================================================
-         JAVASCRIPT
-         ===================================================== -->
-
-    <script>
-
-        /*
-        ========================================================
-        PROJECT LIGHTHOUSE
-        ACCESSIBLE ACCORDION FUNCTIONALITY
-        ========================================================
-        */
-
-        document
-            .querySelectorAll(".lighthouse-case .accordion-button")
-            .forEach(function(button) {
-
-                button.addEventListener("click", function() {
-
-                    /*
-                    Get the ID of the panel controlled
-                    by the selected button.
-                    */
-
-                    const panelId =
-                        button.getAttribute("aria-controls");
-
-
-                    /*
-                    Find the corresponding accordion panel.
-                    */
-
-                    const panel =
-                        document.getElementById(panelId);
-
-
-                    /*
-                    Find the + / - symbol.
-                    */
-
-                    const symbol =
-                        button.querySelector(".accordion-symbol");
-
-                    if (!panel) return;
-
-
-                    /*
-                    Determine whether the accordion
-                    is currently expanded.
-                    */
-
-                    const isExpanded =
-                        button.getAttribute("aria-expanded") === "true";
-
-
-                    /*
-                    Update the accessibility state.
-                    */
-
-                    button.setAttribute(
-                        "aria-expanded",
-                        String(!isExpanded)
-                    );
-
-
-                    /*
-                    Show or hide the content.
-                    */
-
-                    panel.hidden = isExpanded;
-
-
-                    /*
-                    Change the visual indicator.
-                    */
-
-                    if (symbol) symbol.textContent =
-                        isExpanded ? "+" : "−";
-
-                });
-
-            });
-
-    </script>
 
 
     </div>
